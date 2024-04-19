@@ -4,9 +4,15 @@
 
 This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wikipedia.org/wiki/Wolfenstein_3D), which was the first FPS ever. It is a remarkable technique to explore, and a great opportunity to create a game with a good design and a nice user interface.
 
-## Introduction
+Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and published by [Apogee Software](https://en.wikipedia.org/wiki/Apogee_Software), Wolfenstein 3D was released in 1992. It was a revolutionary game that popularized the FPS genre and helped establish the PC as a gaming platform.
 
-This project is an introduction to the Ray-Casting technology, and is the first step to creating a game within the framework of the 42 school. The main goal is to create a dynamic view inside a maze, in which you'll have to find your way.
+http://users.atw.hu/wolf3d/ 
+
+## Project Overview
+
+The main objective of the cub3d project is to create a simple 3D maze game using raycasting techniques. You'll build a game engine from scratch that can render a 3D world from a first-person perspective, similar to early 3D games like Wolfenstein 3D.
+
+
 
 
 ## Resources
