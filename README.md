@@ -4,6 +4,8 @@
 
 This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wikipedia.org/wiki/Wolfenstein_3D), which was the first FPS ever. It is a remarkable technique to explore, and a great opportunity to create a game with a good design and a nice user interface.
 
+![cool-guys-1992-small](https://github.com/zelhajou/42-cub3D/assets/39954629/e53038ee-d9ed-43fa-8f58-44ee63a5ede3)
+
 Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and published by [Apogee Software](https://en.wikipedia.org/wiki/Apogee_Software), Wolfenstein 3D was released in 1992. It was a revolutionary game that popularized the FPS genre and helped establish the PC as a gaming platform.
 
 http://users.atw.hu/wolf3d/ 
