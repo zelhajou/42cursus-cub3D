@@ -1,5 +1,14 @@
 # cub3D
 
+## Summary
+
+This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wikipedia.org/wiki/Wolfenstein_3D), which was the first FPS ever. It is a remarkable technique to explore, and a great opportunity to create a game with a good design and a nice user interface.
+
+## Introduction
+
+This project is an introduction to the Ray-Casting technology, and is the first step to creating a game within the framework of the 42 school. The main goal is to create a dynamic view inside a maze, in which you'll have to find your way.
+
+
 ## Resources
 
 - [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) [Website]
