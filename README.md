@@ -1,5 +1,32 @@
 # cub3D
 
+## Table of Contents
+
+- [Project Overview](#project-overview)
+- [Summary](#summary)
+- [Project Goals](#project-goals)
+- [Project Requirements](#project-requirements)
+- [Evaluation Criteria](#evaluation-criteria)
+- [Team Development Steps](#team-development-steps)
+  - [1. Project Setup](#1-project-setup)
+  - [2. Parsing Configuration File](#2-parsing-configuration-file)
+  - [3. Initialize Graphics](#3-initialize-graphics)
+  - [4. Raycasting Engine](#4-raycasting-engine)
+  - [5. Texture Mapping](#5-texture-mapping)
+  - [6. Player Movement and Controls](#6-player-movement-and-controls)
+  - [7. Rendering Game World](#7-rendering-game-world)
+  - [8. Error Handling and Cleanup](#8-error-handling-and-cleanup)
+  - [9. Optimization and Refactoring](#9-optimization-and-refactoring)
+  - [10. Bonus Features (Optional)](#10-bonus-features-optional)
+- [Project Structure](#project-structure)
+- [Project Setup](#project-setup)
+  - [Step 1: Setup](#step-1-setup)
+  - [Step 2: Create Files](#step-2-create-files)
+- [Parsing Configuration File](#parsing-configuration-file)
+- [Resources](#resources)
+  - [Video resources](#video-resources)
+
+
 ## Project Overview
 
 Welcome to our cub3d project! As a team, we'll be diving into the exciting world of raycasting and basic 3D graphics programming. Our main goal is to create a simple 3D maze game from scratch using raycasting techniques.
