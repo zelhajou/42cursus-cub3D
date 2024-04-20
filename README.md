@@ -106,27 +106,6 @@ Implement additional features to enhance the game experience and earn extra poin
 
 The project will be structured as follows:
 
-```bash
-mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures cub3d/src/player cub3d/src/utils
-mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
-```
-
-```bash
-touch cub3d/src/main/main.c
-touch cub3d/src/parsing/parse.c
-touch cub3d/src/rendering/render.c
-touch cub3d/src/textures/texture.c
-touch cub3d/src/player/player.c
-touch cub3d/src/utils/utils.c
-touch cub3d/includes/cub3d.h
-touch cub3d/assets/textures/.gitkeep
-touch cub3d/assets/maps/.gitkeep
-touch cub3d/libft/libft.a
-touch cub3d/libft/includes/libft.h
-touch cub3d/Makefile
-```
-
-
 ```
 cub3d/
 │
@@ -176,6 +155,34 @@ In this structure:
 libft.a: Compiled library
 includes/: Header files for libft
 Makefile: Main Makefile for compiling the project and potentially the libft library.
+
+
+## Project Setup
+
+### Step 1: Setup
+```bash
+mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures cub3d/src/player cub3d/src/utils
+mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
+```
+
+## Step 2: Create Files
+```bash
+touch cub3d/src/main/main.c
+touch cub3d/src/parsing/parse.c
+touch cub3d/src/rendering/render.c
+touch cub3d/src/textures/texture.c
+touch cub3d/src/player/player.c
+touch cub3d/src/utils/utils.c
+touch cub3d/includes/cub3d.h
+touch cub3d/assets/textures/.gitkeep
+touch cub3d/assets/maps/.gitkeep
+touch cub3d/libft/libft.a
+touch cub3d/libft/includes/libft.h
+touch cub3d/Makefile
+```
+
+## Parsing Configuration File
+
 
 
 
