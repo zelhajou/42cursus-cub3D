@@ -48,7 +48,7 @@ As a team, we'll be tackling the cub3d project in a systematic manner to ensure 
 ### 1. Project Setup
 Set up the project repository, establish communication channels, and assign roles.
 - [x] **Create Repository**: Set up a Git repository for the project.
-- [ ] **Establish Communication**: Choose communication tools (Discord) and set up regular meeting times.
+- [x] **Establish Communication**: Choose communication tools (Discord) for team collaboration.
 - [ ] **Assign Roles**: Define roles and responsibilities for each team member.
 
 ### 2. Parsing Configuration File
@@ -106,6 +106,27 @@ Implement additional features to enhance the game experience and earn extra poin
 
 The project will be structured as follows:
 
+```bash
+mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures cub3d/src/player cub3d/src/utils
+mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
+```
+
+```bash
+touch cub3d/src/main/main.c
+touch cub3d/src/parsing/parse.c
+touch cub3d/src/rendering/render.c
+touch cub3d/src/textures/texture.c
+touch cub3d/src/player/player.c
+touch cub3d/src/utils/utils.c
+touch cub3d/includes/cub3d.h
+touch cub3d/assets/textures/.gitkeep
+touch cub3d/assets/maps/.gitkeep
+touch cub3d/libft/libft.a
+touch cub3d/libft/includes/libft.h
+touch cub3d/Makefile
+```
+
+
 ```
 cub3d/
 │
@@ -122,7 +143,6 @@ cub3d/
 │   │   └── player.c            # Functions for player movement and controls
 │   ├── utils/
 │   │   └── utils.c             # Utility functions (e.g., error handling, memory management)
-│   └── Makefile                # Makefile for compiling the project
 │
 ├── includes/
 │   └── cub3d.h                 # Header file with function prototypes and structures
@@ -135,8 +155,27 @@ cub3d/
 │   ├── libft.a                 # Compiled library
 │   └── includes/               # Header files for libft
 │
-└── Makefile                    # Makefile for compiling the project and libft
+└── Makefile                    # Makefile for compiling the project
 ```
+
+In this structure:
+
+- **src/**: Contains the source code files, each grouped by functionality into separate folders.
+	- **main/**: Contains the main entry point of your program.
+	- **parsing/**: Contains functions for parsing the .cub configuration file.
+	- **rendering/**: Contains functions for rendering the 3D world using raycasting.
+	- **textures/**: Contains functions for loading and managing textures.
+	- **player/**: Contains functions for player movement and controls.
+	- **utils/**: Contains utility functions like error handling and memory management.
+- **includes/**: Contains header files.
+	- **cub3d.h**: Header file with function prototypes and structure definitions.
+- **assets/**: Directory for storing assets like textures and map configuration files.
+	- **textures/**: Directory for texture files (.xpm or .png).
+	- **maps/**: Directory for map configuration files (.cub).
+- **libft/ (optional): If you're using your own libft library.
+libft.a: Compiled library
+includes/: Header files for libft
+Makefile: Main Makefile for compiling the project and potentially the libft library.
 
 
 
