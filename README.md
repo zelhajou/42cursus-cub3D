@@ -36,10 +36,10 @@ http://users.atw.hu/wolf3d/
 ## Evaluation Criteria
 Our project will be evaluated based on various criteria, including:
 
-**Correctness**: We need to ensure the game works correctly without bugs or crashes.
-**Code Quality**: Let's aim for well-structured, readable, and well-documented code.
-**Performance**: The game should run smoothly without significant lag or performance issues.
-**Bonus Features**: Extra points may be awarded for implementing additional features or going beyond the basic requirements of the project.
+- **Correctness**: We need to ensure the game works correctly without bugs or crashes.
+- **Code Quality**: Let's aim for well-structured, readable, and well-documented code.
+- **Performance**: The game should run smoothly without significant lag or performance issues.
+- **Bonus Features**: Extra points may be awarded for implementing additional features or going beyond the basic requirements of the project.
 
 ## Team Development Steps
 
@@ -47,38 +47,57 @@ As a team, we'll be tackling the cub3d project in a systematic manner to ensure 
 
 ### 1. Project Setup
 Set up our project repository, including the necessary files and directories.
+
 ### 2. Parsing Configuration File
 Implement the code to read and parse the configuration file (.cub) to extract game settings.
-- **Read File**: Open and read the .cub configuration file.
-- **Validate Data**: Check for valid map settings, resolution, textures, etc.
-- **Parse Data**: Extract and store relevant information from the configuration file.
+- [ ] **Read File**: Open and read the .cub configuration file.
+- [ ] **Validate Data**: Check for valid map settings, resolution, textures, etc.
+- [ ] **Parse Data**: Extract and store relevant information from the configuration file.
+
 ### 3. Initialize Graphics
 Set up the graphics rendering engine using the `minilibx` library.
-- **Initialize Window**: Create a window to display the game.
-- **Setup Buffer**: Set up a buffer for rendering pixels to the window.
+- [ ] **Initialize Minilibx**: Set up the Minilibx library for graphics rendering.
+- [ ] **Create Window**: Create a window for rendering the game.
+- [ ] **Setup Buffer**: Set up a buffer for rendering pixels to the window.
 
 ### 4. Raycasting Engine
 Develop the raycasting engine to render a 3D perspective view of the game world.
-- **Initialize Ray**: Start with the player's position and direction.
-- **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
-- **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
+- [ ] **Initialize Ray**: Start with the player's position and direction.
+- [ ] **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
+- [ ] **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
 
 ### 5. Texture Mapping
 Apply textures to walls to enhance the visual appearance of the game.
-- **Load Textures**: Load wall and sprite textures from files.
-- **Implement Texture Mapping**: Apply textures to the rendered walls.
+- [ ] **Load Textures**: Load wall and sprite textures from files.
+- [ ] **Implement Texture Mapping**: Apply textures to the rendered walls.
 
 ### 6. Player Movement and Controls
 Implement controls to allow the player to move and navigate within the 3D world.
-- **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
-- **Update Player Position**: Update the player's position based on input and collision detection.
+- [ ] **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
+- [ ] **Update Player Position**: Update the player's position based on input and collision detection.
 
 
+### 7. Rendering Game World
+Render the game world using the raycasting results and textures.
+- [ ] **Draw Walls**: Render the walls of the 3D world using the raycasting results.
+- [ ] **Draw Floor and Ceiling**: Render the floor and ceiling of the 3D world.
+- [ ] **Draw Sprites**: Implement sprite rendering if necessary.
 
+### 8. Error Handling and Cleanup
+Implement error handling to prevent crashes and ensure a smooth user experience.
+- [ ] **Error Checks**: Implement error handling to catch and handle any runtime errors.
+- [ ] **Memory Cleanup**: Free allocated memory and resources.
+- [ ] **Close Window**: Properly close the graphics window when exiting the game.
 
+### 9. Optimization and Refactoring
+Optimize the code for performance and refactor as needed for better readability.
+- [ ] **Optimize Raycasting**: Improve raycasting performance if necessary.
+- [ ] **Refactor Code**: Clean up and organize the code for better readability and maintainability.
 
-
-
+### 10. Bonus Features (Optional)
+Implement additional features to enhance the game experience and earn extra points.
+- [ ] **Add Features**: Implement additional features like a minimap, HUD, or more complex game mechanics.
+- [ ] **Testing**: Thoroughly test the game to ensure all features work as expected.
 
 ## Resources
 
