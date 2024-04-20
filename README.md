@@ -46,7 +46,10 @@ Our project will be evaluated based on various criteria, including:
 As a team, we'll be tackling the cub3d project in a systematic manner to ensure a successful outcome. Here's our proposed development roadmap:
 
 ### 1. Project Setup
-Set up our project repository, including the necessary files and directories.
+Set up the project repository, establish communication channels, and assign roles.
+- [x] **Create Repository**: Set up a Git repository for the project.
+- [ ] **Establish Communication**: Choose communication tools (Discord) and set up regular meeting times.
+- [ ] **Assign Roles**: Define roles and responsibilities for each team member.
 
 ### 2. Parsing Configuration File
 Implement the code to read and parse the configuration file (.cub) to extract game settings.
