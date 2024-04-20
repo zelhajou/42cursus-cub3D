@@ -102,6 +102,45 @@ Implement additional features to enhance the game experience and earn extra poin
 - [ ] **Add Features**: Implement additional features like a minimap, HUD, or more complex game mechanics.
 - [ ] **Testing**: Thoroughly test the game to ensure all features work as expected.
 
+## Project Structure
+
+The project will be structured as follows:
+
+```
+cub3d/
+│
+├── src/
+│   ├── main/
+│   │   └── main.c              # Entry point of the program
+│   ├── parsing/
+│   │   └── parse.c             # Functions for parsing the .cub configuration file
+│   ├── rendering/
+│   │   └── render.c            # Functions for rendering the 3D world using raycasting
+│   ├── textures/
+│   │   └── texture.c           # Functions for loading and managing textures
+│   ├── player/
+│   │   └── player.c            # Functions for player movement and controls
+│   ├── utils/
+│   │   └── utils.c             # Utility functions (e.g., error handling, memory management)
+│   └── Makefile                # Makefile for compiling the project
+│
+├── includes/
+│   └── cub3d.h                 # Header file with function prototypes and structures
+│
+├── assets/
+│   ├── textures/               # Directory for storing texture files (.xpm or .png)
+│   └── maps/                   # Directory for storing map configuration files (.cub)
+│
+├── libft/                      # If you're using your own libft library
+│   ├── libft.a                 # Compiled library
+│   └── includes/               # Header files for libft
+│
+└── Makefile                    # Makefile for compiling the project and libft
+```
+
+
+
+
 ## Resources
 
 - [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) [Website]
