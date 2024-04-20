@@ -1,5 +1,9 @@
 # cub3D
 
+## Project Overview
+
+Welcome to our cub3d project! As a team, we'll be diving into the exciting world of raycasting and basic 3D graphics programming. Our main goal is to create a simple 3D maze game from scratch using raycasting techniques.
+
 ## Summary
 
 This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wikipedia.org/wiki/Wolfenstein_3D), which was the first FPS ever. It is a remarkable technique to explore, and a great opportunity to create a game with a good design and a nice user interface.
@@ -8,11 +12,70 @@ This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wi
 
 Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and published by [Apogee Software](https://en.wikipedia.org/wiki/Apogee_Software), Wolfenstein 3D was released in 1992. It was a revolutionary game that popularized the FPS genre and helped establish the PC as a gaming platform.
 
-http://users.atw.hu/wolf3d/ 
+http://users.atw.hu/wolf3d/
 
-## Project Overview
 
-The main objective of the cub3d project is to create a simple 3D maze game using raycasting techniques. You'll build a game engine from scratch that can render a 3D world from a first-person perspective, similar to early 3D games like Wolfenstein 3D.
+## Project Goals
+
+1. **Raycasting Engine**: Develop a raycasting engine to render a 3D world from a first-person perspective.
+2. **Parsing Configuration File**: Read and parse a configuration file (.cub) to define our game settings, including map layout, textures, and other parameters.
+3. **Texture Mapping**: Apply textures to walls and potentially the floor and ceiling to enhance our game's visual appearance.
+4. **Player Movement and Controls**: Implement controls to allow the player to move within the 3D world, including basic movement (e.g., forward, backward, strafing) and rotation.
+5. **Basic Game Mechanics**: Create a playable game where the player can navigate through a maze-like environment, interact with objects, and complete objectives.
+6. **Error Handling and Optimization**: Implement robust error handling to handle invalid input and prevent crashes. Optimize our code for performance to ensure smooth gameplay.
+
+## Project Requirements
+
+- **Language**: We'll be using C for this project.
+- **Libraries**: We can use standard libraries like `math`. External libraries like `minilibx` are allowed for graphics rendering.
+- **Map Configuration**: Our game should read a map configuration file (.cub) that defines game settings, including map layout, textures, colors, and more.
+- **Graphics**: The game must render a 3D perspective view of the game world using raycasting techniques. Textures should be applied to walls to enhance the visual appearance.
+- **Controls**: Implement controls to allow the player to move and navigate within the 3D world using keyboard input.
+- **Bonus Features**: While not required, implementing additional features like a minimap, HUD (Heads-Up Display), or more complex game mechanics can earn us extra points.
+
+## Evaluation Criteria
+Our project will be evaluated based on various criteria, including:
+
+**Correctness**: We need to ensure the game works correctly without bugs or crashes.
+**Code Quality**: Let's aim for well-structured, readable, and well-documented code.
+**Performance**: The game should run smoothly without significant lag or performance issues.
+**Bonus Features**: Extra points may be awarded for implementing additional features or going beyond the basic requirements of the project.
+
+## Team Development Steps
+
+As a team, we'll be tackling the cub3d project in a systematic manner to ensure a successful outcome. Here's our proposed development roadmap:
+
+### 1. Project Setup
+Set up our project repository, including the necessary files and directories.
+### 2. Parsing Configuration File
+Implement the code to read and parse the configuration file (.cub) to extract game settings.
+- **Read File**: Open and read the .cub configuration file.
+- **Validate Data**: Check for valid map settings, resolution, textures, etc.
+- **Parse Data**: Extract and store relevant information from the configuration file.
+### 3. Initialize Graphics
+Set up the graphics rendering engine using the `minilibx` library.
+- **Initialize Window**: Create a window to display the game.
+- **Setup Buffer**: Set up a buffer for rendering pixels to the window.
+
+### 4. Raycasting Engine
+Develop the raycasting engine to render a 3D perspective view of the game world.
+- **Initialize Ray**: Start with the player's position and direction.
+- **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
+- **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
+
+### 5. Texture Mapping
+Apply textures to walls to enhance the visual appearance of the game.
+- **Load Textures**: Load wall and sprite textures from files.
+- **Implement Texture Mapping**: Apply textures to the rendered walls.
+
+### 6. Player Movement and Controls
+Implement controls to allow the player to move and navigate within the 3D world.
+- **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
+- **Update Player Position**: Update the player's position based on input and collision detection.
+
+
+
+
 
 
 
