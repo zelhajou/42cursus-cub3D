@@ -2,3 +2,4 @@ cub3d/cub3d
 *.o
 *.a
 
+.vscode/settings.json

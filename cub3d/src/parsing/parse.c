@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/22 15:05:01 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/22 16:31:54 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,15 @@ int	parse_config_file(const char *file_path, t_config *config)
 		printf("Error: Could not open file\n");
 		return (1);
 	}
-	while (get_next_line(fd, &line) > 0)
+
+	(void)config;
+	
+	while ((line = get_next_line(fd)))
 	{
-		
-		// parse line
-		
+		printf("line: %s\n", line);
 		free(line);
 	}
+
 	free(line);
 	close(fd);
 	return (0);
