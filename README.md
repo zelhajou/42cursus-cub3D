@@ -39,7 +39,7 @@ This project is inspired by the world-famous [Wolfenstein 3D game](https://en.wi
 
 Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and published by [Apogee Software](https://en.wikipedia.org/wiki/Apogee_Software), Wolfenstein 3D was released in 1992. It was a revolutionary game that popularized the FPS genre and helped establish the PC as a gaming platform.
 
-http://users.atw.hu/wolf3d/
+[Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 
 
 ## Project Goals
@@ -72,11 +72,12 @@ Our project will be evaluated based on various criteria, including:
 
 As a team, we'll be tackling the cub3d project in a systematic manner to ensure a successful outcome. Here's our proposed development roadmap:
 
+
 ### 1. Project Setup
 Set up the project repository, establish communication channels, and assign roles.
 - [x] **Create Repository**: Set up a Git repository for the project.
 - [x] **Establish Communication**: Choose communication tools (Discord) for team collaboration.
-- [ ] **Assign Roles**: Define roles and responsibilities for each team member.
+- [x] **Assign Roles**: Define roles and responsibilities for each team member.
 
 ### 2. Parsing Configuration File
 Implement the code to read and parse the configuration file (.cub) to extract game settings.
@@ -105,7 +106,6 @@ Apply textures to walls to enhance the visual appearance of the game.
 Implement controls to allow the player to move and navigate within the 3D world.
 - [ ] **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
 - [ ] **Update Player Position**: Update the player's position based on input and collision detection.
-
 
 ### 7. Rendering Game World
 Render the game world using the raycasting results and textures.
@@ -167,32 +167,37 @@ cub3d/
 In this structure:
 
 - **src/**: Contains the source code files, each grouped by functionality into separate folders.
-	- **main/**: Contains the main entry point of your program.
-	- **parsing/**: Contains functions for parsing the .cub configuration file.
-	- **rendering/**: Contains functions for rendering the 3D world using raycasting.
-	- **textures/**: Contains functions for loading and managing textures.
-	- **player/**: Contains functions for player movement and controls.
-	- **utils/**: Contains utility functions like error handling and memory management.
+    - **main/**: Contains the main entry point of your program.
+    - **parsing/**: Contains functions for parsing the .cub configuration file.
+    - **rendering/**: Contains functions for rendering the 3D world using raycasting.
+    - **textures/**: Contains functions for loading and managing textures.
+    - **player/**: Contains functions for player movement and controls.
+    - **utils/**: Contains utility functions like error handling and memory management.
 - **includes/**: Contains header files.
-	- **cub3d.h**: Header file with function prototypes and structure definitions.
+    - **cub3d.h**: Header file with function prototypes and structure definitions.
 - **assets/**: Directory for storing assets like textures and map configuration files.
-	- **textures/**: Directory for texture files (.xpm or .png).
-	- **maps/**: Directory for map configuration files (.cub).
+    - **textures/**: Directory for texture files (.xpm or .png).
+    - **maps/**: Directory for map configuration files (.cub).
 - **libft/ (optional): If you're using your own libft library.
 libft.a: Compiled library
 includes/: Header files for libft
 Makefile: Main Makefile for compiling the project and potentially the libft library.
 
-
 ## Project Setup
 
 ### Step 1: Setup
+
+Create the project directory structure and necessary files.
+
 ```bash
 mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures cub3d/src/player cub3d/src/utils
 mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
 ```
 
 ## Step 2: Create Files
+
+Create the main source files and header file for the project.
+
 ```bash
 touch cub3d/src/main/main.c
 touch cub3d/src/parsing/parse.c
@@ -210,27 +215,161 @@ touch cub3d/Makefile
 
 ## Parsing Configuration File
 
+The first step in our project is to read and parse the configuration file (.cub) that defines our game settings. The configuration file contains information about the map layout, textures, colors, resolution, and other parameters needed to set up the game environment.
+
+Here's an example of a simple configuration file:
+
+```cub
+NO ./textures/north.xpm
+SO ./textures/south.xpm
+WE ./textures/west.xpm
+EA ./textures/east.xpm
+
+F 220,100,0
+C 0,0,100
+
+ 1111111        111111111
+110000011      10000000001
+100000001     1000000000001
+ 1000001     100000000000001
+  11011      1000000000000001
+   101        1000000100000001
+   101         100001 100000001
+   101111111111100000100000001
+   10000000000000000000000001
+   1011111111111000000000001
+   101         100000000001
+   101        100000000001
+  11011      100000000001
+ 1000001     1000000N0001
+100000001     10000000001
+110000011      1000000001
+ 1111111        111111111
+```
+
+In this example, the configuration file specifies the following settings:
+
+- **Textures**:
+    - North wall texture: `./assets/textures/north.xpm`
+    - South wall texture: `./assets/textures/south.xpm`
+    - West wall texture: `./assets/textures/west.xpm`
+    - East wall texture: `./assets/textures/east.xpm`
+    - Sprite texture: `./assets/textures/sprite.xpm`
+- **Floor Color**: RGB value (220,100,0)
+- **Ceiling Color**: RGB value (0,0,100)
+- **Map Layout**:
+    - `1`: Wall
+    - `0`: Empty space
+    - `N`, `S`, `W`, `E`: Player starting position and direction
+
+Our task is to read and parse this configuration file to extract these settings and use them to set up the game environment.
+
+To achieve this, we'll need to implement functions to:
+
+- Open and read the configuration file.
+- Parse the data to extract relevant settings.
+- Validate the data to ensure it's in the correct format.
+- Store the settings in appropriate data structures for later use.
+
+**The valide configuration file should contain the following settings**:
+
+- **North Texture**: `NO ./textures/north.xpm`
+- **South Texture**: `SO ./textures/south.xpm`
+- **West Texture**: `WE ./textures/west.xpm`
+- **East Texture**: `EA ./textures/east.xpm`
+- **Floor Color**: `F 220,100,0`
+- **Ceiling Color**: `C 0,0,100`
+- **Map Layout**: A grid of characters representing the map layout, with walls (`1`), empty spaces (`0`), and player starting position and direction (`N`, `S`, `W`, `E`).
+
+## Map requirements
+
+1. **Map Elements**: The map must contain only the following elements:
+    - 0: Empty space
+    - 1: Wall
+    - 2: Sprite (bonus)
+2. **Map Shape**: The map must be surrounded by walls (1) on all sides. The map's shape can be a rectangle, but it can also have holes inside it.
+3. **Valid Characters**: Only the map elements mentioned above and spaces are valid characters in the map. Any other character is considered invalid.
+4. Starting Position: The map must have a starting position for the player. This starting position must be represented by one of the following characters:
+    - N: North
+    - S: South
+    - W: West
+    - E: East
+
+## Prsing and Storing the Configuration File
+
+To parse the configuration file, we'll need to:
+
+1. **Read the File**: Open and read the configuration file line by line.
+2. **Parse the Data**: Extract relevant settings from each line of the file.
+3. **Store the Data**: Store the settings in appropriate data structures for later use.
+
+Here's a basic outline of the steps involved in parsing the configuration file:
+
+1. **Open File**: Open the configuration file for reading using the `open` system call.
+2. **Read Lines**: Read each line of the file using the `get_next_line` function.
+3. **Parse Data**: Parse the data from each line to extract relevant settings (e.g., textures, colors, map layout).
+
+`cub3d/src/parsing/parse.c`
+
+```c
+
+```
+
+
+## Initialization Graphics
+
+The next step in our project is to initialize the graphics rendering engine using the `minilibx` library. The Minilibx library is a simple graphics library that provides functions for creating windows, drawing pixels, and handling user input.
+
+To set up the graphics rendering engine, we'll need to:
+
+- Initialize the Minilibx library.
+- Create a window for rendering the game.
+- Set up a buffer for rendering pixels to the window.
+- Handle user input for player controls.
+
+Here's a basic outline of the steps involved in setting up the graphics rendering engine:
+
+1. **Initialize Minilibx**: Start by initializing the Minilibx library to set up the graphics environment.
+2. **Create Window**: Create a window for rendering the game using the `mlx_new_window` function.
+3. **Setup Buffer**: Set up a buffer for rendering pixels to the window using the `mlx_new_image` function.
+4. **Handle User Input**: Implement functions to handle user input for player controls (e.g., movement, rotation).
+
+By setting up the graphics rendering engine, we'll be able to display the game world and interact with it using player controls.
+
+## Raycasting Engine
+
+
+## Researched Topics
+
+- [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
+- [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
+
+Mathematics:
 
 
 
+- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
+- [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
 
-## Resources
 
-- [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) [Website]
+Raycasting:
+
+- [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d)
+- [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY)
+- [3DSage - Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA)
+- [3DSage - Make Your Own Raycaster - Part 2](https://www.youtube.com/watch?v=PC1RaETIx3Y) 
+- [3DSage - Make Your Own Raycaster - Part 3](https://www.youtube.com/watch?v=w0Bm4IA-Ii8)
+- [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
+
+- [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents)
 - [Raycasting in 2D by 3DSage](https://reactive.so/post/42-a-comprehensive-guide-to-cub3d)
 - [Cub3D Tutorial [Using angles]. INTRODUCTION](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
-- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/) [Book]
-- [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents) [Website]
-- [x.org Documentation](https://www.x.org/wiki) [Website]
-- [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
-
-### Video resources
-
-- [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
-- [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
-- [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 - [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
-- [Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA)
-- [Make Your Own Raycaster - Part 2](https://www.youtube.com/watch?v=PC1RaETIx3Y) 
-- [Make Your Own Raycaster - Part 3](https://www.youtube.com/watch?v=w0Bm4IA-Ii8)
+
+
+- [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
+
+MinilibX:
 - [Introduction to the MinilibX](https://www.youtube.com/watch?v=bYS93r6U0zg)
+- [x.org Documentation](https://www.x.org/wiki)
+- [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
