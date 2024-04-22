@@ -271,16 +271,6 @@ To achieve this, we'll need to implement functions to:
 - Validate the data to ensure it's in the correct format.
 - Store the settings in appropriate data structures for later use.
 
-**The valide configuration file should contain the following settings**:
-
-- **North Texture**: `NO ./textures/north.xpm`
-- **South Texture**: `SO ./textures/south.xpm`
-- **West Texture**: `WE ./textures/west.xpm`
-- **East Texture**: `EA ./textures/east.xpm`
-- **Floor Color**: `F 220,100,0`
-- **Ceiling Color**: `C 0,0,100`
-- **Map Layout**: A grid of characters representing the map layout, with walls (`1`), empty spaces (`0`), and player starting position and direction (`N`, `S`, `W`, `E`).
-
 ## Map requirements
 
 1. **Map Elements**: The map must contain only the following elements:
