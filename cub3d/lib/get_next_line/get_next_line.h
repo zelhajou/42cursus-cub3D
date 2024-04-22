@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3d.h                                            :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/22 14:34:08 by zelhajou         ###   ########.fr       */
+/*   Created: 2023/06/15 17:45:40 by zelhajou          #+#    #+#             */
+/*   Updated: 2023/06/16 21:31:33 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# include <stdio.h>
-# include <unistd.h>
-# include <stdlib.h>
 # include <fcntl.h>
-# include <math.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <unistd.h>
 
-typedef struct s_config
-{
-	char *no_texture;
-	char *we_texture;
-	char *so_texture;
-	char *ea_texture;
-	int floor_color;
-	int ceiling_color;
-	char **map;
-} t_config;
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4
+# endif
 
+char	*get_next_line(int fd);
 
-
+size_t	ft_strlen(const char *s);
+char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strchr(const char *s, int c);
+char	*ft_strdup(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 #endif

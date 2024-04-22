@@ -303,8 +303,28 @@ Here's a basic outline of the steps involved in parsing the configuration file:
 
 ```c
 
-```
+typedef struct s_config
+{
+    char *no_texture;
+    char *we_texture;
+    char *so_texture;
+    char *ea_texture;
+    int floor_color;
+    int ceiling_color;
+    char **map;
+	int map_width;
+	int map_height;
+} t_config;
 
+
+
+
+/* Function to parse the configuration file */
+int parse_config_file(const char *file_path, t_config *config);
+
+
+
+```
 
 ## Initialization Graphics
 
