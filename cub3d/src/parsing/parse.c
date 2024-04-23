@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/22 18:31:23 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/23 10:44:26 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	parse_config_file(const char *file_path, t_config *config)
 			parse_color(line, &config->floor_color);
 		else if (line[0] == 'C' && line[1] == ' ')
 			parse_color(line, &config->ceiling_color);
-		else if (strchr(" 012NSEW", line[0]))
+		else if (ft_strchr(" 012NSEW", line[0]))
 			parse_map_line(line, config->map);
 		free(line);
 	}
