@@ -41,7 +41,6 @@ Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and publis
 
 [Playable Wolfenstein 3D](http://users.atw.hu/wolf3d/)
 
-
 ## Project Goals
 
 1. **Raycasting Engine**: Develop a raycasting engine to render a 3D world from a first-person perspective.
@@ -61,6 +60,7 @@ Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and publis
 - **Bonus Features**: While not required, implementing additional features like a minimap, HUD (Heads-Up Display), or more complex game mechanics can earn us extra points.
 
 ## Evaluation Criteria
+
 Our project will be evaluated based on various criteria, including:
 
 - **Correctness**: We need to ensure the game works correctly without bugs or crashes.
@@ -81,9 +81,9 @@ Set up the project repository, establish communication channels, and assign role
 
 ### 2. Parsing Configuration File
 Implement the code to read and parse the configuration file (.cub) to extract game settings.
-- [ ] **Read File**: Open and read the .cub configuration file.
-- [ ] **Validate Data**: Check for valid map settings, resolution, textures, etc.
-- [ ] **Parse Data**: Extract and store relevant information from the configuration file.
+- [x] **Read File**: Open and read the .cub configuration file.
+- [x] **Validate Data**: Check for valid map settings, resolution, textures, etc.
+- [x] **Parse Data**: Extract and store relevant information from the configuration file.
 
 ### 3. Initialize Graphics
 Set up the graphics rendering engine using the `minilibx` library.
@@ -183,7 +183,7 @@ libft.a: Compiled library
 includes/: Header files for libft
 Makefile: Main Makefile for compiling the project and potentially the libft library.
 
-## Project Setup
+## I. Project Setup
 
 ### Step 1: Setup
 
@@ -194,7 +194,7 @@ mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures
 mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
 ```
 
-## Step 2: Create Files
+### Step 2: Create Files
 
 Create the main source files and header file for the project.
 
@@ -213,7 +213,7 @@ touch cub3d/libft/includes/libft.h
 touch cub3d/Makefile
 ```
 
-## Parsing Configuration File
+## II. Parsing Configuration File
 
 The first step in our project is to read and parse the configuration file (.cub) that defines our game settings. The configuration file contains information about the map layout, textures, colors, resolution, and other parameters needed to set up the game environment.
 
@@ -271,7 +271,7 @@ To achieve this, we'll need to implement functions to:
 - Validate the data to ensure it's in the correct format.
 - Store the settings in appropriate data structures for later use.
 
-## Map requirements
+### Map requirements
 
 1. **Map Elements**: The map must contain only the following elements:
     - 0: Empty space
@@ -285,7 +285,7 @@ To achieve this, we'll need to implement functions to:
     - W: West
     - E: East
 
-## Prsing and Storing the Configuration File
+### Prsing and Storing the Configuration File
 
 To parse the configuration file, we'll need to:
 
@@ -316,12 +316,15 @@ typedef struct s_config
     int map_height;
 } t_config;
 
+/* Function to parse the texture path */
+int parse_texture(char *line, char **texture)
+
 /* Function to parse the configuration file */
 int parse_config_file(const char *file_path, t_config *config);
 
 ```
 
-## Initialization Graphics
+## III. Initialize Graphics
 
 The next step in our project is to initialize the graphics rendering engine using the `minilibx` library. The Minilibx library is a simple graphics library that provides functions for creating windows, drawing pixels, and handling user input.
 

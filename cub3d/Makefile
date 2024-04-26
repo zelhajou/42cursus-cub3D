@@ -6,13 +6,13 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/04/23 10:51:43 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/04/26 15:58:14 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 INCLUDES = -I./includes -I./lib/get_next_line -I./lib/libft
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -21,6 +21,11 @@ LIBDIR_LIBFT = ./lib/libft
 
 SRCS = $(SRCDIR)/main/main.c \
        $(SRCDIR)/parsing/parse.c \
+	   $(SRCDIR)/parsing/parse_color.c \
+	   $(SRCDIR)/parsing/parse_texture.c \
+	   $(SRCDIR)/parsing/utils/parse_utils.c \
+	   $(SRCDIR)/parsing/utils/color_utils.c \
+	   $(SRCDIR)/parsing/utils/config_file_utils.c \
        $(SRCDIR)/rendering/render.c \
        $(SRCDIR)/textures/texture.c \
        $(SRCDIR)/player/player.c \

@@ -6,65 +6,107 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/23 10:44:26 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/26 15:52:27 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int parse_texture(char *line, char **texture)
-{
-
-	(void)texture;
-	printf("Texture: %s\n", line);
-	
-	return (0);
-}
-
-int parse_color(char *line, int *color)
-{
-	(void)color;
-	printf("Color: %s\n", line);
-	return (0);
-}
-
-int parse_map_line(char *line, char **map)
-{
-	(void)map;
-	printf("Map: %s\n", line);
-	return (0);
-}
-
-int	parse_config_file(const char *file_path, t_config *config)
+/**
+ * @brief Parse the config file and fill the config struct
+ * 
+ * @param file_path path to the config file
+ * @param config pointer to the config struct
+ * @return int 0 if success, 1 if error
+ */
+int parse_config_file(const char *file_path, t_config *config)
 {
 	int		fd;
-	char 	*line;
+	int		expected_item;
 
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
+	if (check_file_extension(file_path))
+		return 1;
+	fd = open_file(file_path);
+	if (fd == -1)
+		return (1);
+	expected_item = 0;
+	if (read_and_parse_lines(fd, config, &expected_item))
 	{
-		printf("Error: Could not open file\n");
+		close(fd);
 		return (1);
 	}
+	close(fd);
+	if (handle_errors_and_cleanup(expected_item, config))
+		return (1);
+	return (0);
+}
+
+/**
+ * @brief Read and parse the lines of the config file
+ * 
+ * @param fd file descriptor
+ * @param config pointer to the config struct
+ * @param expected_item pointer to the expected item
+ * @return int 0 if success, 1 if error
+ */
+int read_and_parse_lines(int fd, t_config *config, int *expected_item)
+{
+	char *line;
+
 	while ((line = get_next_line(fd)))
 	{
-		if (line[0] == 'N' && line[1] == 'O')
-			parse_texture(line, &config->no_texture);
-		else if (line[0] == 'W' && line[1] == 'E')
-			parse_texture(line, &config->we_texture);
-		else if (line[0] == 'S' && line[1] == 'O')
-			parse_texture(line, &config->so_texture);
-		else if (line[0] == 'E' && line[1] == 'A')
-			parse_texture(line, &config->ea_texture);
-		else if (line[0] == 'F' && line[1] == ' ')
-			parse_color(line, &config->floor_color);
-		else if (line[0] == 'C' && line[1] == ' ')
-			parse_color(line, &config->ceiling_color);
-		else if (ft_strchr(" 012NSEW", line[0]))
-			parse_map_line(line, config->map);
+		if (is_empty_or_whitespace(line))
+		{
+			free(line);
+			continue;
+		}
+		if (parse_line_data(line, config, expected_item))
+		{
+			free(line);
+			return (1);
+		}
 		free(line);
 	}
-	free(line);
-	close(fd);
+	return (0);
+}
+
+/**
+ * @brief Parse the line data
+ * 
+ * @param line line to parse
+ * @param config pointer to the config struct
+ * @param expected pointer to the expected item
+ * @return int 0 if success, 1 if error
+ */
+int parse_line_data(char *line, t_config *config, int *expected)
+{
+	if (parse_texture_type(line, config, expected) || parse_color_type(line, config, expected))
+		return (1);
+	return (0);
+}
+
+/**
+ * @brief Handle errors and cleanup
+ * 
+ * @param fd file descriptor
+ * @param expected_item expected item
+ * @param config pointer to the config struct
+ * @return int 0 if success, 1 if error
+ */
+int handle_errors_and_cleanup(int expected_item, t_config *config)
+{
+	if (expected_item != 6) // 6 items (textures, colors) + 1 (map)
+	{
+		if (expected_item < 4)
+			printf("Error: Missing texture paths\n");
+		else if (expected_item < 5)
+			printf("Error: Missing floor color\n");
+		else if (expected_item < 6)
+			printf("Error: Missing ceiling color\n");
+		else
+			printf("Error: Missing map data\n");
+		free_config(config);
+		return (1);
+	}
 	return (0);
 }

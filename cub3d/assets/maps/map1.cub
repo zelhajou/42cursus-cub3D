@@ -1,10 +1,10 @@
-NO img/MARBFAC2.xpm
-WE img/SKULWALL.xpm
-SO img/MARBFACE.xpm
-EA img/SKULWAL3.xpm
+NO assets/textures/wood.xpm
+WE assets/textures/wood.xpm
+SO assets/textures/wood.xpm
+EA assets/textures/wood.xpm
 
-F 0,32,0
-C 120,0,16
+F 30,30,30
+C 120,0,4
 
         1111111111111111111111111
         1000000000110000000000001
