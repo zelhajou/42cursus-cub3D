@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
+/*   ft_split_count.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/14 22:50:11 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/11/19 21:26:00 by zelhajou         ###   ########.fr       */
+/*   Created: 2024/04/26 14:22:29 by zelhajou          #+#    #+#             */
+/*   Updated: 2024/04/26 15:59:25 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Description : Adds the node ’new’ at the beginning of the list.
-	
-	lst:	The address of a pointer to the first link of a list.
-	new:	The address of a pointer to the node to be added to the list.
-*/
-
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+/**
+ * @brief Count the number of elements in the split array
+ * 
+ * @param split array to count
+ * @return int number of elements
+ */
+int	ft_split_count(char **split)
 {
-	if (!new)
-		return ;
-	if (!lst)
-	{
-		*lst = new;
-		return ;
-	}
-	new->next = *lst;
-	*lst = new;
+	int	count;
+
+	if (!split)
+		return (0);
+	count = 0;
+	while (split[count])
+		count++;
+	return (count);
 }

@@ -1,35 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
+/*   ft_split_free.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/17 18:53:42 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/11/19 21:28:37 by zelhajou         ###   ########.fr       */
+/*   Created: 2024/04/26 14:21:15 by zelhajou          #+#    #+#             */
+/*   Updated: 2024/04/26 14:21:27 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-	Description : Adds the node ’new’ at the end of the list.
-
-	lst:  The address of a pointer to the first link of a list.
-	new:  The address of a pointer to the node to be added to the list.
-*/
-
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **lst, t_list *new)
+/**
+ * @brief Free the split array
+ * 
+ * @param split array to free
+ */
+void	ft_split_free(char **split)
 {
-	t_list	*pos;
+	int	i;
 
-	if (!new || !lst)
+	if (!split)
 		return ;
-	if (!*lst)
+	i = 0;
+	while (split[i])
 	{
-		*lst = new;
-		return ;
+		free(split[i]);
+		i++;
 	}
-	pos = ft_lstlast(*lst);
-	pos->next = new;
+	free(split);
 }
