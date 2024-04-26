@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 15:52:27 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:11:29 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,13 @@
  * @param config pointer to the config struct
  * @return int 0 if success, 1 if error
  */
-int parse_config_file(const char *file_path, t_config *config)
+int	parse_config_file(const char *file_path, t_config *config)
 {
 	int		fd;
 	int		expected_item;
 
 	if (check_file_extension(file_path))
-		return 1;
+		return (1);
 	fd = open_file(file_path);
 	if (fd == -1)
 		return (1);
@@ -49,16 +49,16 @@ int parse_config_file(const char *file_path, t_config *config)
  * @param expected_item pointer to the expected item
  * @return int 0 if success, 1 if error
  */
-int read_and_parse_lines(int fd, t_config *config, int *expected_item)
+int	read_and_parse_lines(int fd, t_config *config, int *expected_item)
 {
-	char *line;
+	char	*line;
 
-	while ((line = get_next_line(fd)))
+	while (line = get_next_line(fd))
 	{
 		if (is_empty_or_whitespace(line))
 		{
 			free(line);
-			continue;
+			continue ;
 		}
 		if (parse_line_data(line, config, expected_item))
 		{
@@ -78,9 +78,10 @@ int read_and_parse_lines(int fd, t_config *config, int *expected_item)
  * @param expected pointer to the expected item
  * @return int 0 if success, 1 if error
  */
-int parse_line_data(char *line, t_config *config, int *expected)
+int	parse_line_data(char *line, t_config *config, int *expected)
 {
-	if (parse_texture_type(line, config, expected) || parse_color_type(line, config, expected))
+	if (parse_texture_type(line, config, expected)
+		|| parse_color_type(line, config, expected))
 		return (1);
 	return (0);
 }
@@ -93,9 +94,9 @@ int parse_line_data(char *line, t_config *config, int *expected)
  * @param config pointer to the config struct
  * @return int 0 if success, 1 if error
  */
-int handle_errors_and_cleanup(int expected_item, t_config *config)
+int	handle_errors_and_cleanup(int expected_item, t_config *config)
 {
-	if (expected_item != 6) // 6 items (textures, colors) + 1 (map)
+	if (expected_item != 6)
 	{
 		if (expected_item < 4)
 			printf("Error: Missing texture paths\n");

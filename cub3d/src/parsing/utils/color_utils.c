@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parse_color_utils.c                                :+:      :+:    :+:   */
+/*   color_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:52:59 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 14:59:55 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:29:05 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int	validate_color_values(char **color_values)
 	}
 	return (0);
 }
+
 /**
  * @brief Check if the color values are digits
  * 
@@ -100,7 +101,7 @@ int	convert_and_check_range(char **color_values, int *color)
 int	is_all_digits(const char *str)
 {
 	int	i;
-	
+
 	i = 0;
 	while (str[i] != '\0')
 	{

@@ -6,13 +6,13 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 11:01:48 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:29:48 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
 	t_config	config;
 
@@ -26,14 +26,11 @@ int main(int argc, char **argv)
 		printf("Error: Could not open file\n");
 		return (1);
 	}
-
 	if (parse_config_file(argv[1], &config))
 	{
 		printf("Error: Could not parse config file\n");
 		return (1);
 	}
-
-	
 	printf("NO texture: %s\n", config.no_texture);
 	printf("WE texture: %s\n", config.we_texture);
 	printf("SO texture: %s\n", config.so_texture);

@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:58:53 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 14:13:02 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/26 16:28:10 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int	parse_texture(char *line, char **texture)
 		return (1);
 	return (0);
 }
+
 /**
  * @brief Parse the texture type and fill the config struct
  * 
@@ -85,4 +86,3 @@ int	parse_texture_type(char *line, t_config *config, int *expected)
 	}
 	return (0);
 }
-
