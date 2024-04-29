@@ -6,17 +6,12 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:11:20 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 16:26:14 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:52:33 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/**
- * @brief Free the config struct
- * 
- * @param config pointer to the config struct
- */
 void	free_config(t_config *config)
 {
 	int	i;

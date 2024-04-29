@@ -6,19 +6,12 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 14:53:47 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:52:29 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/**
- * @brief Parse the color and fill the color variable
- * 
- * @param line line to parse
- * @param color pointer to the color variable
- * @return int 0 if success, 1 if error
- */
 int	parse_color(char *line, int *color)
 {
 	char	**values;
@@ -46,14 +39,6 @@ int	parse_color(char *line, int *color)
 	return (convert_and_check_range(color_values, color));
 }
 
-/**
- * @brief Parse the color type and fill the config struct
- * 
- * @param line line to parse
- * @param config pointer to the config struct
- * @param expected pointer to the expected item
- * @return int 0 if success, 1 if error
- */
 int	parse_color_type(char *line, t_config *config, int *expected)
 {
 	if (ft_strncmp(line, "F ", 2) == 0)

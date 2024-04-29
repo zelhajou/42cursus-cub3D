@@ -6,19 +6,12 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 16:11:29 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/29 15:52:14 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/**
- * @brief Parse the config file and fill the config struct
- * 
- * @param file_path path to the config file
- * @param config pointer to the config struct
- * @return int 0 if success, 1 if error
- */
 int	parse_config_file(const char *file_path, t_config *config)
 {
 	int		fd;
@@ -41,19 +34,11 @@ int	parse_config_file(const char *file_path, t_config *config)
 	return (0);
 }
 
-/**
- * @brief Read and parse the lines of the config file
- * 
- * @param fd file descriptor
- * @param config pointer to the config struct
- * @param expected_item pointer to the expected item
- * @return int 0 if success, 1 if error
- */
 int	read_and_parse_lines(int fd, t_config *config, int *expected_item)
 {
 	char	*line;
 
-	while (line = get_next_line(fd))
+	while ((line = get_next_line(fd)))
 	{
 		if (is_empty_or_whitespace(line))
 		{
@@ -70,14 +55,6 @@ int	read_and_parse_lines(int fd, t_config *config, int *expected_item)
 	return (0);
 }
 
-/**
- * @brief Parse the line data
- * 
- * @param line line to parse
- * @param config pointer to the config struct
- * @param expected pointer to the expected item
- * @return int 0 if success, 1 if error
- */
 int	parse_line_data(char *line, t_config *config, int *expected)
 {
 	if (parse_texture_type(line, config, expected)
@@ -86,14 +63,6 @@ int	parse_line_data(char *line, t_config *config, int *expected)
 	return (0);
 }
 
-/**
- * @brief Handle errors and cleanup
- * 
- * @param fd file descriptor
- * @param expected_item expected item
- * @param config pointer to the config struct
- * @return int 0 if success, 1 if error
- */
 int	handle_errors_and_cleanup(int expected_item, t_config *config)
 {
 	if (expected_item != 6)
