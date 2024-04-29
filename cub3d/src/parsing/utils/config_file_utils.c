@@ -6,18 +6,12 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:55:52 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 16:27:38 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:23:48 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/**
- * @brief Open the file and return the file descriptor
- * 
- * @param file_path path to the file
- * @return int file descriptor
- */
 int	open_file(const char *file_path)
 {
 	int	fd;
@@ -31,12 +25,6 @@ int	open_file(const char *file_path)
 	return (fd);
 }
 
-/**
- * @brief Check if the file extension is valid
- * 
- * @param file_path path to the file
- * @return int 0 if success, 1 if error
- */
 int	check_file_extension(const char *file_path)
 {
 	if (ft_strncmp(file_path + ft_strlen(file_path) - 4, ".cub", 4) != 0)
@@ -48,12 +36,6 @@ int	check_file_extension(const char *file_path)
 	return (0);
 }
 
-/**
- * @brief Check if the string is empty or whitespace
- * 
- * @param line string to check
- * @return int 0 if success, 1 if error
- */
 int	is_empty_or_whitespace(const char *line)
 {
 	while (*line)
@@ -65,12 +47,6 @@ int	is_empty_or_whitespace(const char *line)
 	return (1);
 }
 
-/**
- * @brief Check if the path is valid
- * 
- * @param path path to check
- * @return int 0 if success, 1 if error
- */
 int	check_path_validity(const char *path)
 {
 	int	fd;
@@ -83,4 +59,20 @@ int	check_path_validity(const char *path)
 	}
 	close(fd);
 	return (0);
+}
+
+bool has_unexpected_data(const char *line)
+{
+	while (*line && isspace(*line))
+		line++;
+	if (strncmp(line, "NO ", 3) == 0 ||
+		strncmp(line, "WE ", 3) == 0 ||
+		strncmp(line, "SO ", 3) == 0 ||
+		strncmp(line, "EA ", 3) == 0 ||
+		strncmp(line, "F ", 2) == 0 ||
+		strncmp(line, "C ", 2) == 0 ||
+		strncmp(line, "1", 1) == 0 ||
+		strncmp(line, "0", 1) == 0)
+		return (false);
+	return (true);
 }
