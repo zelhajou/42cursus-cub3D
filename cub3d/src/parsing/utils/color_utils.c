@@ -6,18 +6,12 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:52:59 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 16:29:05 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:23:22 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-/**
- * @brief Check if the color format is valid
- * 
- * @param values color values
- * @return int 0 if success, 1 if error
- */
 int	validate_color_format(char **values)
 {
 	if (!values || ft_split_count(values) != 2)
@@ -30,12 +24,6 @@ int	validate_color_format(char **values)
 	return (0);
 }
 
-/**
- * @brief Check if the color values are valid
- * 
- * @param color_values color values
- * @return int 0 if success, 1 if error
- */
 int	validate_color_values(char **color_values)
 {
 	if (!color_values || ft_split_count(color_values) != 3)
@@ -48,12 +36,6 @@ int	validate_color_values(char **color_values)
 	return (0);
 }
 
-/**
- * @brief Check if the color values are digits
- * 
- * @param color_values color values
- * @return int 0 if success, 1 if error
- */
 int	validate_digit_values(char **color_values)
 {
 	if (!is_all_digits(color_values[0]) || !is_all_digits(color_values[1])
@@ -66,13 +48,6 @@ int	validate_digit_values(char **color_values)
 	return (0);
 }
 
-/**
- * @brief Convert the color values to int and check the range
- * 
- * @param color_values color values
- * @param color pointer to the color variable
- * @return int 0 if success, 1 if error
- */
 int	convert_and_check_range(char **color_values, int *color)
 {
 	int	r;
@@ -92,12 +67,6 @@ int	convert_and_check_range(char **color_values, int *color)
 	return (0);
 }
 
-/**
- * @brief Check if the string is all digits
- * 
- * @param str string to check
- * @return int 0 if success, 1 if error
- */
 int	is_all_digits(const char *str)
 {
 	int	i;
