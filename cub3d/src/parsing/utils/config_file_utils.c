@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:55:52 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/29 10:23:48 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/04/30 18:01:05 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	is_empty_or_whitespace(const char *line)
 {
 	while (*line)
 	{
-		if (!isspace(*line))
+		if (!ft_isspace(*line))
 			return (0);
 		line++;
 	}
