@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   color_utils.c                                      :+:      :+:    :+:   */
+/*   color_validation.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:52:59 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/29 10:23:22 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:06:38 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,35 +48,20 @@ int	validate_digit_values(char **color_values)
 	return (0);
 }
 
-int	convert_and_check_range(char **color_values, int *color)
+int	validate_floor_color(char *line, t_config *config)
 {
-	int	r;
-	int	g;
-	int	b;
-
-	r = ft_atoi(color_values[0]);
-	g = ft_atoi(color_values[1]);
-	b = ft_atoi(color_values[2]);
-	ft_split_free(color_values);
-	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
-	{
-		printf("Error: Color values must be between 0 and 255\n");
+	if (config->floor_color)
+		return (printf("Error: Floor color already set\n"), 1);
+	if (parse_color(line, &config->floor_color))
 		return (1);
-	}
-	*color = (r << 16) + (g << 8) + b;
 	return (0);
 }
 
-int	is_all_digits(const char *str)
+int	validate_ceiling_color(char *line, t_config *config)
 {
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if (!ft_isdigit(str[i]))
-			return (0);
-		i++;
-	}
-	return (1);
+	if (config->ceiling_color)
+		return (printf("Error: Ceiling color already set\n"), 1);
+	if (parse_color(line, &config->ceiling_color))
+		return (1);
+	return (0);
 }

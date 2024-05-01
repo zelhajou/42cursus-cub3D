@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config_file_utils.c                                :+:      :+:    :+:   */
+/*   config_file_validation.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:55:52 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/30 18:01:05 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:01:51 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,6 @@ int	check_file_extension(const char *file_path)
 	return (0);
 }
 
-int	is_empty_or_whitespace(const char *line)
-{
-	while (*line)
-	{
-		if (!ft_isspace(*line))
-			return (0);
-		line++;
-	}
-	return (1);
-}
-
 int	check_path_validity(const char *path)
 {
 	int	fd;
@@ -61,18 +50,28 @@ int	check_path_validity(const char *path)
 	return (0);
 }
 
-bool has_unexpected_data(const char *line)
+bool	has_unexpected_data(const char *line)
 {
-	while (*line && isspace(*line))
+	while (*line && ft_isspace(*line))
 		line++;
-	if (strncmp(line, "NO ", 3) == 0 ||
-		strncmp(line, "WE ", 3) == 0 ||
-		strncmp(line, "SO ", 3) == 0 ||
-		strncmp(line, "EA ", 3) == 0 ||
-		strncmp(line, "F ", 2) == 0 ||
-		strncmp(line, "C ", 2) == 0 ||
-		strncmp(line, "1", 1) == 0 ||
-		strncmp(line, "0", 1) == 0)
+	if (ft_strncmp(line, "NO ", 3) == 0
+		|| ft_strncmp(line, "WE ", 3) == 0
+		|| ft_strncmp(line, "SO ", 3) == 0
+		|| ft_strncmp(line, "EA ", 3) == 0
+		|| ft_strncmp(line, "F ", 2) == 0
+		|| ft_strncmp(line, "C ", 2) == 0
+		|| ft_strncmp(line, "1", 1) == 0
+		|| ft_strncmp(line, "0", 1) == 0)
 		return (false);
 	return (true);
+}
+
+int	check_config_validity(int map_started, t_config *config)
+{
+	if (!config->no_texture || !config->we_texture
+		|| !config->so_texture || !config->ea_texture
+		|| !config->floor_color || !config->ceiling_color
+		|| !map_started)
+		return (printf("Error: Missing data\n"), 1);
+	return (0);
 }
