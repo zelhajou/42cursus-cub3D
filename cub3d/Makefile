@@ -6,7 +6,7 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/01 17:41:50 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/05/02 10:23:27 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,15 +20,16 @@ LIBDIR_GNL = ./lib/get_next_line
 LIBDIR_LIBFT = ./lib/libft
 
 SRCS = $(SRCDIR)/main/main.c \
-       $(SRCDIR)/parsing/color/color_parsing.c \
-	   $(SRCDIR)/parsing/color/color_parsing_utils.c \
-	   $(SRCDIR)/parsing/color/color_validation.c \
 	   $(SRCDIR)/parsing/config_file/config_file_parsing.c \
 	   $(SRCDIR)/parsing/config_file/config_file_parsing_utils.c \
 	   $(SRCDIR)/parsing/config_file/config_file_validation.c \
+	   $(SRCDIR)/parsing/config_file/config_line_handlers.c \
 	   $(SRCDIR)/parsing/texture/texture_parsing.c \
 	   $(SRCDIR)/parsing/texture/texture_parsing_utils.c \
 	   $(SRCDIR)/parsing/texture/texture_validation.c \
+       $(SRCDIR)/parsing/color/color_parsing.c \
+	   $(SRCDIR)/parsing/color/color_parsing_utils.c \
+	   $(SRCDIR)/parsing/color/color_validation.c \
        $(SRCDIR)/rendering/render.c \
        $(SRCDIR)/textures/texture.c \
        $(SRCDIR)/player/player.c \

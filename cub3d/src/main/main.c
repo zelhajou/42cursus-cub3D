@@ -6,11 +6,26 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/01 18:08:27 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:35:56 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void display_config(t_config *config)
+{
+	printf("NO texture: %s\n", config->no_texture);
+	printf("WE texture: %s\n", config->we_texture);
+	printf("SO texture: %s\n", config->so_texture);
+	printf("EA texture: %s\n", config->ea_texture);
+	printf("Floor color: %d\n", config->floor_color);
+	printf("Ceiling color: %d\n", config->ceiling_color);
+	printf("Map:\n");
+	for (size_t i = 0; i < config->map_height; i++)
+		printf("%s\n", config->map[i]);
+	printf("config->map_height: %zu\n", config->map_height);
+	printf("config->map_width: %zu\n", config->map_width);
+}
 
 void display_error_message(void)
 {
@@ -51,16 +66,19 @@ int	main(int argc, char **argv)
 	config.ea_texture = NULL;
 	config.floor_color = 0;
 	config.ceiling_color = 0;
+	config.map = NULL;
+	config.map_height = 0;
+	config.map_width = 0;
+	
 	if (parse_config_file(argv[1], &config, &line_number))
 	{
 		//display_error_message();
 		return (1);
 	}
-	printf("NO texture: %s\n" , config.no_texture);
-	printf("WE texture: %s\n", config.we_texture);
-	printf("SO texture: %s\n", config.so_texture);
-	printf("EA texture: %s\n", config.ea_texture);
-	printf("Floor color: %d\n", config.floor_color);
-	printf("Ceiling color: %d\n", config.ceiling_color);
+	
+
+	
+	display_config(&config);
+
 	return (0);
 }

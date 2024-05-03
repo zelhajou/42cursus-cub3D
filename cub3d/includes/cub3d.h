@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/01 18:21:49 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/03 20:37:03 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,29 +40,35 @@ typedef struct s_config
 	int		floor_color;
 	int		ceiling_color;
 	char	**map;
-	int		map_width;
-	int		map_height;
+	char	**map_copy;
+	size_t	map_width;
+	size_t	map_height;
 	int		map_started;
 }	t_config;
 
 /******************* Parsing functions ******************/
 
 /*------------------ Parsing config file ---------------*/
-// Parsing config file: config_parsing.c
+// Config file Parsing: config_file_parsing.c
 int		parse_config_file(const char *file_path, t_config *config,
 			int *line_number);
 int		read_and_parse_lines(int fd, t_config *config, int *line_number);
 int		parse_line_data(char *line, t_config *config, int *map_started);
-// Config file utils: config_utils.c
+// Config file utils: config_file_utils.c
 void	free_config(t_config *config);
 void	remove_newline_character(char *line);
 bool	has_unexpected_data(const char *line);
 int		check_config_validity(int map_started, t_config *config);
-// File handling: file_handling.c
+void print_error_with_caret(const char *line);
+// Cofig file validation: config_file_validation.c
 int		open_file(const char *file_path);
 int		check_file_extension(const char *file_path);
 int		is_empty_or_whitespace(const char *line);
 int		check_path_validity(const char *path);
+// Config line handlers: config_line_handlers.c
+int		handle_texture_line(char *line, t_config *config, int *map_started);
+int		handle_color_line(char *line, t_config *config);
+int		handle_map_line(char *line, t_config *config, int *map_started);
 
 /*------------------ Parsing textures ------------------*/
 // Parsing textures: parse_texture.c
@@ -91,5 +97,10 @@ int		validate_color_values(char **color_values);
 int		validate_digit_values(char **color_values);
 int		validate_floor_color(char *line, t_config *config);
 int		validate_ceiling_color(char *line, t_config *config);
+
+/*------------------ Parsing map ------------------------*/
+
+/*------------------ Player position -------------------*/
+
 
 #endif
