@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:14 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/03 01:34:06 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:54:20 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 
 void	cancel_d(void)
 {
-	fprintf(stderr, "%s", mlx_strerror(mlx_errno));
+	printf("error initializing mlx42: \n\t%s\n", mlx_strerror(mlx_errno));
 	exit(1);
+}
+
+void	close_handle(void *param)
+{
+	t_ptrs		*_ptrs;
+
+	_ptrs = (t_ptrs *)param;
+	mlx_terminate(_ptrs->mlx_ptr);
+	exit(0);
 }
 
 void	adapt_camera_plane(t_ptrs	*_ptrs)

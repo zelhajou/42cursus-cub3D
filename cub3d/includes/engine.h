@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 15:46:42 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:49:23 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void			mouse_handle(mouse_key_t f, action_t ff,
 					modifier_key_t fff, void *ffff);
 void			key_handle(mlx_key_data_t f, void *ff);
 void			move_prespective(int f, float ff, t_ptrs *fff);
+void			close_handle(void *param);
 void			move_position(int f, float ff, t_ptrs *fff);
 //
 void			adapt_camera_plane(t_ptrs *f);

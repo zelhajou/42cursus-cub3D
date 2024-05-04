@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:34 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 03:03:28 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:47:43 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	key_handle(mlx_key_data_t keydata, void *param)
 	if (keydata.action == MLX_RELEASE)
 		return ;
 	if (keydata.key == MLX_KEY_ESCAPE)
-		exit(0);
+		close_handle(_ptrs);
 	else if (keydata.key == MLX_KEY_RIGHT
 		|| keydata.key == MLX_KEY_LEFT
 		|| keydata.key == MLX_KEY_UP

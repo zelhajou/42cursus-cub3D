@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/03 03:29:34 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/04 22:49:48 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ void	_render(t_map_data *map_data)
 	mlx_set_window_limit(_ptrs->mlx_ptr, MIN_WIN_W,
 		MIN_WIN_H, MAX_WIN_W, MAX_WIN_H);
 	mlx_resize_hook(_ptrs->mlx_ptr, resize_handle, _ptrs);
+	mlx_close_hook(_ptrs->mlx_ptr, close_handle, _ptrs);
 	mlx_loop(_ptrs->mlx_ptr);
-	mlx_terminate(_ptrs->mlx_ptr);
 }
