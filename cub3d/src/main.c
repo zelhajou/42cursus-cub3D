@@ -6,13 +6,13 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/03 20:35:56 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/04 01:01:30 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void display_config(t_config *config)
+/*void display_config(t_config *config)
 {
 	printf("NO texture: %s\n", config->no_texture);
 	printf("WE texture: %s\n", config->we_texture);
@@ -27,9 +27,9 @@ void display_config(t_config *config)
 	printf("config->map_width: %zu\n", config->map_width);
 }
 
-void display_error_message(void)
+int	display_error_message(t_config *config)
 {
-	printf("----------------------------------------\n");
+	printf("\n----------------------------------------\n");
 	printf("| Example of a valid config file:      |\n");
 	printf("----------------------------------------\n");
 	printf("| Command   | Description              |\n");
@@ -43,42 +43,38 @@ void display_error_message(void)
 	printf("| Map       | ASCII representation     |\n");
 	printf("|           | of the map               |\n");
 	printf("----------------------------------------\n");
+	free(config);
+	return (1);
+}*/
+
+void	init_config(t_config *config, int *line_number)
+{
+	config->no_texture = NULL;
+	config->we_texture = NULL;
+	config->so_texture = NULL;
+	config->ea_texture = NULL;
+	config->floor_color = 0;
+	config->ceiling_color = 0;
+	config->map = NULL;
+	config->map_height = 0;
+	config->map_width = 0;
+	*line_number = 1;
 }
 
 int	main(int argc, char **argv)
 {
-	t_config	config;
-	int	line_number = 1;
+	t_config		*config;
+	int		line_number;
 
-	if (argc != 2)
+	config = NULL;
+	if (argc == 2 && !check_path_validity(argv[1])
+		&& (config = malloc(sizeof(t_config))))
 	{
-		printf("Error: Incorrect number of arguments\n");
-		return (1);
+		init_config(config, &line_number);
+		if (parse_config_file(argv[1], config, &line_number))
+			return free(config), (1);
+		//
+		_render(config);
 	}
-	if (check_path_validity(argv[1]))
-	{
-		printf("Error: Could not open file\n");
-		return (1);
-	}
-	config.no_texture = NULL;
-	config.we_texture = NULL;
-	config.so_texture = NULL;
-	config.ea_texture = NULL;
-	config.floor_color = 0;
-	config.ceiling_color = 0;
-	config.map = NULL;
-	config.map_height = 0;
-	config.map_width = 0;
-	
-	if (parse_config_file(argv[1], &config, &line_number))
-	{
-		//display_error_message();
-		return (1);
-	}
-	
-
-	
-	display_config(&config);
-
 	return (0);
 }

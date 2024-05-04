@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/03 20:37:03 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/03 23:18:16 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,9 +98,6 @@ int		validate_digit_values(char **color_values);
 int		validate_floor_color(char *line, t_config *config);
 int		validate_ceiling_color(char *line, t_config *config);
 
-/*------------------ Parsing map ------------------------*/
-
-/*------------------ Player position -------------------*/
-
+void			_render(t_config *);
 
 #endif

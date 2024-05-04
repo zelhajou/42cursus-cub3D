@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/03 20:15:05 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/04 17:41:42 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,9 +191,11 @@ void free_copied_map(t_config *config)
 
 	for (i = 0; i < height; i++)
 	{
-		free(config->map_copy[i]);
+		//printf("|%s| -> %i\n", config->map_copy[i], ft_strlen(config->map_copy[i]));
+		free(config->map[i]);
 	}
-	free(config->map_copy);
+	free(config->map);
+	config->map = config->map_copy;
 }
 
 int is_valid_map(t_config *config)
@@ -204,7 +206,7 @@ int is_valid_map(t_config *config)
 	// check if the map is a rectangle
 	if (is_map_rectangle(config))
 		return (1);
-	print_copied_map(config);
+	//print_copied_map(config);
 	// Check top and bottom of map have only '1' and ' '
 	if (check_top_bottom(config))
 		return (1);
@@ -218,7 +220,7 @@ int is_valid_map(t_config *config)
 	if (is_player_position_valid(config))
 		return (1);
 	// print the copied map
-	print_copied_map(config);
+	//print_copied_map(config);
 	// free the copied map
 	free_copied_map(config);
 	return 0;

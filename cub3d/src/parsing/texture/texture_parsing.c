@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:58:53 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/01 18:00:03 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/04 18:03:13 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	parse_texture(char *line, char **texture)
 	}
 	*texture = ft_strdup(values[1]);
 	ft_split_free(values);
-	if (!*texture || check_path_validity(*texture))
+	if ((!*texture) || check_path_validity(*texture))
 		return (1);
 	return (0);
 }
