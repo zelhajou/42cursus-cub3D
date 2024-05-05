@@ -6,19 +6,20 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/05 08:40:02 by beddinao         ###   ########.fr        #
+#    Updated: 2024/05/05 11:16:33 by beddinao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 CC = gcc
-CFLAGS = #-g -fsanitize=address#-Wall -Wextra -Werror #-g -fsanitize=address
-INCLUDES = -I./includes -I./lib/get_next_line -I./lib/libft -I./lib/MLX42
+CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
 SRCDIR = ./src
 OBJDIR = ./obj
 LIBDIR_GNL = ./lib/get_next_line
 LIBDIR_LIBFT = ./lib/libft
-MLX42_FLAGS = -framework Cocoa -framework IOKit ./lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L $(shell brew --prefix glfw)/lib
+LIBMLX = ./lib/MLX42
+INCLUDES = -I./includes -I./lib/get_next_line -I./lib/libft -I./lib/MLX42/include
+MLX42_FLAGS = -framework Cocoa -framework IOKit $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L $(shell brew --prefix glfw)/lib
 
 SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/parsing/config_file/config_file_parsing.c \
@@ -44,12 +45,15 @@ SRCS = $(SRCDIR)/main.c \
 
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 
-all: $(NAME)
+all: libmlx $(NAME)
+
+libmlx:
+	cmake $(LIBMLX) -B $(LIBMLX)/build && make -C $(LIBMLX)/build -j4
 
 $(NAME): $(OBJS) libft ./includes/cub3d.h ./includes/engine.h
 	$(CC) $(MLX42_FLAGS) $(CFLAGS) $(OBJS) -L$(LIBDIR_LIBFT) -lft -o $(NAME)
 
-$(OBJDIR)/%.o: $(SRCDIR)/%.c
+$(OBJDIR)/%.o: $(SRCDIR)/%.c ./includes/cub3d.h ./includes/engine.h
 	@mkdir -p $(@D)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
@@ -59,6 +63,7 @@ libft:
 clean:
 	rm -rf $(OBJDIR)
 	@make -C $(LIBDIR_LIBFT) clean
+	rm -rf $(LIBMLX)/build
 
 fclean: clean
 	rm -f $(NAME)

@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 18:32:57 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:21:00 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	draw_(
 	}
 }
 
-void	initialize_ray_data(t_ptrs *_ptrs, t_ray_data *ray_data, int *position, float *fPosition)
+void	initialize_ray_data(t_ray_data *ray_data, size_t *position, float *fPosition)
 {
 	int			i;
 
@@ -82,9 +82,9 @@ void	gather_ray_data(t_ptrs *_ptrs, t_ray_data *ray_data, float *fPosition)
 	ray_data->wall_fracs = ray_data->wall_fracs - (int)ray_data->wall_fracs;
 }
 
-void	get_wall_distance(t_ptrs *_ptrs, t_ray_data *ray_data, int *position, float *fPosition)
+void	get_wall_distance(t_ptrs *_ptrs, t_ray_data *ray_data, size_t *position, float *fPosition)
 {
-	initialize_ray_data(_ptrs, ray_data, position, fPosition);
+	initialize_ray_data(ray_data, position, fPosition);
 	while (position[0] > 0 && position[1] > 0
 		&& position[0] < _ptrs->map_data->map_width && position[1] < _ptrs->map_data->map_height)
 	{
@@ -111,7 +111,7 @@ void	get_wall_distance(t_ptrs *_ptrs, t_ray_data *ray_data, int *position, float
 void	ray_cast(t_ptrs	*_ptrs)
 {
 	float		camera_plane_x;
-	int			position[2];
+	size_t			position[2];
 	int			x_pixel;
 	t_ray_data	*ray_data;
 

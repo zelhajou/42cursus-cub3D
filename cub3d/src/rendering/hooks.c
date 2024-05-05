@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:34 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 22:47:43 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:18:10 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	mouse_handle(
 {
 	t_ptrs		*_ptrs;
 
+	(void)mods;
 	_ptrs = (t_ptrs *)param;
 	if (button == MLX_MOUSE_BUTTON_LEFT)
 	{
@@ -93,7 +94,6 @@ void	cursor_handle(double posX, double posY, void *param)
 	t_ptrs			*_ptrs;
 	int				distance_v[2];
 	int				direction_v[2];
-	float			coef;
 
 	_ptrs = (t_ptrs *)param;
 	direction_v[0] = MLX_KEY_RIGHT;

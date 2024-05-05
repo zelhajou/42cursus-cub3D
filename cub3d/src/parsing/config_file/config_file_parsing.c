@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/05 10:20:40 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:21:37 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -200,9 +200,8 @@ void free_copied_map(t_config *config)
 ////
 int	check_start_end(t_config *config)
 {
-	int		y;
-	int		x[2];
-	int		i;
+	size_t		y;
+	size_t		x[2];
 	
 	y = 0;
 	while (y < config->map_height)
@@ -213,7 +212,6 @@ int	check_start_end(t_config *config)
 			x[0]++;
 		while (x[1] && config->map[y][x[1]] == ' ')
 			x[1]--;
-		printf("got |%c|, |%c|\n", config->map[y][x[0]], config->map[y][x[1]]);
 		if (x[0] > x[1] || config->map[y][x[0]] != '1'
 			|| config->map[y][x[1]] != '1')
 			return (1);

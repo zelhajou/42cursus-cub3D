@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:51 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 10:08:31 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 11:19:06 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ void	load_textures(t_ptrs *_ptrs, t_map_data *map_data)
 
 void	_adapt_indx_s(t_ptrs *_ptrs, t_map_data *map_data)
 {
-	int			x;
-	int			y;
+	size_t			x;
+	size_t			y;
 
 	y = 0;
 	_ptrs->mouse_flag = 0;
@@ -82,7 +82,7 @@ void	init_mini_map(t_ptrs *_ptrs)
 
 void	print_map(t_map_data	*map_data)
 {
-	int		y = 0;
+	size_t		y = 0;
 
 	printf("-->(%zu, %zu)\n", map_data->map_width, map_data->map_height);
 	while (y < map_data->map_height)
