@@ -6,14 +6,14 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 11:21:00 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:57:28 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
 
 void	draw_(
-		t_ptrs *_ptrs, int win_x, mlx_texture_t *tex, t_ray_data *ray_data)
+		t_ptrs *_ptrs, int win_x, t_ray_data *ray_data, mlx_texture_t *tex)
 {
 	float		tex_position[2];
 	float		tex_y_index;
@@ -35,14 +35,15 @@ void	draw_(
 	{
 		if (y_line[0] > 0.0 && y_line[0] < _ptrs->win_height)
 			mlx_put_pixel(_ptrs->mlx_img, win_x, y_line[0],
-				get_texture_color(_ptrs, tex, tex_position, y_line) 
+				get_texture_color(_ptrs, tex, tex_position, y_line)
 				<< 8 | 0xFF);
 		y_line[0] += 1;
 		tex_position[1] += tex_y_index;
 	}
 }
 
-void	initialize_ray_data(t_ray_data *ray_data, size_t *position, float *fPosition)
+void	initialize_ray_data(
+		t_ray_data *ray_data, size_t *position, float *fPosition)
 {
 	int			i;
 
@@ -82,11 +83,13 @@ void	gather_ray_data(t_ptrs *_ptrs, t_ray_data *ray_data, float *fPosition)
 	ray_data->wall_fracs = ray_data->wall_fracs - (int)ray_data->wall_fracs;
 }
 
-void	get_wall_distance(t_ptrs *_ptrs, t_ray_data *ray_data, size_t *position, float *fPosition)
+void	get_wall_distance(
+		t_ptrs *_ptrs, t_ray_data *ray_data, size_t *position, float *fPosition)
 {
 	initialize_ray_data(ray_data, position, fPosition);
 	while (position[0] > 0 && position[1] > 0
-		&& position[0] < _ptrs->map_data->map_width && position[1] < _ptrs->map_data->map_height)
+		&& position[0] < _ptrs->map_data->map_width
+		&& position[1] < _ptrs->map_data->map_height)
 	{
 		if (ray_data->nextline_dist[0] < ray_data->nextline_dist[1])
 		{
@@ -111,13 +114,13 @@ void	get_wall_distance(t_ptrs *_ptrs, t_ray_data *ray_data, size_t *position, fl
 void	ray_cast(t_ptrs	*_ptrs)
 {
 	float		camera_plane_x;
-	size_t			position[2];
+	size_t		position[2];
 	int			x_pixel;
 	t_ray_data	*ray_data;
 
 	x_pixel = 0;
-	clock_t	st = clock();
-	ray_data = _ptrs->ray_data = malloc(sizeof(t_ray_data));
+	_ptrs->ray_data = malloc(sizeof(t_ray_data));
+	ray_data = _ptrs->ray_data;
 	while (x_pixel < _ptrs->win_width)
 	{
 		camera_plane_x = 2 * x_pixel / ((float)_ptrs->win_width) - 1;
@@ -129,11 +132,10 @@ void	ray_cast(t_ptrs	*_ptrs)
 		position[1] = (int)_ptrs->position[1];
 		get_wall_distance(_ptrs, ray_data, position, _ptrs->position);
 		gather_ray_data(_ptrs, ray_data, _ptrs->position);
-		draw_(_ptrs, x_pixel, tetermine_texture(_ptrs, ray_data->ray_direction, ray_data),
-			ray_data);
+		draw_(_ptrs, x_pixel, ray_data,
+			tetermine_texture(_ptrs, ray_data->ray_direction, ray_data));
 		x_pixel += 1;
 	}
 	draw_map(_ptrs, _ptrs->map_data);
-	printf("---> scene rendered in %f\n", (double)(clock()-st)/CLOCKS_PER_SEC);
 	free(ray_data);
 }

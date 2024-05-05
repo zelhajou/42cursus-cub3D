@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/05 11:21:37 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 14:12:58 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,13 +207,16 @@ int	check_start_end(t_config *config)
 	while (y < config->map_height)
 	{
 		x[0] = 0;
-		x[1] = ft_strlen(config->map[y]) - 1;
+		x[1] = ft_strlen(config->map[y]);
+		while (x[1] > 0 && (config->map[y][x[1]] == '\n'
+				|| config->map[y][x[1]] == '\0'))
+			x[1]--;
 		while (x[0] < config->map_width && config->map[y][x[0]] == ' ')
 			x[0]++;
-		while (x[1] && config->map[y][x[1]] == ' ')
+		while (x[1] > 0 && config->map[y][x[1]] == ' ')
 			x[1]--;
-		if (x[0] > x[1] || config->map[y][x[0]] != '1'
-			|| config->map[y][x[1]] != '1')
+		if (x[1] && (x[0] > x[1] || config->map[y][x[0]] != '1'
+			|| config->map[y][x[1]] != '1'))
 			return (1);
 		y++;
 	}

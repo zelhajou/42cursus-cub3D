@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/05 08:37:54 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:50:45 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,25 +61,18 @@ void	init_config(t_config *config, int *line_number)
 	*line_number = 1;
 }
 
-void	leaks_fun()
-{
-	system("leaks cub3d");
-}
-
 int	main(int argc, char **argv)
 {
 	t_config		*config;
-	int		line_number;
+	int			line_number;
 
-	//atexit(leaks_fun);
 	config = NULL;
 	if (argc == 2 && !check_path_validity(argv[1])
 		&& (config = malloc(sizeof(t_config))))
 	{
 		init_config(config, &line_number);
 		if (parse_config_file(argv[1], config, &line_number))
-			return free(config), (1);
-		//
+			return (free(config), (1));
 		_render(config);
 	}
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:51 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 11:19:06 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:52:26 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,8 @@ void	init_mini_map(t_ptrs *_ptrs)
 {
 	_ptrs->wall_color = 0x595959;
 	_ptrs->player_range = 0.4;
-	_ptrs->pixels_per_cell = (_ptrs->win_width / _ptrs->map_data->map_width) / 5;
+	_ptrs->pixels_per_cell = (_ptrs->win_width
+			/ _ptrs->map_data->map_width) / 5;
 	if (_ptrs->pixels_per_cell > 20)
 		_ptrs->pixels_per_cell = 20.0;
 	_ptrs->map_y = _ptrs->win_height - (_ptrs->map_data->map_height
@@ -80,24 +81,11 @@ void	init_mini_map(t_ptrs *_ptrs)
 	_ptrs->m_height = _ptrs->map_data->map_height * _ptrs->pixels_per_cell;
 }
 
-void	print_map(t_map_data	*map_data)
-{
-	size_t		y = 0;
-
-	printf("-->(%zu, %zu)\n", map_data->map_width, map_data->map_height);
-	while (y < map_data->map_height)
-	{
-		printf("|%s| -> %zu\n", map_data->map[y], ft_strlen(map_data->map[y]));
-		y++;
-	}
-}
-
 void	_init(t_ptrs *_ptrs, t_map_data *map_data)
 {
 	_ptrs->win_width = MAX_WIN_W;
 	_ptrs->win_height = MAX_WIN_H;
 	_ptrs->map_data = map_data;
-	//print_map(map_data);
 	_adapt_indx_s(_ptrs, map_data);
 	init_mini_map(_ptrs);
 	_ptrs->mlx_ptr = mlx_init(_ptrs->win_width,

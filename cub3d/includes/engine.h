@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 22:49:23 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 13:43:03 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,12 @@
 # include <time.h>
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "cub3d.h"
-/*# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <math.h>*/
 
 # define MAX_WIN_W 1580
 # define MIN_WIN_W 1200
 # define MAX_WIN_H 820
 # define MIN_WIN_H 620
-/*
-typedef struct map_data
-{
-	char			**map;
-	int				map_width;
-	int				map_height;
-	int				floor_color;
-	int				ceiling_color;
-	char			*no_texture;
-	char			*so_texture;
-	char			*we_texture;
-	char			*ea_texture;
-}	t_config;
-*/
+
 typedef	t_config t_map_data;
 
 typedef struct ray_data
