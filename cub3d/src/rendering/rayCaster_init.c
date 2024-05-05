@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:51 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 15:42:32 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:08:31 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	_init(t_ptrs *_ptrs, t_map_data *map_data)
 	_ptrs->win_width = MAX_WIN_W;
 	_ptrs->win_height = MAX_WIN_H;
 	_ptrs->map_data = map_data;
-	print_map(map_data);
+	//print_map(map_data);
 	_adapt_indx_s(_ptrs, map_data);
 	init_mini_map(_ptrs);
 	_ptrs->mlx_ptr = mlx_init(_ptrs->win_width,

@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/04 22:19:34 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 08:37:54 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ int	main(int argc, char **argv)
 	t_config		*config;
 	int		line_number;
 
-	atexit(leaks_fun);
+	//atexit(leaks_fun);
 	config = NULL;
 	if (argc == 2 && !check_path_validity(argv[1])
 		&& (config = malloc(sizeof(t_config))))

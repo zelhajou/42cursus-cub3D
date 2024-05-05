@@ -6,7 +6,7 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/04 16:54:12 by beddinao         ###   ########.fr        #
+#    Updated: 2024/05/05 08:40:02 by beddinao         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRCDIR = ./src
 OBJDIR = ./obj
 LIBDIR_GNL = ./lib/get_next_line
 LIBDIR_LIBFT = ./lib/libft
-MLX42_FLAGS = -framework Cocoa -framework IOKit ./lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L "/Users/beddinao/.brew/opt/glfw/lib"
+MLX42_FLAGS = -framework Cocoa -framework IOKit ./lib/MLX42/build/libmlx42.a -Iinclude -lglfw -L $(shell brew --prefix glfw)/lib
 
 SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/parsing/config_file/config_file_parsing.c \

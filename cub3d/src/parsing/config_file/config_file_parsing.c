@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/04 17:41:42 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/05 10:20:40 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,7 +197,31 @@ void free_copied_map(t_config *config)
 	free(config->map);
 	config->map = config->map_copy;
 }
-
+////
+int	check_start_end(t_config *config)
+{
+	int		y;
+	int		x[2];
+	int		i;
+	
+	y = 0;
+	while (y < config->map_height)
+	{
+		x[0] = 0;
+		x[1] = ft_strlen(config->map[y]) - 1;
+		while (x[0] < config->map_width && config->map[y][x[0]] == ' ')
+			x[0]++;
+		while (x[1] && config->map[y][x[1]] == ' ')
+			x[1]--;
+		printf("got |%c|, |%c|\n", config->map[y][x[0]], config->map[y][x[1]]);
+		if (x[0] > x[1] || config->map[y][x[0]] != '1'
+			|| config->map[y][x[1]] != '1')
+			return (1);
+		y++;
+	}
+	return (0);
+}
+////
 int is_valid_map(t_config *config)
 {
 	// Fill the map with spaces
@@ -208,7 +232,7 @@ int is_valid_map(t_config *config)
 		return (1);
 	//print_copied_map(config);
 	// Check top and bottom of map have only '1' and ' '
-	if (check_top_bottom(config))
+	if (check_top_bottom(config) || check_start_end(config))
 		return (1);
 	// Check when found an empty space, it is surrounded by walls
 	if (check_empty_space(config))
