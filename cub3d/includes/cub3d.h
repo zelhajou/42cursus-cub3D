@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/03 23:18:16 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/06 20:44:14 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,6 +98,14 @@ int		validate_digit_values(char **color_values);
 int		validate_floor_color(char *line, t_config *config);
 int		validate_ceiling_color(char *line, t_config *config);
 
-void			_render(t_config *);
+/*------------------ Parsing map ------------------------*/
+// Parsing map: map_validation.c
+int		is_map_rectangle(t_config *config);
+int		check_top_bottom(t_config *config);
+int		check_left_right(t_config *config);
+void	print_copied_map(t_config *config);
+void free_map(t_config *config);
+
+void	_render(t_config *);
 
 #endif

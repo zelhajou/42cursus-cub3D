@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/01 18:07:34 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/06 15:01:07 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,64 @@ int	parse_color(char *line, int *color)
 
 int	parse_color_type(char *line, t_config *config)
 {
-	if (ft_strncmp(line, "F ", 2) == 0)
-		return (validate_floor_color(line, config));
-	else if (ft_strncmp(line, "C ", 2) == 0)
-		return (validate_ceiling_color(line, config));
+	char **values;
+	
+	values = ft_split(line, ' ');
+	if (!values || ft_split_count(values) != 2)
+	{
+		printf("Error: Invalid color format\n");
+		if (values)
+			ft_split_free(values);
+		return (1);
+	}
+	if (strcmp(values[0], "F") == 0)
+	{
+		if (config->floor_color)
+			return (printf("Error: Floor color already set\n"), 1);
+		if (parse_color(line, &config->floor_color))
+			return (1);
+	}
+	else if (strcmp(values[0], "C") == 0)
+	{
+		if (config->ceiling_color)
+			return (printf("Error: Ceiling color already set\n"), 1);
+		if (parse_color(line, &config->ceiling_color))
+			return (1);
+	}
 	return (0);
+}
+
+int	convert_and_check_range(char **color_values, int *color)
+{
+	int	r;
+	int	g;
+	int	b;
+
+	r = ft_atoi(color_values[0]);
+	g = ft_atoi(color_values[1]);
+	b = ft_atoi(color_values[2]);
+	ft_split_free(color_values);
+	if (r < 0 || r > 255 || g < 0 || g > 255 || b < 0 || b > 255)
+	{
+		printf("Error: Color values must be between 0 and 255\n");
+		return (1);
+	}
+	*color = (r << 16) + (g << 8) + b;
+	return (0);
+}
+
+int	count_commas(char *str)
+{
+	int	i;
+	int	count;
+
+	i = 0;
+	count = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == ',')
+			count++;
+		i++;
+	}
+	return (count);
 }

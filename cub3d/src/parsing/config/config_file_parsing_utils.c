@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:11:20 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/02 10:40:43 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/06 20:43:51 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,29 @@ void	free_texture(char **texture)
 	}
 }
 
-void	free_config(t_config *config)
+void free_map(t_config *config)
 {
-	int	i;
+	size_t i;
+	size_t height = config->map_height;
 
 	i = 0;
+	while (i < height)
+	{
+		free(config->map[i]);
+		i++;
+	}
+	free(config->map);
+	config->map = NULL;
+}
+
+void	free_config(t_config *config)
+{
+
 	free_texture(&config->no_texture);
 	free_texture(&config->we_texture);
 	free_texture(&config->so_texture);
 	free_texture(&config->ea_texture);
-	if (config->map)
-	{
-		while (config->map[i])
-		{
-			free(config->map[i]);
-			config->map[i] = NULL;
-			i++;
-		}
-		free(config->map);
-		config->map = NULL;
-	}
+	free_map(config);
 }
 
 void	remove_newline_character(char *line)
@@ -69,9 +72,9 @@ void	print_error_with_caret(const char *line)
 	int		i;
 
 	i = 0;
-	line = ft_strtrim(line, " \t");
-	error_message_len = strlen("Error: Invalid data in map ");
-	printf("Error: Invalid data in map '%s'\n", line);
+	line = ft_strtrim(line, " ");
+	error_message_len = strlen("Error: Invalid data ");
+	printf("Error: Invalid data '%s'\n", line);
 	while (i < error_message_len)
 	{
 		printf(" ");

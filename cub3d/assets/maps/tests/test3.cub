@@ -1,10 +1,10 @@
 NO assets/textures/brick_wall_1.png
 SO assets/textures/brick_wall_1.png
-assets/textures/brick_wall_1.png
+WE assets/textures/brick_wall_1.png
 EA assets/textures/brick_wall_1.png
 
- F 1,1,1
- C 1,1,1
+   F 1,1,1
+   C 1,1,1
 
  1111
  1N01

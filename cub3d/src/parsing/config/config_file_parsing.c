@@ -6,13 +6,45 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/05 14:12:58 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/06 20:42:44 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// Fill the map with spaces
+/**
+ * fill the map with spaces
+*/
+// int fill_map_with_spaces(t_config *config)
+// {
+// 	size_t	i;
+// 	size_t	height;
+// 	size_t	width;
+
+// 	i = 0;
+// 	height = config->map_height;
+// 	width = config->map_width;
+// 	config->map_copy = malloc(height * sizeof(char*));
+// 	if (!config->map_copy)
+// 		return (1);
+// 	while (i < height)
+// 	{
+// 		config->map_copy[i] = malloc((width + 1) * sizeof(char));
+// 		if (!config->map_copy[i])
+// 			return (1);
+// 		ft_memset(config->map_copy[i], ' ', width);
+// 		config->map_copy[i][width] = '\0';
+// 		i++;
+// 	}
+// 	i = 0;
+// 	while (i < height)
+// 	{
+// 		ft_strlcpy(config->map_copy[i], config->map[i], width + 1);
+// 		i++;
+// 	}
+// 	return (0);
+// }
+
 int fill_map_with_spaces(t_config *config)
 {
 	size_t i = 0;
@@ -38,102 +70,46 @@ int fill_map_with_spaces(t_config *config)
 	return (0);
 }
 
-// print the copied map
-void print_copied_map(t_config *config)
-{
-	size_t i;
-	size_t height = config->map_height;
 
-	i = 0;
-	printf("Copied map:\n");
-	while (i < height)
-	{
-		printf("%s\n", config->map_copy[i]);
-		i++;
-	}
-	
-}
-
-// Check if the map is rectangle
-int is_map_rectangle(t_config *config)
-{
-	size_t i;
-	size_t height = config->map_height;
-	size_t width = config->map_width;
-
-	i = 0;
-	while (i < height)
-	{
-		if (ft_strlen(config->map_copy[i]) != width)
-		{
-			printf("Error: Map is not a rectangle\n");
-			return 1;
-		}
-		i++;
-	}
-	return 0;
-}
-
-// Check top and bottom of map have only '1' and ' '
-int check_top_bottom(t_config *config)
-{
-	size_t j;
-	size_t height = config->map_height;
-	size_t width = config->map_width;
-
-	for (j = 0; j < width; j++)
-	{
-		if (config->map_copy[0][j] != '1' && config->map_copy[0][j] != ' ')
-		{
-			printf("Error: Map is not surrounded by walls\n");
-			return 1;
-		}
-		if (config->map_copy[height - 1][j] != '1' && config->map_copy[height - 1][j] != ' ')
-		{
-			printf("Error: Map is not surrounded by walls\n");
-			return 1;
-		}
-	}
-	return 0;
-}
-
-// check when found an empty space, it is surrounded by walls
+/**
+ * Check when found an empty space in the map, must be surrounded by 1 or ' '
+*/
 int check_empty_space(t_config *config)
 {
-	size_t i, j;
-	size_t height = config->map_height;
-	size_t width = config->map_width;
+	size_t i;
+	size_t j;
+	size_t height;
+	size_t width;
 
-	for (i = 0; i < height; i++)
+	i = 0;
+	j = 0;
+	height = config->map_height;
+	width = config->map_width;
+	while (i < height)
 	{
-		for (j = 0; j < width; j++)
+		j = 0;
+		while (j < width)
 		{
 			if (config->map_copy[i][j] == ' ')
 			{
-				if (i > 0 && config->map_copy[i - 1][j] != '1' && config->map_copy[i - 1][j] != ' ')
-				{
-					printf("Error: Map is not surrounded by walls\n");
-					return 1;
-				}
-				if (i < height - 1 && config->map_copy[i + 1][j] != '1' && config->map_copy[i + 1][j] != ' ')
-				{
-					printf("Error: Map is not surrounded by walls\n");
-					return 1;
-				}
-				if (j > 0 && config->map_copy[i][j - 1] != '1' && config->map_copy[i][j - 1] != ' ')
-				{
-					printf("Error: Map is not surrounded by walls\n");
-					return 1;
-				}
-				if (j < width - 1 && config->map_copy[i][j + 1] != '1' && config->map_copy[i][j + 1] != ' ')
-				{
-					printf("Error: Map is not surrounded by walls\n");
-					return 1;
-				}
+				if (i > 0 && config->map_copy[i - 1][j] != '1'
+					&& config->map_copy[i - 1][j] != ' ')
+					return (printf("Error: Map is not surrounded by walls\n"), 1);
+				if (i < height - 1 && config->map_copy[i + 1][j] != '1'
+					&& config->map_copy[i + 1][j] != ' ')
+					return (printf("Error: Map is not surrounded by walls\n"), 1);
+				if (j > 0 && config->map_copy[i][j - 1] != '1'
+					&& config->map_copy[i][j - 1] != ' ')
+					return (printf("Error: Map is not surrounded by walls\n"), 1);
+				if (j < width - 1 && config->map_copy[i][j + 1] != '1'
+					&& config->map_copy[i][j + 1] != ' ')
+					return (printf("Error: Map is not surrounded by walls\n"), 1);
 			}
+			j++;
 		}
+		i++;
 	}
-	return 0;
+	return (0);
 }
 
 // check if any character is not '1', '0', 'N', 'S', 'W', 'E' or ' '
@@ -143,44 +119,61 @@ int is_valid_map_char(t_config *config)
 	size_t height = config->map_height;
 	size_t width = config->map_width;
 
-	for (i = 0; i < height; i++) {
-		for (j = 0; j < width; j++) {
-			if (config->map_copy[i][j] != '1' && config->map_copy[i][j] != '0' && config->map_copy[i][j] != 'N' && config->map_copy[i][j] != 'S' && config->map_copy[i][j] != 'W' && config->map_copy[i][j] != 'E' && config->map_copy[i][j] != ' ') {
+	i = 0;
+	j = 0;
+	while (i < height)
+	{
+		j = 0;
+		while (j < width)
+		{
+			if (config->map_copy[i][j] != '1' && config->map_copy[i][j] != '0'
+				&& config->map_copy[i][j] != 'N' && config->map_copy[i][j] != 'S'
+				&& config->map_copy[i][j] != 'W' && config->map_copy[i][j] != 'E'
+				&& config->map_copy[i][j] != ' ')
+			{
 				printf("Error: Invalid character in the map\n");
 				printf("Character: %c\n", config->map_copy[i][j]);
-				return 1;
+				return (1);
 			}
+			j++;
 		}
+		i++;
 	}
-	return 0;
+	return (0);
 }
 
 // Check if player position is valid
 int is_player_position_valid(t_config *config)
 {
-	size_t i, j;
-	size_t height = config->map_height;
-	size_t width = config->map_width;
+	size_t	i;
+	size_t	j;
+	size_t	height;
+	size_t	width;
+	int		player_found;
 
-	int player_found = 0;
-	for (i = 0; i < height; i++) {
-		for (j = 0; j < width; j++) {
+	i = 0;
+	j = 0;
+	height = config->map_height;
+	width = config->map_width;
+	player_found = 0;
+	while (i < height)
+	{
+		j = 0;
+		while (j < width)
+		{
 			if (ft_strchr("NSWE", config->map_copy[i][j]))
 			{
-				if (player_found) {
-					printf("Error: More than one player position found\n");
-					return 1;
-				}
+				if (player_found)
+					return (printf("Error: More than one player position found\n"), 1);
 				player_found = 1;
 			}
+			j++;
 		}
+		i++;
 	}
-	// Check if player position is found
-	if (!player_found) {
-		printf("Error: No player position found\n");
-		return 1;
-	}
-	return 0;
+	if (!player_found)
+		return (printf("Error: No player position found\n"), 1);
+	return (0);
 }
 
 // free the copied map
@@ -189,53 +182,32 @@ void free_copied_map(t_config *config)
 	size_t i;
 	size_t height = config->map_height;
 
-	for (i = 0; i < height; i++)
+	i = 0;
+	while (i < height)
 	{
-		//printf("|%s| -> %i\n", config->map_copy[i], ft_strlen(config->map_copy[i]));
 		free(config->map[i]);
+		i++;
 	}
 	free(config->map);
-	config->map = config->map_copy;
 }
-////
-int	check_start_end(t_config *config)
-{
-	size_t		y;
-	size_t		x[2];
-	
-	y = 0;
-	while (y < config->map_height)
-	{
-		x[0] = 0;
-		x[1] = ft_strlen(config->map[y]);
-		while (x[1] > 0 && (config->map[y][x[1]] == '\n'
-				|| config->map[y][x[1]] == '\0'))
-			x[1]--;
-		while (x[0] < config->map_width && config->map[y][x[0]] == ' ')
-			x[0]++;
-		while (x[1] > 0 && config->map[y][x[1]] == ' ')
-			x[1]--;
-		if (x[1] && (x[0] > x[1] || config->map[y][x[0]] != '1'
-			|| config->map[y][x[1]] != '1'))
-			return (1);
-		y++;
-	}
-	return (0);
-}
-////
+
+
+
+
 int is_valid_map(t_config *config)
 {
 	// Fill the map with spaces
 	if (fill_map_with_spaces(config))
 		return (1);
+	printf("Map:\n");
+	print_copied_map(config);
 	// check if the map is a rectangle
 	if (is_map_rectangle(config))
 		return (1);
-	//print_copied_map(config);
-	// Check top and bottom of map have only '1' and ' '
-	if (check_top_bottom(config) || check_start_end(config))
+	// Check map is surrounded by walls
+	if (check_top_bottom(config) || check_left_right(config))
 		return (1);
-	// Check when found an empty space, it is surrounded by walls
+	// Check when found an empty space, must be surrounded by 1 or ' '
 	if (check_empty_space(config))
 		return (1);
 	// check if any character is not '1', '0', 'N', 'S', 'W', 'E' or ' '
@@ -244,10 +216,9 @@ int is_valid_map(t_config *config)
 	// Check if player position is valid
 	if (is_player_position_valid(config))
 		return (1);
-	// print the copied map
-	//print_copied_map(config);
-	// free the copied map
-	free_copied_map(config);
+	// free the map
+	free_map(config);
+	config->map = config->map_copy;
 	return 0;
 }
 
@@ -295,10 +266,8 @@ int	read_and_parse_lines(int fd, t_config *config, int *line_number)
 		free(line);
 		(*line_number)++;
 	}
-	if (check_config_validity(map_started, config))
+	if (check_config_validity(map_started, config) || is_valid_map(config))
 		return (1);
-	if (is_valid_map(config))
-        return (1);
 	return (0);
 }
 
@@ -313,14 +282,8 @@ int	parse_line_data(char *line, t_config *config, int *map_started)
 	else if (*map_started && !is_texture(line)
 		&& !is_color(line)
 		&& !ft_strchr("01 ", *line))
-	{
-		print_error_with_caret(line);
-		return (1);
-	}
+		return (print_error_with_caret(line), 1);
 	else
-	{
-		printf("Error: Invalid line '%s'\n", line);
-		return (1);
-	}
+		return (print_error_with_caret(line), 1);
 	return (0);
 }
