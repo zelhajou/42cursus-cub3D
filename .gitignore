@@ -1,5 +1,5 @@
 cub3d/cub3d
 *.o
 *.a
-
+/cub3d/lib/MLX42/build
 .vscode/settings.json
