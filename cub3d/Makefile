@@ -6,7 +6,7 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/07 16:23:23 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/05/07 17:38:19 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,10 +34,10 @@ SRCS = $(SRCDIR)/main.c \
 	   $(LIBDIR_GNL)/get_next_line_utils.c \
 	   $(SRCDIR)/utils/general_utils.c \
 	   $(SRCDIR)/utils/rayCaster_utils.c \
-	   $(SRCDIR)/utils/map_utils.c \
+	   $(SRCDIR)/utils/parsing/map_utils.c \
 	   $(SRCDIR)/utils/error_utils.c \
-	   $(SRCDIR)/utils/config_utils.c \
-	   $(SRCDIR)/utils/texture_utils.c \
+	   $(SRCDIR)/utils/parsing/config_utils.c \
+	   $(SRCDIR)/utils/parsing/texture_utils.c \
 	   $(SRCDIR)/rendering/hooks.c \
 	   $(SRCDIR)/rendering/drawing.c \
 	   $(SRCDIR)/rendering/movements.c \

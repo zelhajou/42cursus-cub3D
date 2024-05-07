@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:53:36 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 16:22:20 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:39:09 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
-void 	*ft_realloc(void *ptr, size_t size);
-char 	*ft_strdup(const char *s);
+void	*ft_realloc(void *ptr, size_t size);
+char	*ft_strdup(const char *s);
 char	*ft_strndup(const char *src, size_t n);
 
 /* Part 2 - Additional functions */
