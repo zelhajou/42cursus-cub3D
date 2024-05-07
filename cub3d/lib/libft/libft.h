@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:53:36 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/04/26 16:08:20 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/07 16:22:20 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize);
+char	*ft_strncpy(char *dest, const char *src, size_t n);
 
 // Memory Functions
 void	ft_bzero(void *s, size_t n);
@@ -55,7 +56,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len);
 
 int		ft_atoi(const char *str);
 void	*ft_calloc(size_t nmemb, size_t size);
-char	*ft_strdup(const char *s);
+void 	*ft_realloc(void *ptr, size_t size);
+char 	*ft_strdup(const char *s);
 char	*ft_strndup(const char *src, size_t n);
 
 /* Part 2 - Additional functions */

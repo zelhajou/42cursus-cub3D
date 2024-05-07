@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:52:59 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/06 15:00:51 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:08:30 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	validate_digit_values(char **color_values)
 
 bool	is_color(char *line)
 {
-	char **values;
+	char	**values;
 
 	values = ft_split(line, ' ');
 	if (!values || ft_split_count(values) != 2)
@@ -58,7 +58,8 @@ bool	is_color(char *line)
 		ft_split_free(values);
 		return (false);
 	}
-	if (ft_strncmp(values[0], "F", 2) != 0 && ft_strncmp(values[0], "C", 2) != 0)
+	if (ft_strncmp(values[0], "F", 2) != 0
+		&& ft_strncmp(values[0], "C", 2) != 0)
 	{
 		ft_split_free(values);
 		return (false);

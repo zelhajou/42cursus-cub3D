@@ -3,20 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   general_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:14 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:48:03 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 14:50:06 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
-
-void	cancel_d(void)
-{
-	printf("error initializing mlx42: \n\t%s\n", mlx_strerror(mlx_errno));
-	exit(1);
-}
 
 void	close_handle(void *param)
 {

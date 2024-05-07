@@ -1,44 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 14:53:17 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:17:32 by zelhajou         ###   ########.fr       */
+/*   Created: 2024/05/07 10:45:19 by zelhajou          #+#    #+#             */
+/*   Updated: 2024/05/07 10:46:27 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "libft.h"
 
-void	print_copied_map(t_config *config)
+char	*ft_strncpy(char *dest, const char *src, size_t n)
 {
-	size_t	i;
-	size_t	height;
+	size_t i;
 
 	i = 0;
-	height = config->map_height;
-	printf("Copied map:\n");
-	while (i < height)
+	while (i < n && src[i] != '\0')
 	{
-		printf("%s\n", config->map_copy[i]);
+		dest[i] = src[i];
 		i++;
 	}
-}
-
-void	free_map(t_config *config)
-{
-	size_t	i;
-	size_t	height;
-
-	i = 0;
-	height = config->map_height;
-	while (i < height)
+	while (i < n)
 	{
-		free(config->map[i]);
+		dest[i] = '\0';
 		i++;
 	}
-	free(config->map);
-	config->map = NULL;
+	return (dest);
 }

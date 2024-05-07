@@ -6,13 +6,13 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/07 04:01:38 by beddinao         ###   ########.fr        #
+#    Updated: 2024/05/07 16:23:23 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror #-g -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 SRCDIR = ./src
 OBJDIR = ./obj
 LIBDIR_GNL = ./lib/get_next_line
@@ -23,19 +23,21 @@ MLX42_FLAGS = -framework Cocoa -framework IOKit $(LIBMLX)/build/libmlx42.a -Iinc
 
 SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/parsing/config/config_file_parsing.c \
-	   $(SRCDIR)/parsing/config/config_file_parsing_utils.c \
-	   $(SRCDIR)/parsing/config/config_file_validation.c \
-	   $(SRCDIR)/parsing/config/config_line_handlers.c \
+	   $(SRCDIR)/parsing/config/config_validation.c \
 	   $(SRCDIR)/parsing/texture/texture_parsing.c \
 	   $(SRCDIR)/parsing/texture/texture_validation.c \
        $(SRCDIR)/parsing/color/color_parsing.c \
 	   $(SRCDIR)/parsing/color/color_validation.c \
 	   $(SRCDIR)/parsing/map/map_validation.c \
+	   $(SRCDIR)/parsing/map/map_parsing.c \
 	   $(LIBDIR_GNL)/get_next_line.c \
 	   $(LIBDIR_GNL)/get_next_line_utils.c \
 	   $(SRCDIR)/utils/general_utils.c \
 	   $(SRCDIR)/utils/rayCaster_utils.c \
 	   $(SRCDIR)/utils/map_utils.c \
+	   $(SRCDIR)/utils/error_utils.c \
+	   $(SRCDIR)/utils/config_utils.c \
+	   $(SRCDIR)/utils/texture_utils.c \
 	   $(SRCDIR)/rendering/hooks.c \
 	   $(SRCDIR)/rendering/drawing.c \
 	   $(SRCDIR)/rendering/movements.c \

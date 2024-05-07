@@ -1,44 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   error_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/06 14:53:17 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:17:32 by zelhajou         ###   ########.fr       */
+/*   Created: 2024/05/07 14:49:10 by zelhajou          #+#    #+#             */
+/*   Updated: 2024/05/07 17:17:03 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+#include "engine.h"
 
-void	print_copied_map(t_config *config)
+void	print_error_with_caret(const char *line)
 {
-	size_t	i;
-	size_t	height;
+	int		error_message_len;
+	int		i;
 
 	i = 0;
-	height = config->map_height;
-	printf("Copied map:\n");
-	while (i < height)
+	line = ft_strtrim(line, " ");
+	error_message_len = strlen("Error: Invalid data ");
+	printf("Error: Invalid data '%s'\n", line);
+	while (i < error_message_len)
 	{
-		printf("%s\n", config->map_copy[i]);
+		printf(" ");
 		i++;
 	}
+	printf(ANSI_COLOR_GREEN"\e[1m^\n\e[m "ANSI_COLOR_RESET);
 }
 
-void	free_map(t_config *config)
+void	cancel_d(void)
 {
-	size_t	i;
-	size_t	height;
-
-	i = 0;
-	height = config->map_height;
-	while (i < height)
-	{
-		free(config->map[i]);
-		i++;
-	}
-	free(config->map);
-	config->map = NULL;
+	printf("error initializing mlx42: \n\t%s\n", mlx_strerror(mlx_errno));
+	exit(1);
 }

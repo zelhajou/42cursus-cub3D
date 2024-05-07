@@ -1,29 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   config_file_validation.c                           :+:      :+:    :+:   */
+/*   config_validation.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:55:52 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/01 18:01:51 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/07 17:09:17 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	open_file(const char *file_path)
-{
-	int	fd;
-
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error: Could not open file\n");
-		return (-1);
-	}
-	return (fd);
-}
 
 int	check_file_extension(const char *file_path)
 {
@@ -74,4 +61,15 @@ int	check_config_validity(int map_started, t_config *config)
 		|| !map_started)
 		return (printf("Error: Missing data\n"), 1);
 	return (0);
+}
+
+int	is_empty_or_whitespace(const char *line)
+{
+	while (*line)
+	{
+		if (!ft_isspace(*line))
+			return (0);
+		line++;
+	}
+	return (1);
 }

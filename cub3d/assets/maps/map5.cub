@@ -1,11 +1,11 @@
-NO assets/textures/zellige.png
-EA assets/textures/zellige.png
-WE assets/textures/zellige.png
-SO assets/textures/zellige.png
+NO assets/textures/memes.png
+EA assets/textures/memes.png
+WE assets/textures/memes.png
+SO assets/textures/memes.png
 
 
-C 33,65,94
-F 50,50,50
+C 255,255,255
+F 255,255,255
      1111    11
 11111000011110011
 10000000000000111
