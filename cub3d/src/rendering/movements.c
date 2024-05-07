@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:57 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/03 22:48:11 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:44:44 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void	_update_prespective(t_ptrs *_ptrs, int new_level)
 {
 	if (new_level > 0 && new_level < _ptrs->win_height)
 		_ptrs->vertical_level = new_level;
-	draw_bg(_ptrs, _ptrs->map_data, _ptrs->vertical_level);
 	ray_cast(_ptrs);
 }
 
@@ -69,10 +68,7 @@ void	update_position(t_ptrs *_ptrs, float *new_pos)
 		to_be = 1;
 	}
 	if (to_be)
-	{
-		draw_bg(_ptrs, _ptrs->map_data, _ptrs->vertical_level);
 		ray_cast(_ptrs);
-	}
 }
 
 void	move_sides(

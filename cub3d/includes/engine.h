@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 13:43:03 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:59:57 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 # include "../lib/MLX42/include/MLX42/MLX42.h"
 # include "cub3d.h"
 
-# define MAX_WIN_W 1580
-# define MIN_WIN_W 1200
-# define MAX_WIN_H 820
-# define MIN_WIN_H 620
+# define MAX_WIN_W 1350
+# define MIN_WIN_W 500
+# define MAX_WIN_H 720
+# define MIN_WIN_H 220
 
-typedef	t_config t_map_data;
+typedef t_config	t_map_data;
 
 typedef struct ray_data
 {
@@ -74,10 +74,9 @@ typedef struct ptrs
 void			_render(t_map_data *F);
 //
 void			_init(t_ptrs *f, t_map_data *ff);
-void			draw_bg(t_ptrs *f, t_map_data *ff, int fff);
 void			ray_cast(t_ptrs *f);
 int				get_texture_color(t_ptrs *f, mlx_texture_t *ff,
-					float *fff, float *ffff);
+					float *fff);
 void			draw_map(t_ptrs *f, t_map_data *ff);
 //
 void			resize_handle(int32_t f, int32_t ff, void *fff);
@@ -100,6 +99,11 @@ int				darken_color(int *f, int ff, int fff);
 int				compare_f(float f, float ff, float fff);
 int				is_player_char(char f);
 mlx_texture_t	*tetermine_texture(t_ptrs *f, float *ff, t_ray_data *fff);
-void			draw_vertical_line(t_ptrs *f, float *ff, int fff, int ffff);
+void			draw_vertical_line(t_ptrs *f, float *ff, int fff);
+void			draw_ceiling_line(t_ptrs *_ptrs, float start, int win_x);
+void			draw_floor_line(t_ptrs *_ptrs, float end, int win_x);
+void			draw_line(t_ptrs *_ptrs, mlx_texture_t *tex,
+					float *y_line, float *tex_position);
+void			put_pixel(t_ptrs *_ptrs, int x, int y, int color);
 
 #endif

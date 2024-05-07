@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:14 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 22:54:20 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:48:03 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,13 @@ void	close_handle(void *param)
 	_ptrs = (t_ptrs *)param;
 	mlx_terminate(_ptrs->mlx_ptr);
 	exit(0);
+}
+
+void	put_pixel(t_ptrs *_ptrs, int x, int y, int color)
+{
+	if (x > 0 && y > 0
+		&& x < _ptrs->win_width && y < _ptrs->win_height)
+		mlx_put_pixel(_ptrs->mlx_img, x, y, color << 8 | 0xFF);
 }
 
 void	adapt_camera_plane(t_ptrs	*_ptrs)

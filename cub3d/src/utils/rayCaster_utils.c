@@ -6,24 +6,11 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:32:04 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/04 17:46:41 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:54:59 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
-
-void	draw_vertical_line(t_ptrs *_ptrs, float *Yaxis, int x, int color)
-{
-	int			y;
-
-	y = Yaxis[0];
-	while (y < Yaxis[1])
-	{
-		if (x > 0 && y > 0 && x < _ptrs->win_width && y < _ptrs->win_height)
-			mlx_put_pixel(_ptrs->mlx_img, x, y, color);
-		y++;
-	}
-}
 
 mlx_texture_t	*tetermine_texture(
 		t_ptrs *_ptrs, float *rayDir, t_ray_data *ray_data)
@@ -49,6 +36,13 @@ int	compare_f(float f1, float f2, float range)
 	return (0);
 }
 
+int	is_player_char(char p)
+{
+	if (p == 'N' || p == 'W' || p == 'E' || p == 'S')
+		return (1);
+	return (0);
+}
+
 int	darken_color(int *range, int index, int color)
 {
 	int			colors[2][3];
@@ -66,25 +60,18 @@ int	darken_color(int *range, int index, int color)
 	return ((colors[1][0] << 16) + (colors[1][1] << 8) + colors[1][2]);
 }
 
-void	draw_bg(t_ptrs *_ptrs, t_map_data *map_data, int margin)
+int	get_texture_color(
+		t_ptrs *_ptrs, mlx_texture_t *tex, float *texYaxis)
 {
-	int				y;
-	int				x;
+	int		index;
+	int		r;
+	int		g;
+	int		b;
 
-	y = 0;
-	while (y < _ptrs->win_height)
-	{
-		x = 0;
-		while (x < _ptrs->win_width)
-		{
-			if (y < margin)
-				mlx_put_pixel(_ptrs->mlx_img, x, y,
-					map_data->ceiling_color << 8 | 0xFF);
-			else
-				mlx_put_pixel(_ptrs->mlx_img, x, y,
-					map_data->floor_color << 8 | 0xFF);
-			x++;
-		}
-		y++;
-	}
+	index = (int)texYaxis[0] + tex->width
+		* tex->bytes_per_pixel * (int)texYaxis[1];
+	r = (int)(tex->pixels[index] * _ptrs->shadow_coef) << 16;
+	g = (int)(tex->pixels[index + 1] * _ptrs->shadow_coef) << 8;
+	b = (int)(tex->pixels[index + 2] * _ptrs->shadow_coef);
+	return (r | g | b);
 }

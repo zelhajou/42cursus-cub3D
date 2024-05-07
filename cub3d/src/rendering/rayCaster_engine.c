@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 13:57:28 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:52:21 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,28 @@
 void	draw_(
 		t_ptrs *_ptrs, int win_x, t_ray_data *ray_data, mlx_texture_t *tex)
 {
-	float		tex_position[2];
-	float		tex_y_index;
+	float		tex_position[3];
 	float		y_line[3];
 
 	y_line[0] = _ptrs->vertical_level - ray_data->wall_height;
 	y_line[1] = _ptrs->vertical_level + ray_data->wall_height;
 	y_line[2] = y_line[1] - y_line[0];
 	if (!tex || y_line[2] < _ptrs->win_height / 2 / 5)
-		return (draw_vertical_line(_ptrs, y_line, win_x, 0x000000FF));
+	{
+		draw_ceiling_line(_ptrs, y_line[0], win_x);
+		draw_vertical_line(_ptrs, y_line, win_x);
+		draw_floor_line(_ptrs, y_line[1], win_x);
+		return ;
+	}
 	tex_position[0] = (int)(ray_data->wall_fracs
-			* (float)tex->width) * tex->bytes_per_pixel;
-	tex_position[1] = 0;
-	tex_y_index = 1.0 * (tex->height / y_line[2]);
-	_ptrs->shadow_coef = 1.0 * ray_data->wall_height / (_ptrs->win_height / 2);
+			* (float)tex->width) * (float)tex->bytes_per_pixel;
+	tex_position[1] = win_x;
+	tex_position[2] = 1.0 * (tex->height / y_line[2]);
+	_ptrs->shadow_coef = fabs(1.0 * (ray_data->wall_height
+				/ (_ptrs->win_height / 2)));
 	if (_ptrs->shadow_coef > 1)
 		_ptrs->shadow_coef = 1.0;
-	while (y_line[0] < y_line[1] && tex_position[1] < tex->height)
-	{
-		if (y_line[0] > 0.0 && y_line[0] < _ptrs->win_height)
-			mlx_put_pixel(_ptrs->mlx_img, win_x, y_line[0],
-				get_texture_color(_ptrs, tex, tex_position, y_line)
-				<< 8 | 0xFF);
-		y_line[0] += 1;
-		tex_position[1] += tex_y_index;
-	}
+	draw_line(_ptrs, tex, y_line, tex_position);
 }
 
 void	initialize_ray_data(
@@ -103,9 +100,8 @@ void	get_wall_distance(
 			position[1] += ray_data->step[1];
 			ray_data->which_side = 1;
 		}
-		mlx_put_pixel(_ptrs->mlx_img,
-			_ptrs->map_x + (position[0] * _ptrs->pixels_per_cell),
-			_ptrs->map_y + (position[1] * _ptrs->pixels_per_cell), 0xff0000FF);
+		put_pixel(_ptrs, _ptrs->map_x + (position[0] * _ptrs->pixels_per_cell),
+			_ptrs->map_y + (position[1] * _ptrs->pixels_per_cell), 0xff0000);
 		if (_ptrs->map_data->map[position[1]][position[0]] == '1')
 			break ;
 	}
@@ -134,7 +130,7 @@ void	ray_cast(t_ptrs	*_ptrs)
 		gather_ray_data(_ptrs, ray_data, _ptrs->position);
 		draw_(_ptrs, x_pixel, ray_data,
 			tetermine_texture(_ptrs, ray_data->ray_direction, ray_data));
-		x_pixel += 1;
+		x_pixel += 2;
 	}
 	draw_map(_ptrs, _ptrs->map_data);
 	free(ray_data);

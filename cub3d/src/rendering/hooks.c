@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:34 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 11:18:10 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:32:21 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	mouse_handle(
 			_ptrs->mouse_flag = 0;
 			_ptrs->wall_color = 0x595959;
 			_ptrs->player_range = 0.4;
-			draw_bg(_ptrs, _ptrs->map_data, _ptrs->vertical_level);
 			ray_cast(_ptrs);
 		}
 	}
@@ -101,7 +100,7 @@ void	cursor_handle(double posX, double posY, void *param)
 	if (posX > 0 && posX < _ptrs->win_width
 		&& posY > 0 && posY < _ptrs->win_height)
 	{
-		if (_ptrs->mouse_flag && _ptrs->mouse_update_rate > 2)
+		if (_ptrs->mouse_flag && _ptrs->mouse_update_rate > 1)
 		{
 			distance_v[0] = posX - _ptrs->mouse_in[0];
 			distance_v[1] = posY - _ptrs->mouse_in[1];
@@ -112,7 +111,7 @@ void	cursor_handle(double posX, double posY, void *param)
 		_ptrs->mouse_pos[0] = posX;
 		_ptrs->mouse_pos[1] = posY;
 		if (_ptrs->mouse_flag)
-			mlx_put_pixel(_ptrs->mlx_img, posX, posY, 0xFFFFFFFF);
+			put_pixel(_ptrs, posX, posY, 0xFFFFFFFF);
 	}
 }
 
@@ -125,9 +124,8 @@ void	resize_handle(int32_t width, int32_t height, void *param)
 	{
 		_ptrs->win_height = height;
 		_ptrs->win_width = width;
-		_adapt_indx_s(_ptrs, _ptrs->map_data);
+		_ptrs->vertical_level = height / 2;
 		init_mini_map(_ptrs);
-		draw_bg(_ptrs, _ptrs->map_data, _ptrs->vertical_level);
 		ray_cast(_ptrs);
 	}
 }

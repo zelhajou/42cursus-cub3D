@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:51 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/05 13:52:26 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/07 03:09:45 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,10 @@ void	init_mini_map(t_ptrs *_ptrs)
 	_ptrs->map_x = _ptrs->pixels_per_cell * 2;
 	_ptrs->m_width = _ptrs->map_data->map_width * _ptrs->pixels_per_cell;
 	_ptrs->m_height = _ptrs->map_data->map_height * _ptrs->pixels_per_cell;
+	if (_ptrs->m_width + _ptrs->map_x > _ptrs->win_width / 4)
+		_ptrs->m_width = _ptrs->win_width / 4;
+	if (_ptrs->m_height + _ptrs->map_y > _ptrs->win_height - 2)
+		_ptrs->m_height = _ptrs->win_height - 2;
 }
 
 void	_init(t_ptrs *_ptrs, t_map_data *map_data)
