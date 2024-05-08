@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 12:21:18 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:59:26 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <libft.h>
 # include <stdbool.h>
 # include <ctype.h>
+# include <limits.h>
 
 // ANSI colors
 # define ANSI_COLOR_RED     "\x1b[31m"
