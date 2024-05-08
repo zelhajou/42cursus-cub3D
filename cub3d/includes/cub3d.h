@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 18:05:09 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:42:14 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -136,7 +136,6 @@ void	print_error_with_caret(const char *line);
 void	handle_mlx_initialization_error(void);
 
 /******************* Raycasting functions ******************/
-void	render_game(t_config *);
-
+void	render_game(t_config *_ptrs);
 
 #endif

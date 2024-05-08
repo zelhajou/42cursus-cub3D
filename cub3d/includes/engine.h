@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/08 12:17:14 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:42:59 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ void			perform_ray_cast(t_ptrs *f);
 int				calculate_shadowed_texture_color(t_ptrs *f, mlx_texture_t *ff,
 					float *fff);
 void			draw_map(t_ptrs *f, t_map_data *ff);
-
 
 // input handling
 void			handle_window_resize(int32_t f, int32_t ff, void *fff);
