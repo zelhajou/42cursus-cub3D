@@ -361,9 +361,7 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ## Error Handling and Cleanup
 
-## Optimization and Refactoring
-
-## Bonus Features (Optional)
+## Bonus Features
 
 ## Resources
 
