@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/19 22:53:36 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 16:04:03 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 19:43:34 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # include <string.h>
 # include <fcntl.h>
 # include <limits.h>
-
 
 /* Part 1 - Libc functions */
 
