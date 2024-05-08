@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 15:59:26 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:55:47 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,39 +106,34 @@ int		validate_digit_values(char **color_values);
  * Parsing map: map_parsing.c
 */
 int		handle_map_line(char *line, t_config *config, int *map_started);
+/**
+ * Parsing map: map_validation.c and map_validation2.c
+*/
 int		is_valid_map(t_config *config);
 int		fill_map_with_spaces(t_config *config);
-int		check_empty_space(t_config *config);
-/**
- * Parsing map: map_validation.c
-*/
 int		is_map_rectangle(t_config *config);
 int		check_top_bottom(t_config *config);
 int		check_left_right(t_config *config);
-int 	is_valid_map_char(t_config *config);
+int		is_space_within_map_bounds(size_t i, size_t j,
+			t_config *config, char **map_copy);
+int		check_empty_space(t_config *config);
+int		is_valid_map_char(t_config *config);
 int		is_player_position_valid(t_config *config);
 
 /*------------------ Utils -----------------------------*/
 /**
- * Map utils: map_utils.c
- */
-void	free_map(t_config *config);
-/**
  * Config utils: config_utils.c
- */
-void 	init_config(t_config *config, int *line_number);
-void	display_config(t_config *config);
-int 	open_file(const char *file_path);
-void	free_config(t_config *config);
-void	remove_newline_character(char *line);
-/**
- * Texture utils: texture_utils.c
- */
+*/
+void	init_config(t_config *config, int *line_number);
 void	free_texture(char **texture);
+void	free_map(t_config *config);
+void	free_config(t_config *config);
+void	display_config(t_config *config);
 /**
  * Error utils: error_utils.c
- */
+*/
 void	print_error_with_caret(const char *line);
+void	handle_mlx_initialization_error(void);
 
 /******************* Raycasting functions ******************/
 void	render_game(t_config *);

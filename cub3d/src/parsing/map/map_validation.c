@@ -6,11 +6,59 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/06 17:53:47 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:22:10 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:56:36 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	is_valid_map(t_config *config)
+{
+	if (fill_map_with_spaces(config))
+		return (1);
+	if (is_map_rectangle(config))
+		return (1);
+	if (check_top_bottom(config) || check_left_right(config))
+		return (1);
+	if (check_empty_space(config))
+		return (1);
+	if (is_valid_map_char(config))
+		return (1);
+	if (is_player_position_valid(config))
+		return (1);
+	free_map(config);
+	config->map = config->map_copy;
+	return (0);
+}
+
+int	fill_map_with_spaces(t_config *config)
+{
+	size_t	i;
+	size_t	width;
+
+	i = 0;
+	width = config->map_width;
+	config->map_copy = malloc(config->map_height * sizeof(char *));
+	if (!config->map_copy)
+		return (1);
+	while (i < config->map_height)
+	{
+		config->map_copy[i] = malloc(width + 1);
+		if (!config->map_copy[i])
+			return (1);
+		ft_memset(config->map_copy[i], ' ', width);
+		config->map_copy[i][width] = '\0';
+		i++;
+	}
+	i = 0;
+	while (i < config->map_height)
+	{
+		ft_strncpy(config->map_copy[i], config->map[i],
+			ft_strlen(config->map[i]));
+		i++;
+	}
+	return (0);
+}
 
 int	is_map_rectangle(t_config *config)
 {
@@ -30,9 +78,6 @@ int	is_map_rectangle(t_config *config)
 	return (0);
 }
 
-/**
- * Check top and bottom of map have only '1' and ' '
- */
 int	check_top_bottom(t_config *config)
 {
 	size_t	i;
@@ -54,9 +99,6 @@ int	check_top_bottom(t_config *config)
 	return (0);
 }
 
-/**
- * Check left and right of map have only '1' and ' '
- */
 int	check_left_right(t_config *config)
 {
 	size_t	i;
@@ -75,69 +117,5 @@ int	check_left_right(t_config *config)
 			return (printf("Error: Map is not surrounded by walls\n"), 1);
 		i++;
 	}
-	return (0);
-}
-
-/**
- * Check if any character is not '1', '0', 'N', 'S', 'W', 'E' or ' '
-*/
-int	is_valid_map_char(t_config *config)
-{
-	size_t	i;
-	size_t	j;
-	char	**map;
-
-	i = 0;
-	j = 0;
-	map = config->map_copy;
-	while (i < config->map_height)
-	{
-		j = 0;
-		while (j < config->map_width)
-		{
-			if (map[i][j] != '1' && map[i][j] != '0'
-				&& map[i][j] != 'N' && map[i][j] != 'S'
-				&& map[i][j] != 'W' && map[i][j] != 'E' && map[i][j] != ' ')
-			{
-				printf("Error: Invalid character in the map\n");
-				printf("Character found: %c\n", map[i][j]);
-				return (1);
-			}
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
-
-/**
- * Check is the player position is valid
- */
-int	is_player_position_valid(t_config *config)
-{
-	size_t	i;
-	size_t	j;
-	int		player_found;
-
-	i = 0;
-	j = 0;
-	player_found = 0;
-	while (i < config->map_height)
-	{
-		j = 0;
-		while (j < config->map_width)
-		{
-			if (ft_strchr("NSWE", config->map_copy[i][j]))
-			{
-				if (player_found)
-					return (printf("Error: Multiple player found\n"), 1);
-				player_found = 1;
-			}
-			j++;
-		}
-		i++;
-	}
-	if (!player_found)
-		return (printf("Error: No player position found\n"), 1);
 	return (0);
 }

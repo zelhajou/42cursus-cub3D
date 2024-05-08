@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:34 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/08 11:51:13 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:51:21 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,8 @@ void	handle_mouse_input(
 	}
 }
 
-void	update_perspective_hooks(int *distance_v, int *direction_v, t_ptrs *_ptrs)
+void	update_perspective_hooks(int *distance_v, int *direction_v,
+			t_ptrs *_ptrs)
 {
 	float			coef;
 

@@ -6,7 +6,7 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/08 15:14:39 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/05/08 17:45:16 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,9 @@ SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/parsing/texture/texture_validation.c \
        $(SRCDIR)/parsing/color/color_parsing.c \
 	   $(SRCDIR)/parsing/color/color_validation.c \
-	   $(SRCDIR)/parsing/map/map_validation.c \
 	   $(SRCDIR)/parsing/map/map_parsing.c \
+	   $(SRCDIR)/parsing/map/map_validation.c \
+	   $(SRCDIR)/parsing/map/map_validation2.c \
 	   $(SRCDIR)/rendering/drawing.c \
 	   $(SRCDIR)/rendering/hooks.c \
 	   $(SRCDIR)/rendering/movement.c \

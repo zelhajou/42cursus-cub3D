@@ -6,11 +6,24 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 12:24:30 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:50:41 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int	open_file(const char *file_path)
+{
+	int	fd;
+
+	fd = open(file_path, O_RDONLY);
+	if (fd < 0)
+	{
+		printf("Error: Could not open file\n");
+		return (-1);
+	}
+	return (fd);
+}
 
 int	parse_config_file(const char *file_path, t_config *config, int *line_number)
 {
@@ -33,17 +46,13 @@ int	parse_config_file(const char *file_path, t_config *config, int *line_number)
 	return (0);
 }
 
-int	open_file(const char *file_path)
+void	remove_newline_character(char *line)
 {
-	int	fd;
+	int	len;
 
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
-	{
-		printf("Error: Could not open file\n");
-		return (-1);
-	}
-	return (fd);
+	len = ft_strlen(line);
+	if (len > 0 && line[len - 1] == '\n')
+		line[len - 1] = '\0';
 }
 
 int	read_and_parse_lines(int fd, t_config *config, int *line_number)
@@ -74,16 +83,6 @@ int	read_and_parse_lines(int fd, t_config *config, int *line_number)
 	return (0);
 }
 
-void	remove_newline_character(char *line)
-{
-	int	len;
-
-	len = ft_strlen(line);
-	if (len > 0 && line[len - 1] == '\n')
-		line[len - 1] = '\0';
-}
-
-
 int	parse_line_data(char *line, t_config *config, int *map_started)
 {
 	if (is_texture(line))
@@ -100,5 +99,3 @@ int	parse_line_data(char *line, t_config *config, int *map_started)
 		return (print_error_with_caret(line), 1);
 	return (0);
 }
-
-

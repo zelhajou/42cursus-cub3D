@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:11:20 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 15:43:07 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:41:57 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void	free_map(t_config *config)
 	free(config->map);
 	config->map = NULL;
 }
-
 
 void	free_config(t_config *config)
 {

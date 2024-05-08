@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 16:08:25 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 17:50:08 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 int	handle_color_line(char *line, t_config *config)
 {
 	if (config->floor_color != -1 && ft_strchr(line, 'F'))
-			return (printf("Error: Colors already set\n"), 1);
+		return (printf("Error: Colors already set\n"), 1);
 	if (config->ceiling_color != -1 && ft_strchr(line, 'C'))
-			return (printf("Error: Colors already set\n"), 1);
+		return (printf("Error: Colors already set\n"), 1);
 	if (parse_color_type(line, config))
 		return (1);
 	return (0);
