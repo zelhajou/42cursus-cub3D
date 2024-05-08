@@ -6,7 +6,7 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/08 12:18:45 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/05/08 15:14:39 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,8 +36,7 @@ SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/rendering/raycasting_engine.c \
 	   $(SRCDIR)/rendering/raycasting_init.c \
 	   $(SRCDIR)/rendering/rendering.c \
-	   $(SRCDIR)/utils/parsing/config_utils.c \
-	   $(SRCDIR)/utils/parsing/config_utils2.c \
+	   $(SRCDIR)/utils/config_utils.c \
 	   $(SRCDIR)/utils/error_utils.c \
 	   $(SRCDIR)/utils/rendering_utils.c \
 	   $(SRCDIR)/utils/rendering_utils2.c \

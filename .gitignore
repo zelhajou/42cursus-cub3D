@@ -3,3 +3,5 @@ cub3d/cub3d
 *.a
 /cub3d/lib/MLX42/build
 .vscode/settings.json
+cub3d/Makefile
+cub3d/cub3d.dSYM/
