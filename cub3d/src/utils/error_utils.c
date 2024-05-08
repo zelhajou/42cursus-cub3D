@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:49:10 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 17:49:25 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:20:44 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	print_error_with_caret(const char *line)
 
 	i = 0;
 	line = ft_strtrim(line, " ");
-	error_message_len = strlen("Error: Invalid data ");
+	error_message_len = ft_strlen("Error: Invalid data ");
 	printf("Error: Invalid data '%s'\n", line);
 	while (i < error_message_len)
 	{

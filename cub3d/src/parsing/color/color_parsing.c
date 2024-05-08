@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 17:50:08 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:20:15 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,14 @@ int	parse_color_type(char *line, t_config *config)
 			ft_split_free(values);
 		return (1);
 	}
-	if (strcmp(values[0], "F") == 0)
+	if (ft_strncmp(values[0], "F", 1) == 0)
 	{
 		if (config->floor_color != -1)
 			return (printf("Error: Floor color already set\n"), 1);
 		if (parse_color(line, &config->floor_color))
 			return (1);
 	}
-	else if (strcmp(values[0], "C") == 0)
+	else if (ft_strncmp(values[0], "C", 1) == 0)
 	{
 		if (config->ceiling_color != -1)
 			return (printf("Error: Ceiling color already set\n"), 1);

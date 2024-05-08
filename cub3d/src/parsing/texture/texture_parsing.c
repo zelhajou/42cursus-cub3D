@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:58:53 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 18:48:12 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 20:16:30 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,13 @@ int	parse_texture_type(char *line, t_config *config)
 			ft_split_free(values);
 		return (1);
 	}
-	if (strcmp(values[0], "NO") == 0)
+	if (ft_strncmp(values[0], "NO", 2) == 0)
 		return (validate_no_texture(line, config));
-	else if (strcmp(values[0], "SO") == 0)
+	else if (ft_strncmp(values[0], "SO", 2) == 0)
 		return (validate_so_texture(line, config));
-	else if (strcmp(values[0], "WE") == 0)
+	else if (ft_strncmp(values[0], "WE", 2) == 0)
 		return (validate_we_texture(line, config));
-	else if (strcmp(values[0], "EA") == 0)
+	else if (ft_strncmp(values[0], "EA", 2) == 0)
 		return (validate_ea_texture(line, config));
 	ft_split_free(values);
 	return (0);
