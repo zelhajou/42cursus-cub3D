@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:49:10 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 12:07:59 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:05:24 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,3 +35,4 @@ void handle_mlx_initialization_error(void)
     printf("Error initializing MLX: \n\t%s\n", mlx_strerror(mlx_errno));
     exit(1);
 }
+
