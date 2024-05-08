@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 12:14:42 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:16:19 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:44:13 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ int	handle_map_line(char *line, t_config *config, int *map_started)
 	size_t	line_width;
 
 	if (!config->no_texture || !config->we_texture || !config->so_texture
-		|| !config->ea_texture || !config->floor_color
-		|| !config->ceiling_color)
+		|| !config->ea_texture || config->floor_color == -1
+		|| config->ceiling_color == -1)
 		return (printf("Error: Map must be defined in the end\n"), 1);
 	*map_started = 1;
 	line_width = ft_strlen(line);

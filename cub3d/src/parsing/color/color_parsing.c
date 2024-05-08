@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:07:41 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:08:25 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,10 @@
 
 int	handle_color_line(char *line, t_config *config)
 {
-	if (config->floor_color && config->ceiling_color)
-		return (printf("Error: Colors already set\n"), 1);
-	if (!config->no_texture || !config->we_texture
-		|| !config->so_texture || !config->ea_texture)
-	{
-		printf("Error: Colors must be defined after defining all textures\n");
-		return (1);
-	}
+	if (config->floor_color != -1 && ft_strchr(line, 'F'))
+			return (printf("Error: Colors already set\n"), 1);
+	if (config->ceiling_color != -1 && ft_strchr(line, 'C'))
+			return (printf("Error: Colors already set\n"), 1);
 	if (parse_color_type(line, config))
 		return (1);
 	return (0);
@@ -41,14 +37,14 @@ int	parse_color_type(char *line, t_config *config)
 	}
 	if (strcmp(values[0], "F") == 0)
 	{
-		if (config->floor_color)
+		if (config->floor_color != -1)
 			return (printf("Error: Floor color already set\n"), 1);
 		if (parse_color(line, &config->floor_color))
 			return (1);
 	}
 	else if (strcmp(values[0], "C") == 0)
 	{
-		if (config->ceiling_color)
+		if (config->ceiling_color != -1)
 			return (printf("Error: Ceiling color already set\n"), 1);
 		if (parse_color(line, &config->ceiling_color))
 			return (1);

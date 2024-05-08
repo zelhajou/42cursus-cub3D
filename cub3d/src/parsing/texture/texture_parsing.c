@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 19:58:53 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:17:55 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:45:25 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int	handle_texture_line(char *line, t_config *config, int *map_started)
 	if (config->no_texture && config->we_texture
 		&& config->so_texture && config->ea_texture)
 		return (printf("Error: Textures already set\n"), 1);
-	if (config->floor_color || config->ceiling_color || *map_started)
+	if (*map_started)
 	{
-		printf("Error: Texture must be defined before colors or map\n");
+		printf("Error: Map must be defined in the end\n");
 		return (1);
 	}
 	if (parse_texture_type(line, config))

@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:11:20 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 12:25:08 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:43:07 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	init_config(t_config *config, int *line_number)
 	config->we_texture = NULL;
 	config->so_texture = NULL;
 	config->ea_texture = NULL;
-	config->floor_color = 0;
-	config->ceiling_color = 0;
+	config->floor_color = -1;
+	config->ceiling_color = -1;
 	config->map = NULL;
 	config->map_height = 0;
 	config->map_width = 0;

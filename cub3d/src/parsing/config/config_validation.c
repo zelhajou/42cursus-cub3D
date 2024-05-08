@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/26 14:55:52 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:09:17 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 15:43:34 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int	check_config_validity(int map_started, t_config *config)
 {
 	if (!config->no_texture || !config->we_texture
 		|| !config->so_texture || !config->ea_texture
-		|| !config->floor_color || !config->ceiling_color
+		|| config->floor_color == -1 || config->ceiling_color == -1
 		|| !map_started)
 		return (printf("Error: Missing data\n"), 1);
 	return (0);
