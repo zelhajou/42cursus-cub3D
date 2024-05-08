@@ -72,8 +72,7 @@ Our project will be evaluated based on various criteria, including:
 
 As a team, we'll be tackling the cub3d project in a systematic manner to ensure a successful outcome. Here's our proposed development roadmap:
 
-
-### 1. Project Setup
+### 1. Project Setup 
 Set up the project repository, establish communication channels, and assign roles.
 - [x] **Create Repository**: Set up a Git repository for the project.
 - [x] **Establish Communication**: Choose communication tools (Discord) for team collaboration.
@@ -136,22 +135,18 @@ The project will be structured as follows:
 ```
 cub3d/
 │
-├── src/
-│   ├── main/
-│   │   └── main.c              # Entry point of the program
-│   ├── parsing/
-│   │   └── parse.c             # Functions for parsing the .cub configuration file
-│   ├── rendering/
-│   │   └── render.c            # Functions for rendering the 3D world using raycasting
-│   ├── textures/
-│   │   └── texture.c           # Functions for loading and managing textures
-│   ├── player/
-│   │   └── player.c            # Functions for player movement and controls
-│   ├── utils/
-│   │   └── utils.c             # Utility functions (e.g., error handling, memory management)
+└── src                        # Source code files
+│   ├── parsing                # Functions for parsing the configuration file
+│   │   ├── color
+│   │   ├── config
+│   │   ├── map
+│   │   └── texture
+│   ├── rendering               # Functions for rendering the 3D world
+│   └── utils                   # Utility functions
 │
-├── includes/
-│   └── cub3d.h                 # Header file with function prototypes and structures
+├── includes                    # Header files
+│   ├── cub3d.h
+│   └── engine.h
 │
 ├── assets/
 │   ├── textures/               # Directory for storing texture files (.xpm or .png)
@@ -166,18 +161,14 @@ cub3d/
 
 In this structure:
 
-- **src/**: Contains the source code files, each grouped by functionality into separate folders.
-    - **main/**: Contains the main entry point of your program.
-    - **parsing/**: Contains functions for parsing the .cub configuration file.
-    - **rendering/**: Contains functions for rendering the 3D world using raycasting.
-    - **textures/**: Contains functions for loading and managing textures.
-    - **player/**: Contains functions for player movement and controls.
-    - **utils/**: Contains utility functions like error handling and memory management.
-- **includes/**: Contains header files.
-    - **cub3d.h**: Header file with function prototypes and structure definitions.
-- **assets/**: Directory for storing assets like textures and map configuration files.
-    - **textures/**: Directory for texture files (.xpm or .png).
-    - **maps/**: Directory for map configuration files (.cub).
+- **src/**: Contains the source code files for the project.
+    - **parsing/**: Functions for parsing the configuration file.
+        - **color/**: Functions for parsing and validating color settings.
+        - **config/**: Functions for parsing and validating configuration settings.
+        - **map/**: Functions for parsing and validating map settings.
+        - **texture/**: Functions for parsing and validating texture settings.
+    - **rendering/**: Functions for rendering the 3D world.
+    - **utils/**: Utility functions for common tasks.
 - **libft/ (optional): If you're using your own libft library.
 libft.a: Compiled library
 includes/: Header files for libft
@@ -362,8 +353,22 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ## Raycasting Engine
 
+## Texture Mapping
 
-## Researched Topics
+## Player Movement and Controls
+
+## Rendering Game World
+
+## Error Handling and Cleanup
+
+## Optimization and Refactoring
+
+## Bonus Features (Optional)
+
+## Resources
+
+
+### Researched Topics
 
 - [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
 - [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
