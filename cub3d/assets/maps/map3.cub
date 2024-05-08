@@ -1,10 +1,16 @@
-NO assets/textures/github.png
-SO assets/textures/github.png
+
+
+
+
 WE assets/textures/github.png
 EA assets/textures/github.png
+C 0,0,0
 
-F 45,45,45
-C 1,1,1
+NO assets/textures/github.png
+
+SO assets/textures/github.png
+
+F 45,45,0
 
 
 1111111111111111111111111111111111111111111111111111111
@@ -35,4 +41,7 @@ C 1,1,1
      1111111111111111111                100001
                                          1111
                                          1111
+
+
+
 
