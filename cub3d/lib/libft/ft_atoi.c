@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 18:20:39 by zelhajou          #+#    #+#             */
-/*   Updated: 2022/11/21 23:13:14 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 16:05:38 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,46 +16,38 @@
 
 #include "libft.h"
 
-static int	skip_space(int *i, const char *str)
+void	handle_color_error(int key)
 {
-	int	sign;
-
-	sign = 1;
-	while ((str[*i] >= 9 && str[*i] <= 13) || str[*i] == 32)
-		(*i)++;
-	if (str[*i] == '-' || str[*i] == '+')
+	if (key == 1)
 	{
-		if (str[*i] == '-')
-			sign *= -1;
-		(*i)++;
+		printf("Error: Color out of range\n");
+		exit(1);
 	}
-	return (sign);
+	else
+		exit(0);
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *s)
 {
-	int			sign;
-	int			i;
-	long long	res;
-	long long	prev;
-	long long	tmp;
+	int	sign;
+	int	nb;
+	int	n;
 
-	i = 0;
-	res = 0;
-	sign = skip_space(&i, str);
-	while (str[i] >= '0' && str[i] <= '9')
+	nb = 0;
+	sign = 1;
+	if (*s == '+')
+		s++;
+	if (*s == '-' && s++)
+		sign = -1;
+	while (*s)
 	{
-		prev = res;
-		res = res * 10 + str[i] - '0';
-		tmp = res / 10;
-		if (tmp != prev)
-		{
-			if (sign == 1)
-				return (-1);
-			else
-				return (0);
-		}
-		i++;
+		n = (*s - 48) * sign;
+		if (nb > (INT_MAX / 10) || (nb == (INT_MAX / 10) && n > 7))
+			handle_color_error(1);
+		if (nb < (INT_MIN / 10) || (nb == (INT_MIN / 10) && n < -8))
+			handle_color_error(1);
+		nb = nb * 10 + n;
+		s++;
 	}
-	return (sign * res);
+	return (nb);
 }
