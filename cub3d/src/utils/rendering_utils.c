@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:14 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 14:50:06 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:51:13 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,21 +21,20 @@ void	close_handle(void *param)
 	exit(0);
 }
 
-void	put_pixel(t_ptrs *_ptrs, int x, int y, int color)
+void	draw_pixel(t_ptrs *_ptrs, int x, int y, int color)
 {
 	if (x > 0 && y > 0
 		&& x < _ptrs->win_width && y < _ptrs->win_height)
 		mlx_put_pixel(_ptrs->mlx_img, x, y, color << 8 | 0xFF);
 }
 
-void	adapt_camera_plane(t_ptrs	*_ptrs)
+void	adjust_camera_plane(t_ptrs	*_ptrs)
 {
 	_ptrs->horizontal_camera_plane[0] = _ptrs->direction[1] * -1;
 	_ptrs->horizontal_camera_plane[1] = _ptrs->direction[0];
 }
 
-int	better_collision_detection(
-		t_ptrs *_ptrs, float newX, float newY, float range)
+int	collision_detection(t_ptrs *_ptrs, float newX, float newY, float range)
 {
 	float			y;
 	float			x;

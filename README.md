@@ -250,11 +250,11 @@ C 0,0,100
 In this example, the configuration file specifies the following settings:
 
 - **Textures**:
-    - North wall texture: `./assets/textures/north.xpm`
-    - South wall texture: `./assets/textures/south.xpm`
-    - West wall texture: `./assets/textures/west.xpm`
-    - East wall texture: `./assets/textures/east.xpm`
-    - Sprite texture: `./assets/textures/sprite.xpm`
+    - North wall texture: `./assets/textures/north.png`
+    - South wall texture: `./assets/textures/south.png`
+    - West wall texture: `./assets/textures/west.png`
+    - East wall texture: `./assets/textures/east.png`
+    - Sprite texture: `./assets/textures/sprite.png`
 - **Floor Color**: RGB value (220,100,0)
 - **Ceiling Color**: RGB value (0,0,100)
 - **Map Layout**:
@@ -299,30 +299,46 @@ Here's a basic outline of the steps involved in parsing the configuration file:
 2. **Read Lines**: Read each line of the file using the `get_next_line` function.
 3. **Parse Data**: Parse the data from each line to extract relevant settings (e.g., textures, colors, map layout).
 
-`cub3d/src/parsing/parse.c`
-
+To store the configuration settings, we'll define a `t_config` structure to hold the extracted data:
 ```c
-
 typedef struct s_config
 {
-    char *no_texture;
-    char *we_texture;
-    char *so_texture;
-    char *ea_texture;
-    int floor_color;
-    int ceiling_color;
-    char **map;
-    int map_width;
-    int map_height;
-} t_config;
-
-/* Function to parse the texture path */
-int parse_texture(char *line, char **texture)
-
-/* Function to parse the configuration file */
-int parse_config_file(const char *file_path, t_config *config);
-
+    char    *no_texture;
+    char    *we_texture;
+    char    *so_texture;
+    char    *ea_texture;
+    int     floor_color;
+    int     ceiling_color;
+    char    **map;
+    char    **map_copy;
+    size_t  map_width;
+    size_t  map_height;
+    int     map_started;
+}    t_config;
 ```
+
+The `t_config` structure contains fields to store the configuration settings extracted from the configuration file. We'll use this structure to store the textures, colors, and map layout.
+
+```bash
+└── src
+    ├── parsing
+    │   ├── color
+    │   │   ├── color_parsing.c
+    │   │   └── color_validation.c
+    │   ├── config
+    │   │   ├── config_file_parsing.c
+    │   │   └── config_validation.c
+    │   ├── map
+    │   │   ├── map_parsing.c
+    │   │   └── map_validation.c
+    │   └── texture
+    │       ├── texture_parsing.c
+    │       └── texture_validation.c
+```
+
+The `color`, `config`, `map`, and `texture` directories contain functions for parsing and validating the color, configuration, map, and texture settings, respectively. Each directory contains two files: one for parsing the data and one for validating it.
+
+By parsing and storing the configuration file, we'll be able to extract the game settings needed to set up the game environment.
 
 ## III. Initialize Graphics
 

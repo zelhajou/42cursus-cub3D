@@ -6,12 +6,12 @@
 #    By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/20 13:21:00 by zelhajou          #+#    #+#              #
-#    Updated: 2024/05/07 17:38:19 by zelhajou         ###   ########.fr        #
+#    Updated: 2024/05/08 12:18:45 by zelhajou         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 SRCDIR = ./src
 OBJDIR = ./obj
@@ -22,7 +22,7 @@ INCLUDES = -I./includes -I./lib/get_next_line -I./lib/libft -I./lib/MLX42/includ
 MLX42_FLAGS = -framework Cocoa -framework IOKit $(LIBMLX)/build/libmlx42.a -Iinclude -lglfw -L $(shell brew --prefix glfw)/lib
 
 SRCS = $(SRCDIR)/main.c \
-	   $(SRCDIR)/parsing/config/config_file_parsing.c \
+	   $(SRCDIR)/parsing/config/config_parsing.c \
 	   $(SRCDIR)/parsing/config/config_validation.c \
 	   $(SRCDIR)/parsing/texture/texture_parsing.c \
 	   $(SRCDIR)/parsing/texture/texture_validation.c \
@@ -30,20 +30,19 @@ SRCS = $(SRCDIR)/main.c \
 	   $(SRCDIR)/parsing/color/color_validation.c \
 	   $(SRCDIR)/parsing/map/map_validation.c \
 	   $(SRCDIR)/parsing/map/map_parsing.c \
+	   $(SRCDIR)/rendering/drawing.c \
+	   $(SRCDIR)/rendering/hooks.c \
+	   $(SRCDIR)/rendering/movement.c \
+	   $(SRCDIR)/rendering/raycasting_engine.c \
+	   $(SRCDIR)/rendering/raycasting_init.c \
+	   $(SRCDIR)/rendering/rendering.c \
+	   $(SRCDIR)/utils/parsing/config_utils.c \
+	   $(SRCDIR)/utils/parsing/config_utils2.c \
+	   $(SRCDIR)/utils/error_utils.c \
+	   $(SRCDIR)/utils/rendering_utils.c \
+	   $(SRCDIR)/utils/rendering_utils2.c \
 	   $(LIBDIR_GNL)/get_next_line.c \
 	   $(LIBDIR_GNL)/get_next_line_utils.c \
-	   $(SRCDIR)/utils/general_utils.c \
-	   $(SRCDIR)/utils/rayCaster_utils.c \
-	   $(SRCDIR)/utils/parsing/map_utils.c \
-	   $(SRCDIR)/utils/error_utils.c \
-	   $(SRCDIR)/utils/parsing/config_utils.c \
-	   $(SRCDIR)/utils/parsing/texture_utils.c \
-	   $(SRCDIR)/rendering/hooks.c \
-	   $(SRCDIR)/rendering/drawing.c \
-	   $(SRCDIR)/rendering/movements.c \
-	   $(SRCDIR)/rendering/rayCaster.c \
-	   $(SRCDIR)/rendering/rayCaster_init.c \
-	   $(SRCDIR)/rendering/rayCaster_engine.c
 
 OBJS = $(SRCS:$(SRCDIR)/%.c=$(OBJDIR)/%.o)
 

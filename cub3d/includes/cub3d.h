@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 16:24:24 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:21:18 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,6 @@ int		is_player_position_valid(t_config *config);
 /**
  * Map utils: map_utils.c
  */
-void	print_copied_map(t_config *config);
 void	free_map(t_config *config);
 /**
  * Config utils: config_utils.c
@@ -141,7 +140,7 @@ void	free_texture(char **texture);
 void	print_error_with_caret(const char *line);
 
 /******************* Raycasting functions ******************/
-void	_render(t_config *);
+void	render_game(t_config *);
 
 
 #endif

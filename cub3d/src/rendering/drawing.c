@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   drawing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 03:56:29 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:56:42 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:17:14 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	draw_vertical_line(t_ptrs *_ptrs, float *Yaxis, int win_x)
 	{
 		x = win_x;
 		while (x < win_x + 2)
-			put_pixel(_ptrs, x++, y, 0x000000);
+			draw_pixel(_ptrs, x++, y, 0x000000);
 		y++;
 	}
 }
@@ -79,7 +79,7 @@ void	draw_line(
 	while (y_line[0] < y_line[1] && tex_position[1] < tex->height)
 	{
 		x = win_x;
-		color = get_texture_color(_ptrs, tex, tex_position);
+		color = calculate_shadowed_texture_color(_ptrs, tex, tex_position);
 		while (x < win_x + 2)
 			mlx_put_pixel(_ptrs->mlx_img, x++, y_line[0], color << 8 | 0xFF);
 		tex_position[1] += tex_position[2];
@@ -100,9 +100,9 @@ void	draw_map(t_ptrs *_ptrs, t_map_data *map_data)
 		x = -1;
 		while (++x < _ptrs->m_width)
 		{
-			if (compare_f(_ptrs->position[0],
+			if (compare_float_within_range(_ptrs->position[0],
 					x / _ptrs->pixels_per_cell, _ptrs->player_range)
-				&& compare_f(_ptrs->position[1],
+				&& compare_float_within_range(_ptrs->position[1],
 					y / _ptrs->pixels_per_cell, _ptrs->player_range))
 				color = 0x0168b7;
 			else if (map_data->map[(int)(y / _ptrs->pixels_per_cell)]
@@ -110,7 +110,7 @@ void	draw_map(t_ptrs *_ptrs, t_map_data *map_data)
 				color = _ptrs->wall_color;
 			else
 				continue ;
-			put_pixel(_ptrs, x + _ptrs->map_x, y + _ptrs->map_y, color);
+			draw_pixel(_ptrs, x + _ptrs->map_x, y + _ptrs->map_y, color);
 		}
 	}
 }

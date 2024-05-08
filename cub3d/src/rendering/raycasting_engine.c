@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rayCaster_engine.c                                 :+:      :+:    :+:   */
+/*   raycasting_engine.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:52:21 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:18:00 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
 
-void	draw_(
+void	draw_scene(
 		t_ptrs *_ptrs, int win_x, t_ray_data *ray_data, mlx_texture_t *tex)
 {
 	float		tex_position[3];
@@ -80,7 +80,7 @@ void	gather_ray_data(t_ptrs *_ptrs, t_ray_data *ray_data, float *fPosition)
 	ray_data->wall_fracs = ray_data->wall_fracs - (int)ray_data->wall_fracs;
 }
 
-void	get_wall_distance(
+void	calculate_wall_distance(
 		t_ptrs *_ptrs, t_ray_data *ray_data, size_t *position, float *fPosition)
 {
 	initialize_ray_data(ray_data, position, fPosition);
@@ -100,14 +100,14 @@ void	get_wall_distance(
 			position[1] += ray_data->step[1];
 			ray_data->which_side = 1;
 		}
-		put_pixel(_ptrs, _ptrs->map_x + (position[0] * _ptrs->pixels_per_cell),
+		draw_pixel(_ptrs, _ptrs->map_x + (position[0] * _ptrs->pixels_per_cell),
 			_ptrs->map_y + (position[1] * _ptrs->pixels_per_cell), 0xff0000);
 		if (_ptrs->map_data->map[position[1]][position[0]] == '1')
 			break ;
 	}
 }
 
-void	ray_cast(t_ptrs	*_ptrs)
+void	perform_ray_cast(t_ptrs	*_ptrs)
 {
 	float		camera_plane_x;
 	size_t		position[2];
@@ -126,10 +126,10 @@ void	ray_cast(t_ptrs	*_ptrs)
 			+ _ptrs->horizontal_camera_plane[1] * camera_plane_x;
 		position[0] = (int)_ptrs->position[0];
 		position[1] = (int)_ptrs->position[1];
-		get_wall_distance(_ptrs, ray_data, position, _ptrs->position);
+		calculate_wall_distance(_ptrs, ray_data, position, _ptrs->position);
 		gather_ray_data(_ptrs, ray_data, _ptrs->position);
-		draw_(_ptrs, x_pixel, ray_data,
-			tetermine_texture(_ptrs, ray_data->ray_direction, ray_data));
+		draw_scene(_ptrs, x_pixel, ray_data,
+			determine_wall_texture(_ptrs, ray_data->ray_direction, ray_data));
 		x_pixel += 2;
 	}
 	draw_map(_ptrs, _ptrs->map_data);

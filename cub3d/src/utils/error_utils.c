@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 14:49:10 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:17:03 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:07:59 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ void	print_error_with_caret(const char *line)
 	printf(ANSI_COLOR_GREEN"\e[1m^\n\e[m "ANSI_COLOR_RESET);
 }
 
-void	cancel_d(void)
+void handle_mlx_initialization_error(void)
 {
-	printf("error initializing mlx42: \n\t%s\n", mlx_strerror(mlx_errno));
-	exit(1);
+    printf("Error initializing MLX: \n\t%s\n", mlx_strerror(mlx_errno));
+    exit(1);
 }

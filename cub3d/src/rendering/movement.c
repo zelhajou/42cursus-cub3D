@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   movements.c                                        :+:      :+:    :+:   */
+/*   movement.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/03 01:30:57 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:44:44 by beddinao         ###   ########.fr       */
+/*   Created: 2024/05/08 11:00:56 by zelhajou          #+#    #+#             */
+/*   Updated: 2024/05/08 11:50:22 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
 
-void	_update_prespective(t_ptrs *_ptrs, int new_level)
+void	update_perspective_movements(t_ptrs *_ptrs, int new_level)
 {
 	if (new_level > 0 && new_level < _ptrs->win_height)
 		_ptrs->vertical_level = new_level;
-	ray_cast(_ptrs);
+	perform_ray_cast(_ptrs);
 }
 
 void	move_prespective(int keycode, float speed, t_ptrs *_ptrs)
@@ -45,7 +45,7 @@ void	move_prespective(int keycode, float speed, t_ptrs *_ptrs)
 		_ptrs->horizontal_camera_plane[1] = old_plane_x * sin(speed)
 			+ _ptrs->horizontal_camera_plane[1] * cos(speed);
 	}
-	_update_prespective(_ptrs, new_level);
+	update_perspective_movements(_ptrs, new_level);
 }
 
 void	update_position(t_ptrs *_ptrs, float *new_pos)
@@ -54,21 +54,21 @@ void	update_position(t_ptrs *_ptrs, float *new_pos)
 
 	to_be = 0;
 	if (new_pos[0] > 0.0 && new_pos[0] < _ptrs->map_data->map_width
-		&& better_collision_detection(
+		&& collision_detection(
 			_ptrs, new_pos[0], _ptrs->position[1], 0.3))
 	{
 		_ptrs->position[0] = new_pos[0];
 		to_be = 1;
 	}
 	if (new_pos[1] > 0.0 && new_pos[1] < _ptrs->map_data->map_height
-		&& better_collision_detection(
+		&& collision_detection(
 			_ptrs, _ptrs->position[0], new_pos[1], 0.3))
 	{
 		_ptrs->position[1] = new_pos[1];
 		to_be = 1;
 	}
 	if (to_be)
-		ray_cast(_ptrs);
+		perform_ray_cast(_ptrs);
 }
 
 void	move_sides(

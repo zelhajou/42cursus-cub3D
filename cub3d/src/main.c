@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:42:45 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:06:55 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:42:21 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 			free_config(config);
 			return (1);
 		}
-		_render(config);
+		render_game(config);
 	}
 	return (0);
 }

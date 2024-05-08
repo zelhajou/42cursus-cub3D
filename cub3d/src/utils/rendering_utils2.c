@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rayCaster_utils.c                                  :+:      :+:    :+:   */
+/*   rendering_utils2.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:32:04 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:54:59 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:17:14 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
 
-mlx_texture_t	*tetermine_texture(
+mlx_texture_t	*determine_wall_texture(
 		t_ptrs *_ptrs, float *rayDir, t_ray_data *ray_data)
 {
 	int			side;
@@ -29,21 +29,21 @@ mlx_texture_t	*tetermine_texture(
 	return (NULL);
 }
 
-int	compare_f(float f1, float f2, float range)
+int	compare_float_within_range(float f1, float f2, float range)
 {
 	if (f1 > f2 - range && f1 < f2 + range)
 		return (1);
 	return (0);
 }
 
-int	is_player_char(char p)
+int	is_player_character(char p)
 {
 	if (p == 'N' || p == 'W' || p == 'E' || p == 'S')
 		return (1);
 	return (0);
 }
 
-int	darken_color(int *range, int index, int color)
+int	interpolate_color(int *range, int index, int color)
 {
 	int			colors[2][3];
 	float		coef;
@@ -60,7 +60,7 @@ int	darken_color(int *range, int index, int color)
 	return ((colors[1][0] << 16) + (colors[1][1] << 8) + colors[1][2]);
 }
 
-int	get_texture_color(
+int	calculate_shadowed_texture_color(
 		t_ptrs *_ptrs, mlx_texture_t *tex, float *texYaxis)
 {
 	int		index;

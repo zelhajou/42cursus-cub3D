@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 16:17:21 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:17:14 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,40 +71,42 @@ typedef struct ptrs
 	mlx_texture_t	*east;
 }	t_ptrs;
 
-void			_render(t_map_data *F);
+void			render_game(t_map_data *F);
 
 //
-void			_init(t_ptrs *f, t_map_data *ff);
-void			ray_cast(t_ptrs *f);
-int				get_texture_color(t_ptrs *f, mlx_texture_t *ff,
+void			initialize_rendering_engine(t_ptrs *f, t_map_data *ff);
+void			perform_ray_cast(t_ptrs *f);
+int				calculate_shadowed_texture_color(t_ptrs *f, mlx_texture_t *ff,
 					float *fff);
 void			draw_map(t_ptrs *f, t_map_data *ff);
-//
-void			resize_handle(int32_t f, int32_t ff, void *fff);
-void			cursor_handle(double f, double ff, void *fff);
-void			mouse_handle(mouse_key_t f, action_t ff,
+
+
+// input handling
+void			handle_window_resize(int32_t f, int32_t ff, void *fff);
+void			handle_cursor_position(double f, double ff, void *fff);
+void			handle_mouse_input(mouse_key_t f, action_t ff,
 					modifier_key_t fff, void *ffff);
-void			key_handle(mlx_key_data_t f, void *ff);
+void			handle_key_input(mlx_key_data_t f, void *ff);
 void			move_prespective(int f, float ff, t_ptrs *fff);
 void			close_handle(void *param);
 void			move_position(int f, float ff, t_ptrs *fff);
 //
-void			adapt_camera_plane(t_ptrs *f);
-int				better_collision_detection(
+void			adjust_camera_plane(t_ptrs *f);
+int				collision_detection(
 					t_ptrs *f, float ff, float fff, float ffff);
-void			cancel_d(void);
-void			init_mini_map(t_ptrs *f);
-void			_adapt_indx_s(t_ptrs *f, t_map_data *ff);
+void			handle_mlx_initialization_error(void);
+void			initialize_minimap(t_ptrs *f);
+void			initialize_starting_index(t_ptrs *f, t_map_data *ff);
 //
-int				darken_color(int *f, int ff, int fff);
-int				compare_f(float f, float ff, float fff);
-int				is_player_char(char f);
-mlx_texture_t	*tetermine_texture(t_ptrs *f, float *ff, t_ray_data *fff);
+int				interpolate_color(int *f, int ff, int fff);
+int				compare_float_within_range(float f, float ff, float fff);
+int				is_player_character(char f);
+mlx_texture_t	*determine_wall_texture(t_ptrs *f, float *ff, t_ray_data *fff);
 void			draw_vertical_line(t_ptrs *f, float *ff, int fff);
 void			draw_ceiling_line(t_ptrs *_ptrs, float start, int win_x);
 void			draw_floor_line(t_ptrs *_ptrs, float end, int win_x);
 void			draw_line(t_ptrs *_ptrs, mlx_texture_t *tex,
 					float *y_line, float *tex_position);
-void			put_pixel(t_ptrs *_ptrs, int x, int y, int color);
+void			draw_pixel(t_ptrs *_ptrs, int x, int y, int color);
 
 #endif

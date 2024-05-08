@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:30:34 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/07 03:32:21 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/08 11:51:13 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "engine.h"
 
-void	key_handle(mlx_key_data_t keydata, void *param)
+void	handle_key_input(mlx_key_data_t keydata, void *param)
 {
 	t_ptrs			*_ptrs;
 
@@ -33,7 +33,7 @@ void	key_handle(mlx_key_data_t keydata, void *param)
 		move_position(keydata.key, 0.2, _ptrs);
 }
 
-void	mouse_handle(
+void	handle_mouse_input(
 		mouse_key_t button, action_t action, modifier_key_t mods, void *param)
 {
 	t_ptrs		*_ptrs;
@@ -55,12 +55,12 @@ void	mouse_handle(
 			_ptrs->mouse_flag = 0;
 			_ptrs->wall_color = 0x595959;
 			_ptrs->player_range = 0.4;
-			ray_cast(_ptrs);
+			perform_ray_cast(_ptrs);
 		}
 	}
 }
 
-void	update_prespective(int *distance_v, int *direction_v, t_ptrs *_ptrs)
+void	update_perspective_hooks(int *distance_v, int *direction_v, t_ptrs *_ptrs)
 {
 	float			coef;
 
@@ -88,7 +88,7 @@ void	update_prespective(int *distance_v, int *direction_v, t_ptrs *_ptrs)
 	}
 }
 
-void	cursor_handle(double posX, double posY, void *param)
+void	handle_cursor_position(double posX, double posY, void *param)
 {
 	t_ptrs			*_ptrs;
 	int				distance_v[2];
@@ -104,18 +104,18 @@ void	cursor_handle(double posX, double posY, void *param)
 		{
 			distance_v[0] = posX - _ptrs->mouse_in[0];
 			distance_v[1] = posY - _ptrs->mouse_in[1];
-			update_prespective(distance_v, direction_v, _ptrs);
+			update_perspective_hooks(distance_v, direction_v, _ptrs);
 		}
 		else
 			_ptrs->mouse_update_rate += 1;
 		_ptrs->mouse_pos[0] = posX;
 		_ptrs->mouse_pos[1] = posY;
 		if (_ptrs->mouse_flag)
-			put_pixel(_ptrs, posX, posY, 0xFFFFFFFF);
+			draw_pixel(_ptrs, posX, posY, 0xFFFFFFFF);
 	}
 }
 
-void	resize_handle(int32_t width, int32_t height, void *param)
+void	handle_window_resize(int32_t width, int32_t height, void *param)
 {
 	t_ptrs			*_ptrs;
 
@@ -125,7 +125,7 @@ void	resize_handle(int32_t width, int32_t height, void *param)
 		_ptrs->win_height = height;
 		_ptrs->win_width = width;
 		_ptrs->vertical_level = height / 2;
-		init_mini_map(_ptrs);
-		ray_cast(_ptrs);
+		initialize_minimap(_ptrs);
+		perform_ray_cast(_ptrs);
 	}
 }

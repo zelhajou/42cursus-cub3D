@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 11:11:20 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/07 17:16:56 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/08 12:25:08 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,42 @@ void	init_config(t_config *config, int *line_number)
 	config->map_height = 0;
 	config->map_width = 0;
 	*line_number = 1;
+}
+
+void	free_texture(char **texture)
+{
+	if (*texture)
+	{
+		free(*texture);
+		*texture = NULL;
+	}
+}
+
+void	free_map(t_config *config)
+{
+	size_t	i;
+	size_t	height;
+
+	i = 0;
+	height = config->map_height;
+	while (i < height)
+	{
+		free(config->map[i]);
+		i++;
+	}
+	free(config->map);
+	config->map = NULL;
+}
+
+
+void	free_config(t_config *config)
+{
+	free_texture(&config->no_texture);
+	free_texture(&config->we_texture);
+	free_texture(&config->so_texture);
+	free_texture(&config->ea_texture);
+	free_map(config);
+	free(config);
 }
 
 void	display_config(t_config *config)
@@ -45,36 +81,11 @@ void	display_config(t_config *config)
 	}
 	printf("config->map_height: %zu\n", config->map_height);
 	printf("config->map_width: %zu\n", config->map_width);
-}
-
-void	free_config(t_config *config)
-{
-	free_texture(&config->no_texture);
-	free_texture(&config->we_texture);
-	free_texture(&config->so_texture);
-	free_texture(&config->ea_texture);
-	free_map(config);
-	free(config);
-}
-
-void	remove_newline_character(char *line)
-{
-	int	len;
-
-	len = ft_strlen(line);
-	if (len > 0 && line[len - 1] == '\n')
-		line[len - 1] = '\0';
-}
-
-int	open_file(const char *file_path)
-{
-	int	fd;
-
-	fd = open(file_path, O_RDONLY);
-	if (fd < 0)
+	i = 0;
+	printf("Map copy:\n");
+	while (i < config->map_height)
 	{
-		printf("Error: Could not open file\n");
-		return (-1);
+		printf("%s\n", config->map_copy[i]);
+		i++;
 	}
-	return (fd);
 }
