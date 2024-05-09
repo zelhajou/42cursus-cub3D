@@ -6,7 +6,7 @@
 - [Summary](#summary)
 - [Project Goals](#project-goals)
 - [Project Requirements](#project-requirements)
-- [Evaluation Criteria](#evaluation-criteria)
+- [Screenshots and Demos](#screenshots-and-demos)
 - [Team Development Steps](#team-development-steps)
   - [1. Project Setup](#1-project-setup)
   - [2. Parsing Configuration File](#2-parsing-configuration-file)
@@ -59,14 +59,15 @@ Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and publis
 - **Controls**: Implement controls to allow the player to move and navigate within the 3D world using keyboard input.
 - **Bonus Features**: While not required, implementing additional features like a minimap, HUD (Heads-Up Display), or more complex game mechanics can earn us extra points.
 
-## Evaluation Criteria
+## Screenshots and Demos
+| | |
+|:-------------------------:|:-------------------------:|
+| <img width="1230" alt="Screen Shot 2024-05-09 at 12 22 47 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/e4879374-df66-42eb-9b81-9eac22a27089"> | <img width="1245" alt="Screen Shot 2024-05-09 at 12 24 31 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/319554ac-ebe6-4dd3-91c5-495c857f407b">
+| <img width="1346" alt="Screen Shot 2024-05-09 at 12 47 45 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/f60b06a5-2171-4a9a-b132-85832746dab7"> | <img width="1288" alt="Screen Shot 2024-05-09 at 12 40 14 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/ca7bd27b-4f3f-4b9b-aa6f-3cf9c8537031"> |
 
-Our project will be evaluated based on various criteria, including:
 
-- **Correctness**: We need to ensure the game works correctly without bugs or crashes.
-- **Code Quality**: Let's aim for well-structured, readable, and well-documented code.
-- **Performance**: The game should run smoothly without significant lag or performance issues.
-- **Bonus Features**: Extra points may be awarded for implementing additional features or going beyond the basic requirements of the project.
+https://github.com/zelhajou/42-cub3D/assets/39954629/5c64d881-2734-4e40-95aa-60fd97a8639a
+
 
 ## Team Development Steps
 
@@ -362,20 +363,6 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 ## Error Handling and Cleanup
 
 ## Bonus Features
-
-## Screenshots and Demos
-| | |
-|:-------------------------:|:-------------------------:|
-| <img width="1230" alt="Screen Shot 2024-05-09 at 12 22 47 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/e4879374-df66-42eb-9b81-9eac22a27089"> | <img width="1245" alt="Screen Shot 2024-05-09 at 12 24 31 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/319554ac-ebe6-4dd3-91c5-495c857f407b">
-| <img width="1346" alt="Screen Shot 2024-05-09 at 12 47 45 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/f60b06a5-2171-4a9a-b132-85832746dab7"> | <img width="1288" alt="Screen Shot 2024-05-09 at 12 40 14 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/ca7bd27b-4f3f-4b9b-aa6f-3cf9c8537031"> |
-
-
-
-
-https://github.com/zelhajou/42-cub3D/assets/39954629/5c64d881-2734-4e40-95aa-60fd97a8639a
-
-
-
 
 
 
