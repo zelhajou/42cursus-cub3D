@@ -363,8 +363,14 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ## Bonus Features
 
-## Resources
+## Screenshots and Demos
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+| ![Screenshot 1](assets/39954629/e53038ee-d9ed-43fa-8f58-44ee63a5ede3) | ![Screenshot 2](assets/39954629/e53038ee-d9ed-43fa-8f58-44ee63a5ede3) | ![Screenshot 3](assets/39954629/e53038ee-d9ed-43fa-8f58-44ee63a5ede3) |
 
+
+
+## Resources
 
 ### Researched Topics
 
@@ -383,13 +389,8 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [3DSage - Make Your Own Raycaster - Part 2](https://www.youtube.com/watch?v=PC1RaETIx3Y) 
 - [3DSage - Make Your Own Raycaster - Part 3](https://www.youtube.com/watch?v=w0Bm4IA-Ii8)
 - [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
-
 - [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents)
-
-
 - [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
-
-
 
 **[MinilibX]**
 

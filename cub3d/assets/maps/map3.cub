@@ -2,13 +2,13 @@
 
 
 
-WE assets/textures/github.png
-EA assets/textures/github.png
-C 20,20,20
+WE assets/textures/matrix.png
+EA assets/textures/matrix.png
+C 0,0,0
 
-NO assets/textures/github.png
+NO assets/textures/matrix.png
 
-SO assets/textures/github.png
+SO assets/textures/matrix.png
 
 F 20,20,20
 

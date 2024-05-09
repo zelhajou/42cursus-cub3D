@@ -1,11 +1,11 @@
-EA assets/textures/brickwall.png
-NO assets/textures/brickwall.png
-SO assets/textures/brickwall.png
-WE assets/textures/brickwall.png
+EA assets/textures/github.png
+NO assets/textures/github.png
+SO assets/textures/github.png
+WE assets/textures/github.png
 
 
-F 28,28,28
-C 255,255,255
+F 5,5,5
+C 0,0,0
 
 1111111111111111111111111111111111111111
 1000000000000000010010010000000000000001
