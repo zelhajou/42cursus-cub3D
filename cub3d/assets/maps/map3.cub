@@ -2,15 +2,15 @@
 
 
 
-WE assets/maps/map3.cub
+WE assets/textures/github.png
 EA assets/textures/github.png
-C 0,0,0
+C 20,20,20
 
 NO assets/textures/github.png
 
 SO assets/textures/github.png
 
-F 45,45,0
+F 20,20,20
 
 
 1111111111111111111111111111111111111111111111111111111

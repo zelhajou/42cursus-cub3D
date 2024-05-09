@@ -368,19 +368,16 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ### Researched Topics
 
-- [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
 - [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
 
-Mathematics:
-
-
+**[Mathematics]**
 
 - [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 - [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
 
+**[Raycasting]**
 
-Raycasting:
-
+- [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
 - [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d)
 - [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY)
 - [3DSage - Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA)
@@ -396,7 +393,13 @@ Raycasting:
 
 - [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 
-MinilibX:
+**[MinilibX]**
+
 - [Introduction to the MinilibX](https://www.youtube.com/watch?v=bYS93r6U0zg)
 - [x.org Documentation](https://www.x.org/wiki)
 - [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
+
+**[42 students articles]**
+
+ - [Cub3D Tutorial Using angles](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
+ - [Jun Han Ng - Cub3D ](https://hackmd.io/@nszl/H1LXByIE2#introduction)
