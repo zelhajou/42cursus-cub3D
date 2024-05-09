@@ -86,47 +86,47 @@ Implement the code to read and parse the configuration file (.cub) to extract ga
 
 ### 3. Initialize Graphics
 Set up the graphics rendering engine using the `minilibx` library.
-- [ ] **Initialize Minilibx**: Set up the Minilibx library for graphics rendering.
-- [ ] **Create Window**: Create a window for rendering the game.
-- [ ] **Setup Buffer**: Set up a buffer for rendering pixels to the window.
+- [x] **Initialize Minilibx**: Set up the Minilibx library for graphics rendering.
+- [x] **Create Window**: Create a window for rendering the game.
+- [x] **Setup Buffer**: Set up a buffer for rendering pixels to the window.
 
 ### 4. Raycasting Engine
 Develop the raycasting engine to render a 3D perspective view of the game world.
-- [ ] **Initialize Ray**: Start with the player's position and direction.
-- [ ] **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
-- [ ] **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
+- [x] **Initialize Ray**: Start with the player's position and direction.
+- [x] **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
+- [x] **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
 
 ### 5. Texture Mapping
 Apply textures to walls to enhance the visual appearance of the game.
-- [ ] **Load Textures**: Load wall and sprite textures from files.
-- [ ] **Implement Texture Mapping**: Apply textures to the rendered walls.
+- [x] **Load Textures**: Load wall and sprite textures from files.
+- [x] **Implement Texture Mapping**: Apply textures to the rendered walls.
 
 ### 6. Player Movement and Controls
 Implement controls to allow the player to move and navigate within the 3D world.
-- [ ] **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
-- [ ] **Update Player Position**: Update the player's position based on input and collision detection.
+- [x] **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
+- [x] **Update Player Position**: Update the player's position based on input and collision detection.
 
 ### 7. Rendering Game World
 Render the game world using the raycasting results and textures.
-- [ ] **Draw Walls**: Render the walls of the 3D world using the raycasting results.
-- [ ] **Draw Floor and Ceiling**: Render the floor and ceiling of the 3D world.
+- [x] **Draw Walls**: Render the walls of the 3D world using the raycasting results.
+- [x] **Draw Floor and Ceiling**: Render the floor and ceiling of the 3D world.
 - [ ] **Draw Sprites**: Implement sprite rendering if necessary.
 
 ### 8. Error Handling and Cleanup
 Implement error handling to prevent crashes and ensure a smooth user experience.
-- [ ] **Error Checks**: Implement error handling to catch and handle any runtime errors.
-- [ ] **Memory Cleanup**: Free allocated memory and resources.
-- [ ] **Close Window**: Properly close the graphics window when exiting the game.
+- [x] **Error Checks**: Implement error handling to catch and handle any runtime errors.
+- [x] **Memory Cleanup**: Free allocated memory and resources.
+- [x] **Close Window**: Properly close the graphics window when exiting the game.
 
 ### 9. Optimization and Refactoring
 Optimize the code for performance and refactor as needed for better readability.
-- [ ] **Optimize Raycasting**: Improve raycasting performance if necessary.
-- [ ] **Refactor Code**: Clean up and organize the code for better readability and maintainability.
+- [x] **Optimize Raycasting**: Improve raycasting performance if necessary.
+- [x] **Refactor Code**: Clean up and organize the code for better readability and maintainability.
 
 ### 10. Bonus Features (Optional)
 Implement additional features to enhance the game experience and earn extra points.
-- [ ] **Add Features**: Implement additional features like a minimap, HUD, or more complex game mechanics.
-- [ ] **Testing**: Thoroughly test the game to ensure all features work as expected.
+- [x] **Add Features**: Implement additional features like a minimap, HUD, or more complex game mechanics.
+- [x] **Testing**: Thoroughly test the game to ensure all features work as expected.
 
 ## Project Structure
 
@@ -369,29 +369,27 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 ### Researched Topics
 
 - [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
+- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 
 **[Mathematics]**
-
-- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 - [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
+- [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 
 **[Raycasting]**
-
 - [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
-- [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d)
-- [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY)
-- [3DSage - Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA)
+- [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) 
+- [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY) ⭐
+- [3DSage - Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA) 
 - [3DSage - Make Your Own Raycaster - Part 2](https://www.youtube.com/watch?v=PC1RaETIx3Y) 
 - [3DSage - Make Your Own Raycaster - Part 3](https://www.youtube.com/watch?v=w0Bm4IA-Ii8)
 - [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
 
 - [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents)
-- [Raycasting in 2D by 3DSage](https://reactive.so/post/42-a-comprehensive-guide-to-cub3d)
-- [Cub3D Tutorial [Using angles]. INTRODUCTION](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
+
+
 - [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
 
 
-- [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 
 **[MinilibX]**
 
@@ -400,6 +398,5 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
 
 **[42 students articles]**
-
- - [Cub3D Tutorial Using angles](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
+- [Cub3D Tutorial [Using angles]. INTRODUCTION](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
  - [Jun Han Ng - Cub3D ](https://hackmd.io/@nszl/H1LXByIE2#introduction)
