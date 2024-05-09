@@ -208,8 +208,8 @@ In this structure:
 Create the project directory structure and necessary files.
 
 ```bash
-mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/textures cub3d/src/player cub3d/src/utils
-mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps cub3d/libft/includes
+mkdir -p cub3d/src/main cub3d/src/parsing cub3d/src/rendering cub3d/src/utils
+mkdir -p cub3d/includes cub3d/assets/textures cub3d/assets/maps
 ```
 
 ### Step 2: Create Files
