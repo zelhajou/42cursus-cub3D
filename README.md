@@ -6,7 +6,7 @@
 - [Summary](#summary)
 - [Project Goals](#project-goals)
 - [Project Requirements](#project-requirements)
-- [Screenshots and Demos](#screenshots-and-demos)
+- [Screenshots and Demos of our project](#screenshots-and-demos-of-our-project)
 - [Team Development Steps](#team-development-steps)
   - [1. Project Setup](#1-project-setup)
   - [2. Parsing Configuration File](#2-parsing-configuration-file)
@@ -19,10 +19,13 @@
   - [9. Optimization and Refactoring](#9-optimization-and-refactoring)
   - [10. Bonus Features (Optional)](#10-bonus-features-optional)
 - [Project Structure](#project-structure)
-- [Project Setup](#project-setup)
+- [I. Project Setup](#i-project-setup)
   - [Step 1: Setup](#step-1-setup)
   - [Step 2: Create Files](#step-2-create-files)
-- [Parsing Configuration File](#parsing-configuration-file)
+- [II. Parsing Configuration File](#ii-parsing-configuration-file)
+  - [Map requirements](#map-requirements)
+  - [Prsing and Storing the Configuration File](#prsing-and-storing-the-configuration-file)
+- [III. Initialize Graphics](#iii-initialize-graphics)
 - [Resources](#resources)
   - [Video resources](#video-resources)
 
@@ -60,72 +63,91 @@ Developed by [id Software](https://en.wikipedia.org/wiki/Id_Software) and publis
 - **Bonus Features**: While not required, implementing additional features like a minimap, HUD (Heads-Up Display), or more complex game mechanics can earn us extra points.
 
 ## Screenshots and Demos of our project
+
 | | |
 |:-------------------------:|:-------------------------:|
 | <img width="1230" alt="Screen Shot 2024-05-09 at 12 22 47 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/e4879374-df66-42eb-9b81-9eac22a27089"> | <img width="1245" alt="Screen Shot 2024-05-09 at 12 24 31 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/319554ac-ebe6-4dd3-91c5-495c857f407b">
 | <img width="1346" alt="Screen Shot 2024-05-09 at 12 47 45 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/f60b06a5-2171-4a9a-b132-85832746dab7"> | <img width="1288" alt="Screen Shot 2024-05-09 at 12 40 14 PM" src="https://github.com/zelhajou/42-cub3D/assets/39954629/ca7bd27b-4f3f-4b9b-aa6f-3cf9c8537031"> |
 
-
 https://github.com/zelhajou/42-cub3D/assets/39954629/5c64d881-2734-4e40-95aa-60fd97a8639a
-
 
 ## Team Development Steps
 
 As a team, we'll be tackling the cub3d project in a systematic manner to ensure a successful outcome. Here's our proposed development roadmap:
 
-### 1. Project Setup 
+### 1. Project Setup
+
 Set up the project repository, establish communication channels, and assign roles.
+
 - [x] **Create Repository**: Set up a Git repository for the project.
 - [x] **Establish Communication**: Choose communication tools (Discord) for team collaboration.
 - [x] **Assign Roles**: Define roles and responsibilities for each team member.
 
 ### 2. Parsing Configuration File
+
 Implement the code to read and parse the configuration file (.cub) to extract game settings.
+
 - [x] **Read File**: Open and read the .cub configuration file.
 - [x] **Validate Data**: Check for valid map settings, resolution, textures, etc.
 - [x] **Parse Data**: Extract and store relevant information from the configuration file.
 
 ### 3. Initialize Graphics
+
 Set up the graphics rendering engine using the `minilibx` library.
+
 - [x] **Initialize Minilibx**: Set up the Minilibx library for graphics rendering.
 - [x] **Create Window**: Create a window for rendering the game.
 - [x] **Setup Buffer**: Set up a buffer for rendering pixels to the window.
 
 ### 4. Raycasting Engine
+
 Develop the raycasting engine to render a 3D perspective view of the game world.
+
 - [x] **Initialize Ray**: Start with the player's position and direction.
 - [x] **Cast Rays**: Cast rays from the player's position to calculate distances to walls.
 - [x] **Calculate Wall Strips**: Determine the height and texture of each wall strip to draw.
 
 ### 5. Texture Mapping
+
 Apply textures to walls to enhance the visual appearance of the game.
+
 - [x] **Load Textures**: Load wall and sprite textures from files.
 - [x] **Implement Texture Mapping**: Apply textures to the rendered walls.
 
 ### 6. Player Movement and Controls
+
 Implement controls to allow the player to move and navigate within the 3D world.
+
 - [x] **Handle Input**: Implement controls for player movement (e.g., WASD for movement, arrow keys for rotation).
 - [x] **Update Player Position**: Update the player's position based on input and collision detection.
 
 ### 7. Rendering Game World
+
 Render the game world using the raycasting results and textures.
+
 - [x] **Draw Walls**: Render the walls of the 3D world using the raycasting results.
 - [x] **Draw Floor and Ceiling**: Render the floor and ceiling of the 3D world.
 - [ ] **Draw Sprites**: Implement sprite rendering if necessary.
 
 ### 8. Error Handling and Cleanup
+
 Implement error handling to prevent crashes and ensure a smooth user experience.
+
 - [x] **Error Checks**: Implement error handling to catch and handle any runtime errors.
 - [x] **Memory Cleanup**: Free allocated memory and resources.
 - [x] **Close Window**: Properly close the graphics window when exiting the game.
 
 ### 9. Optimization and Refactoring
+
 Optimize the code for performance and refactor as needed for better readability.
+
 - [x] **Optimize Raycasting**: Improve raycasting performance if necessary.
 - [x] **Refactor Code**: Clean up and organize the code for better readability and maintainability.
 
 ### 10. Bonus Features (Optional)
+
 Implement additional features to enhance the game experience and earn extra points.
+
 - [x] **Add Features**: Implement additional features like a minimap, HUD, or more complex game mechanics.
 - [x] **Testing**: Thoroughly test the game to ensure all features work as expected.
 
@@ -170,10 +192,14 @@ In this structure:
         - **texture/**: Functions for parsing and validating texture settings.
     - **rendering/**: Functions for rendering the 3D world.
     - **utils/**: Utility functions for common tasks.
-- **libft/ (optional): If you're using your own libft library.
-libft.a: Compiled library
-includes/: Header files for libft
-Makefile: Main Makefile for compiling the project and potentially the libft library.
+- **includes/**: Contains header files for the project.
+    - **cub3d.h**: Main header file for the project.
+    - **engine.h**: Header file for the graphics rendering engine.
+- **assets/**: Directory for storing texture files (.xpm or .png) and map configuration files (.cub).
+    - **textures/**: Directory for storing texture files.
+    - **maps/**: Directory for storing map configuration files.
+- **libft/**: If you're using your own libft library, this directory contains the compiled library and header files.
+- **Makefile**: Makefile for compiling the project.
 
 ## I. Project Setup
 
@@ -194,14 +220,10 @@ Create the main source files and header file for the project.
 touch cub3d/src/main/main.c
 touch cub3d/src/parsing/parse.c
 touch cub3d/src/rendering/render.c
-touch cub3d/src/textures/texture.c
-touch cub3d/src/player/player.c
 touch cub3d/src/utils/utils.c
 touch cub3d/includes/cub3d.h
 touch cub3d/assets/textures/.gitkeep
 touch cub3d/assets/maps/.gitkeep
-touch cub3d/libft/libft.a
-touch cub3d/libft/includes/libft.h
 touch cub3d/Makefile
 ```
 
@@ -246,7 +268,6 @@ In this example, the configuration file specifies the following settings:
     - South wall texture: `./assets/textures/south.png`
     - West wall texture: `./assets/textures/west.png`
     - East wall texture: `./assets/textures/east.png`
-    - Sprite texture: `./assets/textures/sprite.png`
 - **Floor Color**: RGB value (220,100,0)
 - **Ceiling Color**: RGB value (0,0,100)
 - **Map Layout**:
@@ -292,6 +313,7 @@ Here's a basic outline of the steps involved in parsing the configuration file:
 3. **Parse Data**: Parse the data from each line to extract relevant settings (e.g., textures, colors, map layout).
 
 To store the configuration settings, we'll define a `t_config` structure to hold the extracted data:
+
 ```c
 typedef struct s_config
 {
@@ -364,8 +386,6 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ## Bonus Features
 
-
-
 ## Resources
 
 ### Researched Topics
@@ -374,10 +394,12 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 
 **[Mathematics]**
+
 - [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
 - [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 
 **[Raycasting]**
+
 - [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
 - [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) 
 - [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY) ⭐
@@ -395,5 +417,6 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
 
 **[42 students articles]**
+
 - [Cub3D Tutorial [Using angles]. INTRODUCTION](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
  - [Jun Han Ng - Cub3D ](https://hackmd.io/@nszl/H1LXByIE2#introduction)
