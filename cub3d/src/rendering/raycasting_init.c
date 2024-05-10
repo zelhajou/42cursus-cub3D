@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:51 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/08 19:53:31 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:31:36 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,12 @@ void	initialize_minimap(t_ptrs *_ptrs)
 
 void	initialize_rendering_engine(t_ptrs *_ptrs, t_map_data *map_data)
 {
+	t_ray_data		*ray_data;
+
+	ray_data = malloc(sizeof(t_ray_data));
+	if (!_ptrs || !ray_data)
+		handle_mlx_initialization_error();
+	_ptrs->ray_data = ray_data;
 	_ptrs->win_width = MAX_WIN_W;
 	_ptrs->win_height = MAX_WIN_H;
 	_ptrs->map_data = map_data;

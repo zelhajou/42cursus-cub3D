@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/10 08:58:32 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:28:39 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,6 @@ void	perform_ray_cast(t_ptrs	*_ptrs)
 	t_ray_data	*ray_data;
 
 	x_pixel = 0;
-	_ptrs->ray_data = malloc(sizeof(t_ray_data));
 	ray_data = _ptrs->ray_data;
 	while (x_pixel < _ptrs->win_width)
 	{
@@ -133,5 +132,4 @@ void	perform_ray_cast(t_ptrs	*_ptrs)
 		x_pixel += PPL;
 	}
 	draw_map(_ptrs, _ptrs->map_data);
-	free(ray_data);
 }

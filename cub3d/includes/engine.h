@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 06:08:10 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/10 09:05:09 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/10 09:22:13 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # define MIN_WIN_W 500
 # define MAX_WIN_H 720
 # define MIN_WIN_H 220
-# define PPL 1 // 1 <= pixels_per_line <= WIN_W
+# define PPL 2 // 1 <= pixels_per_line <= WIN_W
 
 typedef t_config	t_map_data;
 
