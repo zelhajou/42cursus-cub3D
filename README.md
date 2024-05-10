@@ -396,7 +396,8 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 ### Researched Topics
 
 - [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
-- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
+- [How do games render their scenes? | Bitwise](https://youtu.be/Oct4Oi-KfVQ)
+- [How do Video Game Graphics Work?](https://youtu.be/C8YtdC8mxTU?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
 
 **[Mathematics]**
 
@@ -406,23 +407,13 @@ Trigonometry is a branch of mathematics that deals with the relationships betwee
 
 - [Trigonometry for Games (Making a Homing Rocket)](https://demoman.net/?a=trig-for-games)
 - [Trigonometry - Easy to understand 3D animation](https://youtu.be/ovLbCvq7FNA)
-- [Trigonometry - Khan Academy](https://www.khanacademy.org/math/trigonometry)
-- [Trigonometry - Math is Fun](https://www.mathsisfun.com/algebra/trigonometry.html)
-- [من أين جاءت النسب المثلثية وما أهميتها؟](https://youtu.be/LAn56tz1nX8?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
 - [Trigonometry in Game Development](https://www.youtube.com/watch?v=SEqFQl2ADi0)
 - [Trigonometry | Gamedev Math](https://www.youtube.com/watch?v=FZ9HWff734c)
 - [So how does your computer ACTUALLY compute sine? Basics of trig and more…](https://www.youtube.com/watch?v=kkMt4lrJzs8)
 - [Trigonometry • Math for Game Devs [Part 3]](https://www.youtube.com/watch?v=1NLekEd770w)
-
-**Vectors and Matrices:** Vectors and matrices are fundamental concepts in 3D graphics programming. You'll use them to represent positions, directions, transformations, and more.
-
-Vector and Matrix is a very important concept in computer graphics. It is used to represent the position, direction, and transformation of objects in 3D space. It is also used to represent the color of the object, the texture of the object, and the light source in the scene.
-
-- [Vectors and Matrices - 3Blue1Brown](https://www.youtube.com/watch?v=fNk_zzaMoSs)
-- [Vectors and Matrices - Khan Academy](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)
-- [Vectors and Matrices - Math is Fun](https://www.mathsisfun.com/algebra/vectors.html)
-- [Vectors and Matrices in Game Development](https://www.youtube.com/watch?v=7k03zkkvQv0)
-- [Vectors and Matrices | Gamedev Math](https://www.youtube.com/watch?v=8M5d2MfK2Vg)
+- [Trigonometry - Khan Academy](https://www.khanacademy.org/math/trigonometry)
+- [Trigonometry - Math is Fun](https://www.mathsisfun.com/algebra/trigonometry.html)
+- [من أين جاءت النسب المثلثية وما أهميتها؟](https://youtu.be/LAn56tz1nX8?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
 
 **linear algebra:** Linear algebra is a branch of mathematics that deals with vectors, matrices, and linear transformations. It is essential for understanding 3D graphics programming, as it helps you represent and manipulate objects in 3D space.
 
@@ -430,21 +421,40 @@ Vector and Matrix is a very important concept in computer graphics. It is used t
 - [Linear Algebra - Khan Academy](https://www.khanacademy.org/math/linear-algebra)
 - [Linear Algebra - Math is Fun](https://www.mathsisfun.com/algebra/linear-equations.html)
 
+**Vectors and Matrices:** Vectors and matrices are fundamental concepts in 3D graphics programming. You'll use them to represent positions, directions, transformations, and more.
+
+Vector and Matrix is a very important concept in computer graphics. It is used to represent the position, direction, and transformation of objects in 3D space. It is also used to represent the color of the object, the texture of the object, and the light source in the scene.
+
+- [Game Math Theory - VECTORS](https://youtu.be/wXI9_olSrqo)
+- [Vectors and Matrices - 3Blue1Brown](https://www.youtube.com/watch?v=fNk_zzaMoSs)
+- [Vectors and Matrices - Khan Academy](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)
+- [Vectors and Matrices - Math is Fun](https://www.mathsisfun.com/algebra/vectors.html)
+- [Vectors and Matrices in Game Development](https://www.youtube.com/watch?v=7k03zkkvQv0)
+- [Vectors and Matrices | Gamedev Math](https://www.youtube.com/watch?v=8M5d2MfK2Vg)
+- [Linear Algebra - Matrix Transformations](https://www.youtube.com/watch?v=IrggOvOSZr4)
+
 **Geometry:** Geometry is the branch of mathematics that deals with shapes, sizes, and properties of space. It is essential for understanding 3D graphics programming, as it helps you calculate positions, angles, and distances in 3D space.
 
 - [Vectors & Dot Product • Math for Game Devs [Part 1]](https://www.youtube.com/watch?v=MOYiVLEnhrw)
 - [Geometry - Khan Academy](https://www.khanacademy.org/math/geometry)
 - [Geometry - Math is Fun](https://www.mathsisfun.com/geometry/index.html)
 
+**Calculus:** Calculus is a branch of mathematics that deals with rates of change and accumulation. It is essential for understanding 3D graphics programming, as it helps you calculate velocities, accelerations, and other dynamic properties of objects in 3D space.
 
+- [Calculus - Math is Fun](https://www.mathsisfun.com/calculus/index.html)
+- [Calculus -- The foundation of modern science](https://www.youtube.com/watch?v=rjLJIVoQxz4)
 
 **[Computer Graphics]**
 
-- [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
+Computer graphics is a field of study that focuses on the creation, manipulation, and rendering of images using computers. It is essential for understanding how to create 2D and 3D graphics, animations, and visual effects.
+
+- [Computer Graphics - Scratchapixel](https://www.scratchapixel.com/)
+- [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 
 **[Raycasting]**
 
 - [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
+- [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
 - [RayCasting Tutorials by Lode Vandevenne](https://harm-smits.github.io/42docs/projects/cub3d) 
 - [Matt Godbolt - Wolfenstein 3D's map renderer](https://www.youtube.com/watch?v=eOCQfxRQ2pY) ⭐
 - [3DSage - Make Your Own Raycaster - Part 1](https://www.youtube.com/watch?v=gYRrGTC7GtA) 
@@ -452,7 +462,6 @@ Vector and Matrix is a very important concept in computer graphics. It is used t
 - [3DSage - Make Your Own Raycaster - Part 3](https://www.youtube.com/watch?v=w0Bm4IA-Ii8)
 - [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
 - [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents)
-- [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
 
 **[MinilibX]**
 
