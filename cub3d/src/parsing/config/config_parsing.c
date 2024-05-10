@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/21 10:13:14 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 17:50:41 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:15:12 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	parse_line_data(char *line, t_config *config, int *map_started)
 	if (is_texture(line))
 		return (handle_texture_line(line, config, map_started));
 	else if (is_color(line))
-		return (handle_color_line(line, config));
+		return (handle_color_line(line, config, map_started));
 	else if (ft_strchr("01 ", *line))
 		return (handle_map_line(line, config, map_started));
 	else if (*map_started && !is_texture(line)

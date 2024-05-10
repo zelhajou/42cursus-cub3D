@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 14:56:49 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/06 14:58:46 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:05:04 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,21 @@
 
 bool	is_texture(char *line)
 {
-	return (ft_strncmp(line, "NO ", 3) == 0
-		|| ft_strncmp(line, "WE ", 3) == 0
-		|| ft_strncmp(line, "SO ", 3) == 0
-		|| ft_strncmp(line, "EA ", 3) == 0);
+	char	*line_trimmed;
+
+	line_trimmed = ft_strtrim(line, " ");
+	if (!line_trimmed)
+		return (false);
+	if (ft_strncmp(line_trimmed, "NO", 2) == 0
+		|| ft_strncmp(line_trimmed, "SO", 2) == 0
+		|| ft_strncmp(line_trimmed, "WE", 2) == 0
+		|| ft_strncmp(line_trimmed, "EA", 2) == 0)
+	{
+		free(line_trimmed);
+		return (true);
+	}
+	free(line_trimmed);
+	return (false);
 }
 
 int	validate_no_texture(char *line, t_config *config)

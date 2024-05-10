@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/20 13:21:09 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 19:42:14 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:49:08 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int		validate_ea_texture(char *line, t_config *config);
 /**
  * Parsing colors: color_parsing.c
 */
-int		handle_color_line(char *line, t_config *config);
+int		handle_color_line(char *line, t_config *config, int *map_started);
 int		parse_color_type(char *line, t_config *config);
 int		parse_color(char *line, int *color);
 int		convert_and_check_range(char **color_values, int *color);
@@ -128,7 +128,6 @@ void	init_config(t_config *config, int *line_number);
 void	free_texture(char **texture);
 void	free_map(t_config *config);
 void	free_config(t_config *config);
-void	display_config(t_config *config);
 /**
  * Error utils: error_utils.c
 */

@@ -6,18 +6,20 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 18:52:33 by zelhajou          #+#    #+#             */
-/*   Updated: 2024/05/08 20:20:15 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:45:57 by zelhajou         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	handle_color_line(char *line, t_config *config)
+int	handle_color_line(char *line, t_config *config, int *map_started)
 {
+	if (*map_started)
+		return (printf("Error: Map must be defined in the end\n"), 1);
 	if (config->floor_color != -1 && ft_strchr(line, 'F'))
-		return (printf("Error: Colors already set\n"), 1);
+		return (printf("Error: Floor color already set\n"), 1);
 	if (config->ceiling_color != -1 && ft_strchr(line, 'C'))
-		return (printf("Error: Colors already set\n"), 1);
+		return (printf("Error: Ceiling color already set\n"), 1);
 	if (parse_color_type(line, config))
 		return (1);
 	return (0);
@@ -37,19 +39,15 @@ int	parse_color_type(char *line, t_config *config)
 	}
 	if (ft_strncmp(values[0], "F", 1) == 0)
 	{
-		if (config->floor_color != -1)
-			return (printf("Error: Floor color already set\n"), 1);
 		if (parse_color(line, &config->floor_color))
-			return (1);
+			return (ft_split_free(values), 1);
 	}
 	else if (ft_strncmp(values[0], "C", 1) == 0)
 	{
-		if (config->ceiling_color != -1)
-			return (printf("Error: Ceiling color already set\n"), 1);
 		if (parse_color(line, &config->ceiling_color))
-			return (1);
+			return (ft_split_free(values), 1);
 	}
-	return (0);
+	return (ft_split_free(values), 0);
 }
 
 int	parse_color(char *line, int *color)
