@@ -6,7 +6,7 @@
 /*   By: zelhajou <zelhajou@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/07 03:56:29 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/08 12:17:14 by zelhajou         ###   ########.fr       */
+/*   Updated: 2024/05/10 08:59:26 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	draw_vertical_line(t_ptrs *_ptrs, float *Yaxis, int win_x)
 	while (y < Yaxis[1])
 	{
 		x = win_x;
-		while (x < win_x + 2)
+		while (x < win_x + PPL)
 			draw_pixel(_ptrs, x++, y, 0x000000);
 		y++;
 	}
@@ -36,7 +36,7 @@ void	draw_ceiling_line(t_ptrs *_ptrs, float start, int win_x)
 	while (y < start)
 	{
 		x = win_x;
-		while (x < win_x + 2)
+		while (x < win_x + PPL)
 			mlx_put_pixel(_ptrs->mlx_img, x++, y,
 				_ptrs->map_data->ceiling_color << 8 | 0xFF);
 		y++;
@@ -52,7 +52,7 @@ void	draw_floor_line(t_ptrs *_ptrs, float end, int win_x)
 	while (y < _ptrs->win_height)
 	{
 		x = win_x;
-		while (x < win_x + 2)
+		while (x < win_x + PPL)
 			mlx_put_pixel(_ptrs->mlx_img, x++, y,
 				_ptrs->map_data->floor_color << 8 | 0xFF);
 		y++;
@@ -80,7 +80,7 @@ void	draw_line(
 	{
 		x = win_x;
 		color = calculate_shadowed_texture_color(_ptrs, tex, tex_position);
-		while (x < win_x + 2)
+		while (x < win_x + PPL)
 			mlx_put_pixel(_ptrs->mlx_img, x++, y_line[0], color << 8 | 0xFF);
 		tex_position[1] += tex_position[2];
 		y_line[0] += 1;

@@ -6,7 +6,7 @@
 /*   By: beddinao <beddinao@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 01:31:35 by beddinao          #+#    #+#             */
-/*   Updated: 2024/05/08 19:53:46 by beddinao         ###   ########.fr       */
+/*   Updated: 2024/05/10 08:58:32 by beddinao         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	perform_ray_cast(t_ptrs	*_ptrs)
 		gather_ray_data(_ptrs, ray_data, _ptrs->position);
 		draw_scene(_ptrs, x_pixel, ray_data,
 			determine_wall_texture(_ptrs, ray_data->ray_direction, ray_data));
-		x_pixel += 2;
+		x_pixel += PPL;
 	}
 	draw_map(_ptrs, _ptrs->map_data);
 	free(ray_data);
