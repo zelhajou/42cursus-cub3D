@@ -397,16 +397,33 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 **Trigonometry:** Essential for dealing with angles and rotations in 3D space. You'll frequently use trigonometric functions like sine, cosine, and tangent to calculate positions and angles.
 
+```
+Trigonometry is a branch of mathematics that deals with the relationships between the sides and angles of triangles. It is essential for understanding 3D graphics programming, as it helps you calculate positions, rotations, and other transformations in 3D space.
+```
+
+- [Trigonometry for Games (Making a Homing Rocket)](https://demoman.net/?a=trig-for-games)
 - [Trigonometry - Easy to understand 3D animation](https://youtu.be/ovLbCvq7FNA)
 - [Trigonometry - Khan Academy](https://www.khanacademy.org/math/trigonometry)
 - [Trigonometry - Math is Fun](https://www.mathsisfun.com/algebra/trigonometry.html)
-- [Trigonometry - Purplemath](https://www.purplemath.com/modules/trig.htm)
+- [من أين جاءت النسب المثلثية وما أهميتها؟](https://youtu.be/LAn56tz1nX8?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
+- [Trigonometry in Game Development](https://www.youtube.com/watch?v=SEqFQl2ADi0)
+- [Trigonometry | Gamedev Math](https://www.youtube.com/watch?v=FZ9HWff734c)
+- [So how does your computer ACTUALLY compute sine? Basics of trig and more…](https://www.youtube.com/watch?v=kkMt4lrJzs8)
+- [Trigonometry • Math for Game Devs [Part 3]](https://www.youtube.com/watch?v=1NLekEd770w)
 
+**Vectors and Matrices:** Vectors and matrices are fundamental concepts in 3D graphics programming. You'll use them to represent positions, directions, transformations, and more.
 
+Vector and Matrix is a very important concept in computer graphics. It is used to represent the position, direction, and transformation of objects in 3D space. It is also used to represent the color of the object, the texture of the object, and the light source in the scene.
 
+- [Vectors and Matrices - Khan Academy](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)
+- [Vectors and Matrices - Math is Fun](https://www.mathsisfun.com/algebra/vectors.html)
+- [Vectors and Matrices - 3Blue1Brown](https://www.youtube.com/watch?v=fNk_zzaMoSs)
+- [Vectors and Matrices in Game Development](https://www.youtube.com/watch?v=7k03zkkvQv0)
+- [Vectors and Matrices | Gamedev Math](https://www.youtube.com/watch?v=8M5d2MfK2Vg)
+
+**[Computer Graphics]**
 
 - [Online Computer Graphics II](https://www.youtube.com/watch?v=U0-58hpucp4)
-- [Binary Space Partitioning](https://www.youtube.com/watch?v=6vrPCkHqWwg)
 
 **[Raycasting]**
 
