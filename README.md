@@ -399,7 +399,6 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 Trigonometry is a branch of mathematics that deals with the relationships between the sides and angles of triangles. It is essential for understanding 3D graphics programming, as it helps you calculate positions, rotations, and other transformations in 3D space.
 
-
 - [Trigonometry for Games (Making a Homing Rocket)](https://demoman.net/?a=trig-for-games)
 - [Trigonometry - Easy to understand 3D animation](https://youtu.be/ovLbCvq7FNA)
 - [Trigonometry - Khan Academy](https://www.khanacademy.org/math/trigonometry)
@@ -414,11 +413,25 @@ Trigonometry is a branch of mathematics that deals with the relationships betwee
 
 Vector and Matrix is a very important concept in computer graphics. It is used to represent the position, direction, and transformation of objects in 3D space. It is also used to represent the color of the object, the texture of the object, and the light source in the scene.
 
+- [Vectors and Matrices - 3Blue1Brown](https://www.youtube.com/watch?v=fNk_zzaMoSs)
 - [Vectors and Matrices - Khan Academy](https://www.khanacademy.org/math/linear-algebra/vectors-and-spaces)
 - [Vectors and Matrices - Math is Fun](https://www.mathsisfun.com/algebra/vectors.html)
-- [Vectors and Matrices - 3Blue1Brown](https://www.youtube.com/watch?v=fNk_zzaMoSs)
 - [Vectors and Matrices in Game Development](https://www.youtube.com/watch?v=7k03zkkvQv0)
 - [Vectors and Matrices | Gamedev Math](https://www.youtube.com/watch?v=8M5d2MfK2Vg)
+
+**linear algebra:** Linear algebra is a branch of mathematics that deals with vectors, matrices, and linear transformations. It is essential for understanding 3D graphics programming, as it helps you represent and manipulate objects in 3D space.
+
+- [Linear Algebra - 3Blue1Brown](https://www.youtube.com/watch?v=kjBOesZCoqc)
+- [Linear Algebra - Khan Academy](https://www.khanacademy.org/math/linear-algebra)
+- [Linear Algebra - Math is Fun](https://www.mathsisfun.com/algebra/linear-equations.html)
+
+**Geometry:** Geometry is the branch of mathematics that deals with shapes, sizes, and properties of space. It is essential for understanding 3D graphics programming, as it helps you calculate positions, angles, and distances in 3D space.
+
+- [Vectors & Dot Product • Math for Game Devs [Part 1]](https://www.youtube.com/watch?v=MOYiVLEnhrw)
+- [Geometry - Khan Academy](https://www.khanacademy.org/math/geometry)
+- [Geometry - Math is Fun](https://www.mathsisfun.com/geometry/index.html)
+
+
 
 **[Computer Graphics]**
 
