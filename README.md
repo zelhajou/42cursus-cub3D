@@ -397,8 +397,10 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 **Trigonometry:** Essential for dealing with angles and rotations in 3D space. You'll frequently use trigonometric functions like sine, cosine, and tangent to calculate positions and angles.
 
-- [Trigonometry - Easy to understand 3D animation](https://www.youtube.com/watch?v=ovLbCvq7FNA)
-- [Khan Academy - Trigonometry](https://www.youtube.com/watch?v=Jsiy4TxgIME&list=PLD6DA74C1DBF770E7&index=1)
+- [Trigonometry - Easy to understand 3D animation](https://youtu.be/ovLbCvq7FNA)
+- [Trigonometry - Khan Academy](https://www.khanacademy.org/math/trigonometry)
+- [Trigonometry - Math is Fun](https://www.mathsisfun.com/algebra/trigonometry.html)
+- [Trigonometry - Purplemath](https://www.purplemath.com/modules/trig.htm)
 
 
 
