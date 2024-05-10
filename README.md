@@ -397,9 +397,8 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 **Trigonometry:** Essential for dealing with angles and rotations in 3D space. You'll frequently use trigonometric functions like sine, cosine, and tangent to calculate positions and angles.
 
-```
 Trigonometry is a branch of mathematics that deals with the relationships between the sides and angles of triangles. It is essential for understanding 3D graphics programming, as it helps you calculate positions, rotations, and other transformations in 3D space.
-```
+
 
 - [Trigonometry for Games (Making a Homing Rocket)](https://demoman.net/?a=trig-for-games)
 - [Trigonometry - Easy to understand 3D animation](https://youtu.be/ovLbCvq7FNA)
