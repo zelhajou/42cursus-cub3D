@@ -405,6 +405,8 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 **[Mathematics]**
 
+- [The Math behind (most) 3D games - Perspective Projection](https://www.youtube.com/watch?v=Lj_flXOGPo0)
+
 **Trigonometry:** Essential for dealing with angles and rotations in 3D space. You'll frequently use trigonometric functions like sine, cosine, and tangent to calculate positions and angles.
 
 Trigonometry is a branch of mathematics that deals with the relationships between the sides and angles of triangles. It is essential for understanding 3D graphics programming, as it helps you calculate positions, rotations, and other transformations in 3D space.
@@ -454,6 +456,8 @@ Computer graphics is a field of study that focuses on the creation, manipulation
 
 - [Computer Graphics - Scratchapixel](https://www.scratchapixel.com/)
 - [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
+- [Quick Understanding of Homogeneous Coordinates for Computer Graphics](https://www.youtube.com/watch?v=o-xwmTODTUI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=3&pp=gAQBiAQB)
+- [What Is A Graphics Programmer?](https://www.youtube.com/watch?v=O-2viBhLTqI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=4&pp=gAQBiAQB)
 
 **[Raycasting]**
 
