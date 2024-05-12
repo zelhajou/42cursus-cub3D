@@ -239,10 +239,10 @@ The first step in our project is to read and parse the configuration file (.cub)
 Here's an example of a simple configuration file:
 
 ```cub
-NO ./textures/north.xpm
-SO ./textures/south.xpm
-WE ./textures/west.xpm
-EA ./textures/east.xpm
+NO ./assets/textures/north.png
+SO ./assets/textures/south.png
+WE ./assets/textures/west.png
+EA ./assets/textures/east.png
 
 F 220,100,0
 C 0,0,100
