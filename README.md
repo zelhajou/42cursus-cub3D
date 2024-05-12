@@ -1,4 +1,7 @@
 
+![ascii-text-art](https://github.com/zelhajou/42-cub3D/assets/39954629/9ec803f3-de19-4868-a50a-6b2e4a83523d)
+
+
 # cub3D
 
 ## Table of Contents
