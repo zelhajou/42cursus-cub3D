@@ -398,6 +398,7 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [Wolfenstein 3D](https://en.wikipedia.org/wiki/Wolfenstein_3D)
 - [How do games render their scenes? | Bitwise](https://youtu.be/Oct4Oi-KfVQ)
 - [How do Video Game Graphics Work?](https://youtu.be/C8YtdC8mxTU?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
+- [How Rendering Graphics Works in Games!](https://youtu.be/cvcAjgMUPUA)
 
 **[Mathematics]**
 
@@ -452,6 +453,8 @@ Computer graphics is a field of study that focuses on the creation, manipulation
 - [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 
 **[Raycasting]**
+
+Raycasting is a rendering technique used to create a 3D perspective view of a scene from a 2D map. It is commonly used in video games to simulate 3D environments using 2D graphics.
 
 - [Raycasting](https://en.wikipedia.org/wiki/Ray_casting)
 - [Super Fast Ray Casting in Tiled Worlds using DDA](https://www.youtube.com/watch?v=NbSee-XM7WA)
