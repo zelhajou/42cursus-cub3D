@@ -402,7 +402,7 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 - [How do Video Game Graphics Work?](https://youtu.be/C8YtdC8mxTU?list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U)
 - [How Rendering Graphics Works in Games!](https://youtu.be/cvcAjgMUPUA)
 
-**[Mathematics]**
+### [Mathematics]
 
 - [The Math behind (most) 3D games - Perspective Projection](https://www.youtube.com/watch?v=Lj_flXOGPo0)
 
@@ -449,7 +449,7 @@ Vector and Matrix is a very important concept in computer graphics. It is used t
 - [Calculus - Math is Fun](https://www.mathsisfun.com/calculus/index.html)
 - [Calculus -- The foundation of modern science](https://www.youtube.com/watch?v=rjLJIVoQxz4)
 
-**[Computer Graphics]**
+### [Computer Graphics]
 
 Computer graphics is a field of study that focuses on the creation, manipulation, and rendering of images using computers. It is essential for understanding how to create 2D and 3D graphics, animations, and visual effects.
 
@@ -458,7 +458,7 @@ Computer graphics is a field of study that focuses on the creation, manipulation
 - [Quick Understanding of Homogeneous Coordinates for Computer Graphics](https://www.youtube.com/watch?v=o-xwmTODTUI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=3&pp=gAQBiAQB)
 - [What Is A Graphics Programmer?](https://www.youtube.com/watch?v=O-2viBhLTqI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=4&pp=gAQBiAQB)
 
-**[Raycasting]**
+### [Raycasting]
 
 Raycasting is a rendering technique used to create a 3D perspective view of a scene from a 2D map. It is commonly used in video games to simulate 3D environments using 2D graphics.
 
@@ -472,13 +472,13 @@ Raycasting is a rendering technique used to create a 3D perspective view of a sc
 - [Pikuma - Raycasting](https://drive.google.com/drive/folders/1GzCshkJDq5x4EZHRnoir6g4YeQ-9lU_r)
 - [Ray-Casting Tutorial by F. Permadi](https://permadi.com/1996/05/ray-casting-tutorial-table-of-contents)
 
-**[MinilibX]**
+### [MinilibX]
 
 - [Introduction to the MinilibX](https://www.youtube.com/watch?v=bYS93r6U0zg)
 - [x.org Documentation](https://www.x.org/wiki)
 - [libX11 Documentation](https://www.x.org/releases/X11R7.6/doc/libX11/specs/libX11/libX11.html)
 
-**[42 students articles]**
+### [42 students articles]
 
 - [Cub3D Tutorial [Using angles]. INTRODUCTION](https://medium.com/@afatir.ahmedfatir/cub3d-tutorial-af5dd31d2fcf)
  - [Jun Han Ng - Cub3D ](https://hackmd.io/@nszl/H1LXByIE2#introduction)
