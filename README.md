@@ -297,7 +297,6 @@ To achieve this, we'll need to implement functions to:
 1. **Map Elements**: The map must contain only the following elements:
     - 0: Empty space
     - 1: Wall
-    - 2: Sprite (bonus)
 2. **Map Shape**: The map must be surrounded by walls (1) on all sides. The map's shape can be a rectangle, but it can also have holes inside it.
 3. **Valid Characters**: Only the map elements mentioned above and spaces are valid characters in the map. Any other character is considered invalid.
 4. Starting Position: The map must have a starting position for the player. This starting position must be represented by one of the following characters:
