@@ -404,7 +404,7 @@ By setting up the graphics rendering engine, we'll be able to display the game w
 
 ### [Mathematics]
 
-- [The Math behind (most) 3D games - Perspective Projection](https://youtu.be/dQw4w9WgXcQ?si=lj4hqYRaiZjJIq9b)
+- [The Math behind (most) 3D games - Perspective Projection](https://youtu.be/U0_ONQQ5ZNM)
 
 **Trigonometry:** Essential for dealing with angles and rotations in 3D space. You'll frequently use trigonometric functions like sine, cosine, and tangent to calculate positions and angles.
 
