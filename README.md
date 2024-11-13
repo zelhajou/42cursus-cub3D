@@ -453,10 +453,12 @@ Vector and Matrix is a very important concept in computer graphics. It is used t
 
 Computer graphics is a field of study that focuses on the creation, manipulation, and rendering of images using computers. It is essential for understanding how to create 2D and 3D graphics, animations, and visual effects.
 
+- [History of computer graphics with Aymane Biri | BlaBlaConf 2021](https://www.youtube.com/watch?v=WlE5N_DSlq0&list=PLzjH3XFHoi6gh6md_WlQMcDZ8zZ1AoZov&index=2&t=571s&pp=gAQBiAQB)
 - [Computer Graphics - Scratchapixel](https://www.scratchapixel.com/)
 - [Computer Graphics from Scratch](https://www.gabrielgambetta.com/computer-graphics-from-scratch/)
 - [Quick Understanding of Homogeneous Coordinates for Computer Graphics](https://www.youtube.com/watch?v=o-xwmTODTUI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=3&pp=gAQBiAQB)
 - [What Is A Graphics Programmer?](https://www.youtube.com/watch?v=O-2viBhLTqI&list=PLzjH3XFHoi6jTjDid_O3BEa-VRIqzoZ_U&index=4&pp=gAQBiAQB)
+- [How do Video Game Graphics Work?](https://www.youtube.com/watch?v=C8YtdC8mxTU&list=PLzjH3XFHoi6gh6md_WlQMcDZ8zZ1AoZov&index=1&t=580s&pp=gAQBiAQB)
 
 ### [Raycasting]
 
